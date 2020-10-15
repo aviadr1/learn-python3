@@ -1,0 +1,972 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abstract Base Classes (ABCs) &#8212; learn-python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Creating new collections" href="../04_writing_our_own_container_types/writing_our_own_container_types.html" />
+    <link rel="prev" title="bind1st - create a one parameter function from a two parameter function" href="../02_closures_and_decorators/exercise/solutions.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">learn-python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_closures_and_decorators/closure_and_decorators.html">
+   Closures and decorators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_closures_and_decorators/closure_and_decorators.html#your-turn">
+   Your Turn
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Abstract Base Classes (ABCs)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_writing_our_own_container_types/writing_our_own_container_types.html">
+   Creating new collections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_writing_our_own_container_types/writing_our_own_container_types.html#iterator-protocol">
+   Iterator protocol
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_multiple_inheritance_and_super/multiple_inheritance_and_super.html">
+   super() and multiple inheritance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html">
+   Design patterns in python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#prototype">
+   Prototype
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#singleton">
+   Singleton
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#proxy">
+   Proxy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#composition">
+   Composition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#resource-acquisition-is-initialization-raii">
+   Resource Acquisition Is Initialization (RAII)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html">
+   useful resources:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#setup">
+   setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#how-pytest-discovers-tests">
+   How pytest discovers tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#our-first-test">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#pytest-context-sensitive-comparisons">
+   Pytest context-sensitive comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#using-fixtures-to-simplify-tests">
+   Using fixtures to simplify tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#parameterizing-fixtures">
+   parameterizing fixtures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#printing-and-logging-within-tests">
+   printing and logging within tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#float-when-things-are-almost-equal">
+   float: when things are (almost) equal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#adding-timeouts-to-tests">
+   adding timeouts to tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#testing-for-exceptions">
+   testing for exceptions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#running-tests-in-parallel">
+   running tests in parallel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#codebase-to-test-class-person">
+   Codebase to test: class Person
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#id14">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_package_management/10-package_management.html">
+   Where are my packages?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_package_management/10-package_management.html#development-of-projects-with-different-dependencies">
+   Development of Projects with Different Dependencies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_db_access/01_basic_db_access.html">
+   sqlite
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_db_access/01_basic_db_access.html#pyodbc">
+   pyodbc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12_its_fun_to_be_eval/its_fun_to_be_eval.html">
+   Its fun to be eval
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13_complex_comprehensions/complex_comprehensions.html">
+   writing and understanding nested list comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14_pandas/edm_us_adult_census_income/questions.html">
+   get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14_pandas/edm_us_adult_census_income/questions.html#income-for-adults-from-the-1994-census">
+   income for adults from the 1994 census
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Abstract Base Classes (ABCs)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#polymorphism">
+     Polymorphism
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#writing-our-own-polymorphic-functions">
+       Writing our own polymorphic functions
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-classical-object-oriented-example">
+       A classical object oriented example
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#protocols">
+     Protocols
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Abstract base classes (ABCs)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-s-going-on-here">
+       What’s going on here?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-s-abstract-about-abcs">
+       What’s
+       <em>
+        abstract
+       </em>
+       about abcs?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-your-abcs">
+       Using your ABCs
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-happens-if-we-don-t-override-all-the-methods">
+       What happens if we don’t override all the methods?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-abcs-to-check-for-protocol">
+       Using ABCs to check for protocol
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#registering-types">
+       Registering types
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.ipynb" target="_blank">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" 
+     title="Open this file in Google Colab" alt="Colab"/>
+</a>
+<div class="section" id="abstract-base-classes-abcs">
+<h1>Abstract Base Classes (ABCs)<a class="headerlink" href="#abstract-base-classes-abcs" title="Permalink to this headline">¶</a></h1>
+<p>In this lesson we will learn about what polymorphism is, what protocols are, and how Abstract Base Classes (ABCs) help
+us correctly implement protocols.</p>
+<p>lets start by understanding polymorphism</p>
+<div class="section" id="polymorphism">
+<h2>Polymorphism<a class="headerlink" href="#polymorphism" title="Permalink to this headline">¶</a></h2>
+<p>Polymorphism is the ability to define a an operation or function that can work, without modifications, on objects of more than one type.</p>
+<p>Polymorphism is an Object Oriented Design (OOD) concept. and as we know, python is highly OO oriented, so it should come as no surprise that polymorphism is inherent to python, and that without realizing it, we have been using polymorphism extensively already</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the len function is polymorphic - </span>
+<span class="c1"># it works on many copntainer-like types - dicts, lists, strings, ranges etc</span>
+<span class="n">u</span> <span class="o">=</span> <span class="nb">len</span><span class="p">({</span><span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="s1">&#39;is the loneliest number&#39;</span><span class="p">})</span> <span class="c1"># 1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># 3</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="c1"># 5</span>
+<span class="n">z</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="c1"># 10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># the max function is polymorphic, it works on many container-like types</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="c1"># 3</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span> <span class="c1"># &#39;o&#39;</span>
+<span class="n">z</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span> <span class="p">((</span><span class="s1">&#39;avram&#39;</span><span class="p">,</span> <span class="s1">&#39;cohen&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;beni&#39;</span><span class="p">,</span> <span class="s1">&#39;levi&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;zvi&#39;</span><span class="p">,</span> <span class="s1">&#39;arad&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;moshe&#39;</span><span class="p">,</span> <span class="s1">&#39;zamir&#39;</span><span class="p">))</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># the print function is polymorphic - it works on *any* type</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="mi">2</span><span class="p">},</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">,</span> <span class="n">math</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+3
+5
+10
+
+
+3
+o
+(&#39;zvi&#39;, &#39;arad&#39;)
+
+
+1
+{2}
+[3]
+range(0, 4)
+5
+&lt;built-in function len&gt;
+&lt;module &#39;math&#39; from &#39;/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so&#39;&gt;
+&lt;built-in function sin&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="writing-our-own-polymorphic-functions">
+<h3>Writing our own polymorphic functions<a class="headerlink" href="#writing-our-own-polymorphic-functions" title="Permalink to this headline">¶</a></h3>
+<p>How can we write our own polymorphic functions?
+easy, any python function we write is <em>always</em> polymorphic</p>
+<blockquote>
+<div><p>Any python function is polymorphic in the sense that you <em>can</em> try to call it with any parameter regardless of its type. to understand wether or not the function will have the desired effect (or would perhaps simply fail by raising an exception), requires us to understand  <em>Protocols</em> - which are discussed below</p>
+</div></blockquote>
+<p>here’s an easy example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+
+<span class="c1"># our function add() is polymorphic, it works on many types and combination of types</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span> <span class="c1"># 1.0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># 3</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">add</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="c1"># [1,2,3,4,5]</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span> <span class="s1">&#39;hello &#39;</span><span class="p">,</span> <span class="s1">&#39; world&#39;</span><span class="p">)</span> <span class="c1"># &#39;hello  world&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+3
+[1, 2, 3, 4, 5]
+hello  world
+</pre></div>
+</div>
+</div>
+</div>
+<p>Obviously, this function is not going to work for just <strong>any</strong> type or combination of types</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">)</span> 
+
+<span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="n">d1478ef3d713</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">)</span> <span class="c1"># TypeError: unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;</span>
+
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">396</span><span class="n">b6352e406</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+      <span class="mi">1</span> <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<span class="o">----&gt;</span> <span class="mi">2</span>     <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+      <span class="mi">3</span> 
+      <span class="mi">4</span> <span class="c1"># our function add() is polymorphic, it works on many types and combination of types</span>
+      <span class="mi">5</span> <span class="n">u</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span> <span class="c1"># 1</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">unsupported</span> <span class="n">operand</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="o">+</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span> <span class="ow">and</span> <span class="s1">&#39;str&#39;</span>
+
+</pre></div>
+</div>
+<p>lets explore how this works in more detail</p>
+</div>
+<div class="section" id="a-classical-object-oriented-example">
+<h3>A classical object oriented example<a class="headerlink" href="#a-classical-object-oriented-example" title="Permalink to this headline">¶</a></h3>
+<p>Lets imagine we are writing program for a zoo where we keep a bunch of animals.
+We have a class for each type of animal, and we keep a list of all the animals living in the zoo.</p>
+<p>some of the animals are similar to ducks: such as <code class="docutils literal notranslate"><span class="pre">Duck</span></code>, <code class="docutils literal notranslate"><span class="pre">Mallard</span></code> and <code class="docutils literal notranslate"><span class="pre">Goose</span></code> <br>
+Some are not similar to ducks such as : <code class="docutils literal notranslate"><span class="pre">Elephant</span></code> and <code class="docutils literal notranslate"><span class="pre">Lion</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># define some of the animal types in our zoo and what each can do</span>
+<span class="c1">#</span>
+
+<span class="k">class</span> <span class="nc">Duck</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;duck walking here&#39;</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">quack</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;duck quacks&#39;</span><span class="p">)</span>
+        
+<span class="k">class</span> <span class="nc">Goose</span><span class="p">:</span> <span class="c1"># a goose is also very similar to a duck</span>
+    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;goose walking here&#39;</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">quack</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;goose quacks&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Elephant</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;elephant walk&#39;</span><span class="p">)</span>
+        
+<span class="k">class</span> <span class="nc">Lion</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">nap</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lion napping&#39;</span><span class="p">)</span>
+        
+<span class="c1"># create a list of the animals in our zoo</span>
+<span class="n">all_animals</span> <span class="o">=</span> <span class="p">[</span><span class="n">Duck</span><span class="p">(),</span> <span class="n">Elephant</span><span class="p">(),</span> <span class="n">Lion</span><span class="p">(),</span> <span class="n">Goose</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># now lets write some functions to take care of animals and especially ducks in our zoo</span>
+<span class="c1">#</span>
+
+<span class="k">def</span> <span class="nf">animal_type_name</span><span class="p">(</span><span class="n">animal</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">animal</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__qualname__</span>
+
+<span class="k">def</span> <span class="nf">feed_animal</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span> <span class="n">food</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;giving&#39;</span><span class="p">,</span> <span class="n">food</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="n">animal_type_name</span><span class="p">(</span><span class="n">animal</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">treat_the_ducks</span><span class="p">(</span><span class="n">animals</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    treat the ducks finds all the ducks in the list of given animals and:</span>
+<span class="sd">    1. gives them proper exercise - walking and quacking</span>
+<span class="sd">    2. feeds them with appropriate duck food</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="n">animals</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">animal_type_name</span><span class="p">(</span><span class="n">animal</span><span class="p">),</span> <span class="s1">&#39;:&#39;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">animal</span><span class="o">.</span><span class="n">walk</span><span class="p">()</span> <span class="c1"># walks like a duck?</span>
+            <span class="n">animal</span><span class="o">.</span><span class="n">quack</span><span class="p">()</span> <span class="c1"># talks like a duck?</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">continue</span> <span class="c1"># this is not a duck, go to next animal</span>
+        
+        <span class="c1"># its a duck!, so give it some duck food</span>
+        <span class="n">duck</span> <span class="o">=</span> <span class="n">animal</span>
+        <span class="n">feed_animal</span><span class="p">(</span><span class="n">duck</span><span class="p">,</span> <span class="s1">&#39;duck food&#39;</span><span class="p">)</span>
+        
+        
+<span class="c1"># lets feed the ducks    </span>
+<span class="n">treat_the_ducks</span><span class="p">(</span><span class="n">all_animals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Duck :
+duck walking here
+duck quacks
+giving duck food to Duck
+
+Elephant :
+elephant walk
+
+Lion :
+
+Goose :
+goose walking here
+goose quacks
+giving duck food to Goose
+</pre></div>
+</div>
+</div>
+</div>
+<p>What’s happening here?
+We’re going through a list of animals, and trying to <strong>polymorphically</strong> call methods related to ducks on each animal, regardless of their actual type</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="o">.</span><span class="n">walk</span><span class="p">()</span> <span class="c1"># walks like a duck?</span>
+<span class="n">animal</span><span class="o">.</span><span class="n">quack</span><span class="p">()</span> <span class="c1"># talks like a duck?</span>
+</pre></div>
+</div>
+<p>python implements polymorphism in a way that’s humorously called <strong>duck-typing</strong> (or more formally as <em>Ad hoc polymorphism</em>).
+when a method is being called on a type, python just ‘tries’ to call that method at <strong>run-time</strong> and simply raises an exception if the method doesnt exist, has a different number of parameters, or if anything else failed</p>
+<p>or more concisely, <em>duck-typing polymorphism</em> can be summarised as:</p>
+<blockquote>
+<div><p>if it walks like a duck <br>
+and quacks like a duck <br>
+it is a duck</p>
+</div></blockquote>
+<p>In our example, we considered objects that had a <code class="docutils literal notranslate"><span class="pre">walk()</span></code> method and <code class="docutils literal notranslate"><span class="pre">quack()</span></code> method to be <em>enough like ducks</em> to be fed duck food.</p>
+<p>to be more formal, we’ve defined a <strong>duck protocol</strong> and any other object that follows this protocol can also be fed by the <code class="docutils literal notranslate"><span class="pre">treat_the_ducks()</span></code> function</p>
+</div>
+</div>
+<div class="section" id="protocols">
+<h2>Protocols<a class="headerlink" href="#protocols" title="Permalink to this headline">¶</a></h2>
+<p>A protocol is a contract about what a type must provide or implement in order to be able to be used in a certain way.
+In our case the duck protocol is that a contract that if an object has a <code class="docutils literal notranslate"><span class="pre">quack()</span></code> and <code class="docutils literal notranslate"><span class="pre">walk()</span></code> method then it can be treated as a duck and be fed duck food</p>
+<p>In many cases, protocols can be used informally, as a sort of a <em>‘gentelman’s agreement’</em> and python will not try to make explicit checks for correctly following a protocol</p>
+<p>Lets create a new Mallard class (mallards are a type of duck) that also informally conforms to this protocol</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Mallard</span><span class="p">:</span> 
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    a mallard is a bird that is very similar to a duck</span>
+<span class="sd">    </span>
+<span class="sd">    it follows the duck protocol by implementing a walk() and quack() function</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mallard walking here&#39;</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">quack</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mallard quacks&#39;</span><span class="p">)</span>
+
+<span class="c1"># function treat_the_ducks() doesn&#39;t know anything about Mallards</span>
+<span class="c1"># but since it follows the the duck protocol, it can be fed using the same function</span>
+<span class="n">treat_the_ducks</span><span class="p">(</span> <span class="p">[</span> <span class="n">Mallard</span><span class="p">()</span> <span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mallard :
+mallard walking here
+mallard quacks
+giving duck food to Mallard
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Abstract base classes (ABCs)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Is there a way for us to express this <em>duck protocol</em> in a way that would make it easy for us to implement new classes of Ducks and make sure that all of the conform to the protocol?</p>
+<p>lets introduce ABCs by defining a new abstract base class called <code class="docutils literal notranslate"><span class="pre">AbstractDuck</span></code> that captures all there is to know about what being a duck is like</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="k">class</span> <span class="nc">AbstractDuck</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">animal_type_name</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="s1">&#39;walking here&#39;</span><span class="p">)</span>
+        
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">quack</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">animal_type_name</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="s1">&#39;quacks&#39;</span><span class="p">)</span>
+        
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="what-s-going-on-here">
+<h3>What’s going on here?<a class="headerlink" href="#what-s-going-on-here" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Declared a new class called <code class="docutils literal notranslate"><span class="pre">AbstractDuck</span></code></p></li>
+<li><p>Declared that it is a type of ABC by inheriting from the ABC class</p></li>
+<li><p>Defined two methods <code class="docutils literal notranslate"><span class="pre">walk()</span></code> and <code class="docutils literal notranslate"><span class="pre">quack()</span></code> and marked them as abstract using an <code class="docutils literal notranslate"><span class="pre">&#64;abstractmethod</span></code> decorator</p></li>
+</ol>
+</div>
+<div class="section" id="what-s-abstract-about-abcs">
+<h3>What’s <em>abstract</em> about abcs?<a class="headerlink" href="#what-s-abstract-about-abcs" title="Permalink to this headline">¶</a></h3>
+<p>Abstract classes cannot be instantiated into objects (they only capture an idea)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_new_duck</span> <span class="o">=</span> <span class="n">AbstractDuck</span><span class="p">()</span>
+
+<span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">52</span><span class="o">-</span><span class="n">dd1dce9299b8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">AbstractDuck</span><span class="p">()</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">Can</span><span class="s1">&#39;t instantiate abstract class AbstractDuck with abstract methods quack, walk</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-your-abcs">
+<h3>Using your ABCs<a class="headerlink" href="#using-your-abcs" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AmericanWigeon</span><span class="p">(</span><span class="n">AbstractDuck</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    a wigeon is another type of duck-like bird. cute!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">AbstractDuck</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">quack</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">AbstractDuck</span><span class="o">.</span><span class="n">quack</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        
+<span class="n">new_duck</span> <span class="o">=</span> <span class="n">AmericanWigeon</span><span class="p">()</span>
+<span class="n">treat_the_ducks</span><span class="p">(</span> <span class="p">[</span> <span class="n">new_duck</span> <span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AmericanWigeon :
+AmericanWigeon walking here
+AmericanWigeon quacks
+giving duck food to AmericanWigeon
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="what-happens-if-we-don-t-override-all-the-methods">
+<h3>What happens if we don’t override all the methods?<a class="headerlink" href="#what-happens-if-we-don-t-override-all-the-methods" title="Permalink to this headline">¶</a></h3>
+<p>If a type does not override all the abstract methods of an ABC, it will continue to be abstract and cannot be instantiated</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cormorant</span><span class="p">(</span><span class="n">AbstractDuck</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;cormorant walking&#39;</span><span class="p">)</span>
+        
+    <span class="c1"># notice we haven&#39;t overriden the quack() method</span>
+    
+<span class="n">bird</span> <span class="o">=</span> <span class="n">Cormorant</span><span class="p">()</span>
+<span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="n">b2c9c88c912b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">5</span>     <span class="c1"># notice we haven&#39;t overriden the quack() method</span>
+      <span class="mi">6</span> 
+<span class="o">----&gt;</span> <span class="mi">7</span> <span class="n">bird</span> <span class="o">=</span> <span class="n">Cormorant</span><span class="p">()</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">Can</span><span class="s1">&#39;t instantiate abstract class Cormorant with abstract methods quack</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-abcs-to-check-for-protocol">
+<h3>Using ABCs to check for protocol<a class="headerlink" href="#using-abcs-to-check-for-protocol" title="Permalink to this headline">¶</a></h3>
+<p>what if similarly to <code class="docutils literal notranslate"><span class="pre">treat_the_ducks()</span></code>, we need to a write a function that should only work on
+types that follow the duck protocol?</p>
+<p>How about using the <code class="docutils literal notranslate"><span class="pre">isinstance()</span></code> function? certainly that would work for objects of type <code class="docutils literal notranslate"><span class="pre">AmericanWigeon</span></code> it inherites from <code class="docutils literal notranslate"><span class="pre">AbstractDuck</span></code>.</p>
+<p>what about the other duck-like types such as <code class="docutils literal notranslate"><span class="pre">Duck</span></code>, <code class="docutils literal notranslate"><span class="pre">Mallard</span></code>, and <code class="docutils literal notranslate"><span class="pre">Goose</span></code> that we implemented before we wrote AbstractDuck?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_it_a_duck</span><span class="p">(</span><span class="n">animal</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    use isinstance() function against AbstractDuck to determine if the given animal is a duck&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">is_duck</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span> <span class="n">AbstractDuck</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">is_duck</span><span class="p">:</span>  <span class="nb">print</span><span class="p">(</span><span class="n">animal_type_name</span><span class="p">(</span><span class="n">animal</span><span class="p">),</span> <span class="s1">&#39;IS a duck&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>        <span class="nb">print</span><span class="p">(</span><span class="n">animal_type_name</span><span class="p">(</span><span class="n">animal</span><span class="p">),</span> <span class="s1">&#39;is NOT a duck&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># works as expected</span>
+<span class="n">is_it_a_duck</span><span class="p">(</span><span class="n">AmericanWigeon</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># unfortunately this method doesn&#39;t (YET!) seem to recognize our other duck classes that </span>
+<span class="c1"># didnt inherit from AbstractDuck</span>
+<span class="n">is_it_a_duck</span><span class="p">(</span><span class="n">Duck</span><span class="p">())</span>
+<span class="n">is_it_a_duck</span><span class="p">(</span><span class="n">Mallard</span><span class="p">())</span>
+<span class="n">is_it_a_duck</span><span class="p">(</span><span class="n">Goose</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AmericanWigeon IS a duck
+
+Duck is NOT a duck
+Mallard is NOT a duck
+Goose is NOT a duck
+</pre></div>
+</div>
+</div>
+</div>
+<p>Do we need to change the code for <code class="docutils literal notranslate"><span class="pre">Duck</span></code>, <code class="docutils literal notranslate"><span class="pre">Mallard</span></code>, and <code class="docutils literal notranslate"><span class="pre">Goose</span></code> to be able to detect that these are also ducks? <br></p>
+<p>fortunately, the answer is NO</p>
+</div>
+<div class="section" id="registering-types">
+<h3>Registering types<a class="headerlink" href="#registering-types" title="Permalink to this headline">¶</a></h3>
+<p>We can register  <code class="docutils literal notranslate"><span class="pre">Duck</span></code>, <code class="docutils literal notranslate"><span class="pre">Mallard</span></code>, and <code class="docutils literal notranslate"><span class="pre">Goose</span></code> as also being a sort-of subclass of AbstractDuck using the <code class="docutils literal notranslate"><span class="pre">AbstractDuck.register()</span></code> function</p>
+<p>after calling this function on our other duck types, calls to <code class="docutils literal notranslate"><span class="pre">isinstance(animal,</span> <span class="pre">AbstractDuck)</span></code> will return True. <br>
+This is called <em>virtual subclassing</em> <br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AbstractDuck</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Duck</span><span class="p">)</span>
+<span class="n">AbstractDuck</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Mallard</span><span class="p">)</span>
+<span class="n">AbstractDuck</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Goose</span><span class="p">)</span>
+
+<span class="c1"># now isinstance() can be used to check if an object is a duck</span>
+<span class="n">is_it_a_duck</span><span class="p">(</span><span class="n">Duck</span><span class="p">())</span>
+<span class="n">is_it_a_duck</span><span class="p">(</span><span class="n">Mallard</span><span class="p">())</span>
+<span class="n">is_it_a_duck</span><span class="p">(</span><span class="n">Goose</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># and obviously, it has no effect on other types we have not registered</span>
+<span class="n">is_it_a_duck</span><span class="p">(</span><span class="n">Lion</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Duck IS a duck
+Mallard IS a duck
+Goose IS a duck
+
+Lion is NOT a duck
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<p>What have we learned?</p>
+<ol class="simple">
+<li><p>Learned what polymorphism is, and seen some simple polymorphism examples in python</p></li>
+<li><p>We’ve learned that polymorphism in python is achieved through a simple mechanism known as <em>duck-typing</em></p></li>
+<li><p>We’ve learned that protocols are informal contracts about how objects can be used - often that means which functions these objects must have</p></li>
+<li><p>We’ve learned what Abstract Base Classes (ABCs) are</p></li>
+<li><p>motivation to use ABCs to make sure classes conform to a protocol</p></li>
+<li><p>how to create new ABCs to capture a protocol</p></li>
+<li><p>checking if a class conforms to a protocol by using isinstance with an ABC</p></li>
+<li><p>registering classes that did not inherit from an ABC - virtual subclassing</p></li>
+</ol>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./03_polymorphism_protocols_and_abcs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../02_closures_and_decorators/exercise/solutions.html" title="previous page">bind1st - create a one parameter function from a two parameter function</a>
+    <a class='right-next' id="next-link" href="../04_writing_our_own_container_types/writing_our_own_container_types.html" title="next page">Creating new collections</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Aviad Rozenhek<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

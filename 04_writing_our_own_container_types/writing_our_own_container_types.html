@@ -1,0 +1,880 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating new collections &#8212; learn-python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="supporting slices in MyRange class" href="exercise/questions.html" />
+    <link rel="prev" title="Abstract Base Classes (ABCs)" href="../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">learn-python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_closures_and_decorators/closure_and_decorators.html">
+   Closures and decorators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_closures_and_decorators/closure_and_decorators.html#your-turn">
+   Your Turn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html">
+   Abstract Base Classes (ABCs)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Creating new collections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#iterator-protocol">
+   Iterator protocol
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_multiple_inheritance_and_super/multiple_inheritance_and_super.html">
+   super() and multiple inheritance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html">
+   Design patterns in python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#prototype">
+   Prototype
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#singleton">
+   Singleton
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#proxy">
+   Proxy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#composition">
+   Composition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#resource-acquisition-is-initialization-raii">
+   Resource Acquisition Is Initialization (RAII)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html">
+   useful resources:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#setup">
+   setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#how-pytest-discovers-tests">
+   How pytest discovers tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#our-first-test">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#pytest-context-sensitive-comparisons">
+   Pytest context-sensitive comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#using-fixtures-to-simplify-tests">
+   Using fixtures to simplify tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#parameterizing-fixtures">
+   parameterizing fixtures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#printing-and-logging-within-tests">
+   printing and logging within tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#float-when-things-are-almost-equal">
+   float: when things are (almost) equal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#adding-timeouts-to-tests">
+   adding timeouts to tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#testing-for-exceptions">
+   testing for exceptions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#running-tests-in-parallel">
+   running tests in parallel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#codebase-to-test-class-person">
+   Codebase to test: class Person
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#id14">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_package_management/10-package_management.html">
+   Where are my packages?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_package_management/10-package_management.html#development-of-projects-with-different-dependencies">
+   Development of Projects with Different Dependencies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_db_access/01_basic_db_access.html">
+   sqlite
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_db_access/01_basic_db_access.html#pyodbc">
+   pyodbc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12_its_fun_to_be_eval/its_fun_to_be_eval.html">
+   Its fun to be eval
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13_complex_comprehensions/complex_comprehensions.html">
+   writing and understanding nested list comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14_pandas/edm_us_adult_census_income/questions.html">
+   get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14_pandas/edm_us_adult_census_income/questions.html#income-for-adults-from-the-1994-census">
+   income for adults from the 1994 census
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/04_writing_our_own_container_types/writing_our_own_container_types.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/04_writing_our_own_container_types/writing_our_own_container_types.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Creating new collections
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#note">
+     Note:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iterator-protocol">
+   Iterator protocol
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-are-iterators-in-python">
+     What are iterators in Python?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterator-types">
+     Iterator Types
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example">
+     Example
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequence-protocol">
+     Sequence protocol
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mapping-protocol">
+     Mapping protocol
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       😱
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Example
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/04_writing_our_own_container_types/writing_our_own_container_types.ipynb" target="_blank">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" 
+     title="Open this file in Google Colab" alt="Colab"/>
+</a>
+<div class="section" id="creating-new-collections">
+<h1>Creating new collections<a class="headerlink" href="#creating-new-collections" title="Permalink to this headline">¶</a></h1>
+<p>We’ve seen collections like lists, strings and tuples that allow indexed access</p>
+<p><code class="docutils literal notranslate"><span class="pre">mylist[0]</span></code></p>
+<p>And we’ve seen collections like dict and set that allow keyed access</p>
+<p><code class="docutils literal notranslate"><span class="pre">menu_prices_dict['hamburger']</span> <span class="pre">=</span> <span class="pre">59</span></code></p>
+<p>In this chapter we will learn how the magic behind collections and access works
+and how to create our own containers or customize existing containers</p>
+<div class="section" id="note">
+<h2>Note:<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
+<p>In this lesson we’re going to rely heavily on decorators, duck-typing, protocols, and ABCs - which we’ve covered in lessons 02 and 03</p>
+</div>
+</div>
+<div class="section" id="iterator-protocol">
+<h1>Iterator protocol<a class="headerlink" href="#iterator-protocol" title="Permalink to this headline">¶</a></h1>
+<p>Lets start with one of the simplest python protocols: the <strong>iterator</strong> protocol.</p>
+<div class="section" id="what-are-iterators-in-python">
+<h2><a class="reference external" href="https://www.programiz.com/python-programming/iterator">What are iterators in Python?</a><a class="headerlink" href="#what-are-iterators-in-python" title="Permalink to this headline">¶</a></h2>
+<p>Iterators are everywhere in Python. They are elegantly implemented within for loops, comprehensions, generators etc. but hidden in plain sight.</p>
+<p>Iterator in Python is simply an object that can be iterated upon. An object which will return data, one element at a time.</p>
+<p>Technically speaking, Python iterator object must implement two special methods, <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> and <code class="docutils literal notranslate"><span class="pre">__next__()</span></code>, collectively called the iterator protocol.</p>
+<p>An object is called iterable if we can get an iterator from it. Most of built-in containers in Python like: list, tuple, string etc. are iterables.</p>
+<p>The iter() function (which in turn calls the <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> method) returns an iterator from them.</p>
+</div>
+<div class="section" id="iterator-types">
+<h2><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#iterator-types">Iterator Types</a><a class="headerlink" href="#iterator-types" title="Permalink to this headline">¶</a></h2>
+<p>Python supports a concept of iteration over containers. This is implemented using two distinct methods; these are used to allow user-defined classes to support iteration. Sequences, described below in more detail, always support the iteration methods.</p>
+<p>One method needs to be defined for container objects to provide iteration support:</p>
+<p><code class="docutils literal notranslate"><span class="pre">container.__iter__()</span></code></p>
+<blockquote>
+<div><p>Return an iterator object. The object is required to support the iterator protocol described below. If a container supports different types of iteration, additional methods can be provided to specifically request iterators for those iteration types. (An example of an object supporting multiple forms of iteration would be a tree structure which supports both breadth-first and depth-first traversal.) This method corresponds to the tp_iter slot of the type structure for Python objects in the Python/C API.</p>
+</div></blockquote>
+<p>The iterator objects themselves are required to support the following two methods, which together form the iterator protocol:</p>
+<p><code class="docutils literal notranslate"><span class="pre">iterator.__iter__()</span></code></p>
+<blockquote>
+<div><p>Return the iterator object itself. This is required to allow both containers and iterators to be used with the for and in statements. This method corresponds to the tp_iter slot of the type structure for Python objects in the Python/C API.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">iterator.__next__()</span></code></p>
+<blockquote>
+<div><p>Return the next item from the container. If there are no further items, raise the StopIteration exception. This method corresponds to the tp_iternext slot of the type structure for Python objects in the Python/C API.</p>
+</div></blockquote>
+<p>Python defines several iterator objects to support iteration over general and specific sequence types, dictionaries, and other more specialized forms. The specific types are not important beyond their implementation of the iterator protocol.</p>
+<p>Once an iterator’s <strong>next</strong>() method raises StopIteration, it must continue to do so on subsequent calls. Implementations that do not obey this property are deemed broken.</p>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Below we show an example class that implements the iterator protocol</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">VersionedObject</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    VersionedObject is a type that remembers all the past values it held</span>
+<span class="sd">    and can return the history of its values with a for loop</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__values</span> <span class="o">=</span> <span class="p">[</span> <span class="n">value</span> <span class="p">]</span>
+        
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">latest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Iterator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__values</span><span class="p">)</span>
+    
+    <span class="k">class</span> <span class="nc">Iterator</span><span class="p">:</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__index</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__values</span> <span class="o">=</span> <span class="n">values</span>
+            
+        <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="c1"># Return the next item from the container. </span>
+            <span class="c1"># If there are no further items, raise the StopIteration exception</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__index</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__values</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__index</span><span class="p">:</span>
+                <span class="c1"># Once an iterator’s next() method raises StopIteration, it must continue to do so</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__index</span> <span class="o">=</span> <span class="kc">None</span> 
+                <span class="k">raise</span> <span class="ne">StopIteration</span><span class="p">()</span>
+            
+            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__values</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__index</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__index</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="n">value</span>
+        
+        <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="c1"># Return the iterator object itself. </span>
+            <span class="c1"># This is required to allow both containers and iterators to be used with the for and in statements</span>
+            <span class="k">return</span> <span class="bp">self</span> <span class="c1">#</span>
+    
+<span class="n">x</span> <span class="o">=</span> <span class="n">VersionedObject</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">x</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">x</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;third version&quot;</span><span class="p">)</span>
+<span class="n">x</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">older_value</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span> <span class="c1"># calls the __iter__ method on x</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">older_value</span><span class="p">)</span> <span class="c1"># calls the __next__ method on the iterator</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1]
+2
+third version
+4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">Lets simplify the code for VersionObject, by using the fact that lists []</span>
+<span class="sd">also support the iterator protocol themselves</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">class</span> <span class="nc">VersionedObject_2</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__values</span> <span class="o">=</span> <span class="p">[</span> <span class="n">value</span> <span class="p">]</span>
+        
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">latest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__values</span><span class="p">)</span> <span class="c1"># calls self.__values iterator</span>
+        
+<span class="n">x</span> <span class="o">=</span> <span class="n">VersionedObject_2</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">x</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">x</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;third version&quot;</span><span class="p">)</span>
+<span class="n">x</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">older_value</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span> <span class="c1"># calls the __iter__ method on x</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">older_value</span><span class="p">)</span> <span class="c1"># calls the __next__ method on the iterator</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1]
+2
+third version
+4
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sequence-protocol">
+<h2><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#iterator-types">Sequence protocol</a><a class="headerlink" href="#sequence-protocol" title="Permalink to this headline">¶</a></h2>
+<p>There are three basic sequence types: lists, tuples, and range objects.</p>
+<p>Sequences support the following operations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Operation</span>             <span class="n">Result</span>
+
+<span class="n">x</span> <span class="ow">in</span> <span class="n">s</span>                <span class="kc">True</span> <span class="k">if</span> <span class="n">an</span> <span class="n">item</span> <span class="n">of</span> <span class="n">s</span> <span class="ow">is</span> <span class="n">equal</span> <span class="n">to</span> <span class="n">x</span><span class="p">,</span> <span class="k">else</span> <span class="kc">False</span>
+<span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">s</span>            <span class="kc">False</span> <span class="k">if</span> <span class="n">an</span> <span class="n">item</span> <span class="n">of</span> <span class="n">s</span> <span class="ow">is</span> <span class="n">equal</span> <span class="n">to</span> <span class="n">x</span><span class="p">,</span> <span class="k">else</span> <span class="kc">True</span>
+<span class="n">s</span> <span class="o">+</span> <span class="n">t</span>                 <span class="n">the</span> <span class="n">concatenation</span> <span class="n">of</span> <span class="n">s</span> <span class="ow">and</span> <span class="n">t</span>
+<span class="n">s</span> <span class="o">*</span> <span class="n">n</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">*</span> <span class="n">s</span>        <span class="n">equivalent</span> <span class="n">to</span> <span class="n">adding</span> <span class="n">s</span> <span class="n">to</span> <span class="n">itself</span> <span class="n">n</span> <span class="n">times</span>
+<span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>                  <span class="n">ith</span> <span class="n">item</span> <span class="n">of</span> <span class="n">s</span><span class="p">,</span> <span class="n">origin</span> <span class="mi">0</span>
+<span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">]</span>                <span class="nb">slice</span> <span class="n">of</span> <span class="n">s</span> <span class="kn">from</span> <span class="nn">i</span> <span class="n">to</span> <span class="n">j</span>
+<span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">:</span><span class="n">k</span><span class="p">]</span>              <span class="nb">slice</span> <span class="n">of</span> <span class="n">s</span> <span class="kn">from</span> <span class="nn">i</span> <span class="n">to</span> <span class="n">j</span> <span class="k">with</span> <span class="n">step</span> <span class="n">k</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>                <span class="n">length</span> <span class="n">of</span> <span class="n">s</span>
+<span class="nb">min</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>                <span class="n">smallest</span> <span class="n">item</span> <span class="n">of</span> <span class="n">s</span>
+<span class="nb">max</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>                <span class="n">largest</span> <span class="n">item</span> <span class="n">of</span> <span class="n">s</span>
+<span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">[,</span> <span class="n">i</span><span class="p">[,</span> <span class="n">j</span><span class="p">]])</span>  <span class="n">index</span> <span class="n">of</span> <span class="n">the</span> <span class="n">first</span> <span class="n">occurrence</span> <span class="n">of</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span> <span class="p">(</span><span class="n">at</span> <span class="ow">or</span> <span class="n">after</span> <span class="n">index</span> <span class="n">i</span> <span class="ow">and</span> <span class="n">before</span> <span class="n">index</span> <span class="n">j</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>            <span class="n">total</span> <span class="n">number</span> <span class="n">of</span> <span class="n">occurrences</span> <span class="n">of</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span>
+</pre></div>
+</div>
+<p>This is a rather long list of operations …
+also it doesn’t tell us which methods to implement and how …</p>
+<p>to help us with this difficult task, python provides an abstract base class(ABC) <code class="docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code>that implements the most of the sequence protocol and only asks us to implement two abstract function: <code class="docutils literal notranslate"><span class="pre">__len__</span></code> and <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>if you’re interested in the details of how the Sequence class implements other functions such as <code class="docutils literal notranslate"><span class="pre">index</span></code>, <code class="docutils literal notranslate"><span class="pre">count</span></code> or <code class="docutils literal notranslate"><span class="pre">__contains__</span></code> just by using <code class="docutils literal notranslate"><span class="pre">__len__</span></code> and <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> see the <code class="docutils literal notranslate"><span class="pre">_collections_abc.py</span></code> module in the python standard library</p></li>
+</ul>
+</div></blockquote>
+<p>Lets see <code class="docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code> in action by implementing an incredibly simple sequence that we’re already familiar with - range.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">collections.abc</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="k">class</span> <span class="nc">MyRange</span><span class="p">(</span><span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Sequence</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__start</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__stop</span> <span class="o">=</span> <span class="n">stop</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__step</span> <span class="o">=</span> <span class="n">step</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__n</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">stop</span><span class="o">-</span><span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="n">step</span><span class="p">))</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__n</span>
+    
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">offset</span><span class="o">.</span><span class="n">stop</span><span class="p">,</span> <span class="n">offset</span><span class="o">.</span><span class="n">step</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__n</span> <span class="o">&lt;=</span> <span class="n">offset</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s1">&#39;range object index out of range&#39;</span><span class="p">)</span>
+            
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__start</span> <span class="o">+</span> <span class="n">offset</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">__step</span>
+    
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__start</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__stop</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__step</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+        
+<span class="c1"># Let&#39;s use MyRange </span>
+<span class="n">range5</span> <span class="o">=</span> <span class="n">MyRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># convert to list</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">range5</span><span class="p">))</span> <span class="c1"># [0, 1, 2, 3, 4]</span>
+
+<span class="c1"># use indexing</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">range5</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">range5</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">range5</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># 0 1 2</span>
+
+<span class="c1"># use &#39;in&#39; keyword</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="ow">in</span> <span class="n">range5</span><span class="p">)</span>   <span class="c1"># true</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">100</span> <span class="ow">in</span> <span class="n">range5</span><span class="p">)</span> <span class="c1"># false</span>
+
+<span class="c1"># min/max/count</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">range5</span><span class="p">))</span> <span class="c1"># 0</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">range5</span><span class="p">))</span> <span class="c1"># 4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">range5</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># 1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4]
+0 1 2
+True
+False
+0
+4
+1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mapping-protocol">
+<h2><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#dict">Mapping protocol</a><a class="headerlink" href="#mapping-protocol" title="Permalink to this headline">¶</a></h2>
+<p>A mapping object maps hashable values to arbitrary objects. Mappings are mutable objects. There is currently only one standard mapping type, the dictionary.</p>
+<p>A dictionary’s keys are <em>almost</em> arbitrary values. key have to be <strong>hashable</strong>, which means that keys must be immutable. that is, objects containing lists, dictionaries or other mutable types may not be used as keys.</p>
+<p>mappings should support the following operations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>len(d)
+    Return the number of items in the dictionary d.
+
+d[key]
+    Return the item of d with key key. Raises a KeyError if key is not in the map.
+    
+d[key] = value
+    Set d[key] to value.
+
+del d[key]
+    Remove d[key] from d. Raises a KeyError if key is not in the map.
+
+key in d
+    Return True if d has a key key, else False.
+
+key not in d
+    Equivalent to not key in d.
+
+iter(d)
+    Return an iterator over the keys of the dictionary. This is a shortcut for iter(d.keys()).
+
+clear()
+    Remove all items from the dictionary.
+
+copy()
+    Return a shallow copy of the dictionary.
+
+@classmethod 
+fromkeys(iterable[, value])
+    Create a new dictionary with keys from iterable and values set to value.
+
+get(key[, default])
+    Return the value for key if key is in the dictionary, else default. 
+    If default is not given, it defaults to None, so that this method never raises a KeyError.
+
+items()
+    Return a new view of the dictionary’s items ((key, value) pairs). See the documentation of view objects.
+
+keys()
+    Return a new view of the dictionary’s keys. See the documentation of view objects.
+
+pop(key[, default])
+    If key is in the dictionary, remove it and return its value, else return default. 
+    If default is not given and key is not in the dictionary, a KeyError is raised.
+
+popitem()
+    Remove and return a (key, value) pair from the dictionary. Pairs are returned in LIFO order.
+
+setdefault(key[, default])
+    If key is in the dictionary, return its value. If not, insert key with a value of default and return default. 
+    default defaults to None.
+
+update([other])
+    Update the dictionary with the key/value pairs from other, overwriting existing keys. Return None.
+
+values()
+    Return a new view of the dictionary’s values.  
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h3>😱<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Yes, that’s quite a big number of things. again, the <code class="docutils literal notranslate"><span class="pre">collections</span></code> module has a class called <code class="docutils literal notranslate"><span class="pre">MutableMapping</span></code> which takes care of most things and only asks that we implement <code class="docutils literal notranslate"><span class="pre">__getitem__,</span> <span class="pre">__setitem__,</span> <span class="pre">__delitem__,</span> <span class="pre">__iter__,</span> <span class="pre">and</span> <span class="pre">__len__</span></code> functions</p>
+</div>
+<div class="section" id="id2">
+<h3>Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Lets use <code class="docutils literal notranslate"><span class="pre">MutableMapping</span></code> to create a new type of dictionary, one that sends a message to observers whenever it changes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">MutableMapping</span>
+
+<span class="k">class</span> <span class="nc">Observable</span><span class="p">:</span> <span class="c1"># from ex 02</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callable_</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callable_</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
+            <span class="n">handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            
+<span class="k">class</span> <span class="nc">ObservableMapping</span><span class="p">(</span><span class="n">MutableMapping</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">dicttype</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">dicttype</span> <span class="o">=</span> <span class="n">dicttype</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">dict_</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">dicttype</span><span class="p">(</span><span class="n">dict_</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="n">Observable</span><span class="p">()</span>
+        
+    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="s1">&#39;set&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="s1">&#39;del&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__delitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+                
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__len__</span><span class="p">()</span>
+    
+<span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="s1">&#39;--&gt;&gt;&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    
+<span class="n">d</span> <span class="o">=</span> <span class="n">ObservableMapping</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Sir Launcelot of Camelot&#39;</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;favorite color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span>
+<span class="n">d</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>set &#39;name&#39; --&gt;&gt; Sir Launcelot of Camelot
+set &#39;favorite color&#39; --&gt;&gt; blue
+del &#39;name&#39; --&gt;&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;name&#39;, &#39;Sir Launcelot of Camelot&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./04_writing_our_own_container_types"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html" title="previous page">Abstract Base Classes (ABCs)</a>
+    <a class='right-next' id="next-link" href="exercise/questions.html" title="next page">supporting slices in MyRange class</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Aviad Rozenhek<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

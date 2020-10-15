@@ -1,0 +1,958 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>get the data &#8212; learn-python</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="get the data" href="solution.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="../pandas_a_quick_tour.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">learn-python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../02_closures_and_decorators/closure_and_decorators.html">
+   Closures and decorators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../02_closures_and_decorators/closure_and_decorators.html#your-turn">
+   Your Turn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html">
+   Abstract Base Classes (ABCs)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../04_writing_our_own_container_types/writing_our_own_container_types.html">
+   Creating new collections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../04_writing_our_own_container_types/writing_our_own_container_types.html#iterator-protocol">
+   Iterator protocol
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../06_multiple_inheritance_and_super/multiple_inheritance_and_super.html">
+   super() and multiple inheritance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html">
+   Design patterns in python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html#prototype">
+   Prototype
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html#singleton">
+   Singleton
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html#proxy">
+   Proxy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html#composition">
+   Composition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html#resource-acquisition-is-initialization-raii">
+   Resource Acquisition Is Initialization (RAII)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html">
+   useful resources:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#setup">
+   setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#how-pytest-discovers-tests">
+   How pytest discovers tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#our-first-test">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#pytest-context-sensitive-comparisons">
+   Pytest context-sensitive comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#using-fixtures-to-simplify-tests">
+   Using fixtures to simplify tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#parameterizing-fixtures">
+   parameterizing fixtures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#printing-and-logging-within-tests">
+   printing and logging within tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#float-when-things-are-almost-equal">
+   float: when things are (almost) equal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#adding-timeouts-to-tests">
+   adding timeouts to tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#testing-for-exceptions">
+   testing for exceptions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#running-tests-in-parallel">
+   running tests in parallel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#codebase-to-test-class-person">
+   Codebase to test: class Person
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#id14">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../10_package_management/10-package_management.html">
+   Where are my packages?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../10_package_management/10-package_management.html#development-of-projects-with-different-dependencies">
+   Development of Projects with Different Dependencies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../11_db_access/01_basic_db_access.html">
+   sqlite
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../11_db_access/01_basic_db_access.html#pyodbc">
+   pyodbc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../12_its_fun_to_be_eval/its_fun_to_be_eval.html">
+   Its fun to be eval
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../13_complex_comprehensions/complex_comprehensions.html">
+   writing and understanding nested list comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#income-for-adults-from-the-1994-census">
+   income for adults from the 1994 census
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/14_pandas/edm_us_adult_census_income/questions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/14_pandas/edm_us_adult_census_income/questions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   get the data
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#income-for-adults-from-the-1994-census">
+   income for adults from the 1994 census
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-the-data">
+     1. load the data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#explore-capital-gains-losses">
+     2. explore capital gains / losses
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#capital-gain">
+       capital_gain
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#capital-loss">
+       capital_loss
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#combining-and-binning">
+       combining and binning
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#education">
+     education
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#occupation-workclass">
+     occupation / workclass
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correlations">
+     correlations
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#todo">
+     TODO:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/14_pandas/edm_us_adult_census_income/questions.ipynb" target="_blank">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" 
+     title="Open this file in Google Colab" alt="Colab"/>
+</a>
+<div class="section" id="get-the-data">
+<h1>get the data<a class="headerlink" href="#get-the-data" title="Permalink to this headline">¶</a></h1>
+<p>run the following two cells below to get the data for this exercise,
+then followup by reading the questions and writing your own code to answer them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install requests
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: requests in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (2.24.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: idna&lt;3,&gt;=2.5 in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from requests) (2.10)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from requests) (3.0.4)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from requests) (2020.6.20)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from requests) (1.25.10)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://mlr.cs.umass.edu/ml/machine-learning-databases/adult/adult.data&quot;</span>
+<span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;adult.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c1">### now the data is available in the file adult.csv. </span>
+<span class="c1">### read the questions below</span>
+<span class="c1"># import pandas as pd</span>
+<span class="c1"># pd.read_csv(&#39;adult.csv&#39;)    </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">gaierror</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/urllib3/connection.py</span> in <span class="ni">_new_conn</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">158</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">159</span>             <span class="n">conn</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">create_connection</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span>                 <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dns_host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span> <span class="o">**</span><span class="n">extra_kw</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/urllib3/util/connection.py</span> in <span class="ni">create_connection</span><span class="nt">(address, timeout, source_address, socket_options)</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span> 
+<span class="ne">---&gt; </span><span class="mi">61</span>     <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">socket</span><span class="o">.</span><span class="n">getaddrinfo</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">family</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span>         <span class="n">af</span><span class="p">,</span> <span class="n">socktype</span><span class="p">,</span> <span class="n">proto</span><span class="p">,</span> <span class="n">canonname</span><span class="p">,</span> <span class="n">sa</span> <span class="o">=</span> <span class="n">res</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/socket.py</span> in <span class="ni">getaddrinfo</span><span class="nt">(host, port, family, type, proto, flags)</span>
+<span class="g g-Whitespace">    </span><span class="mi">917</span>     <span class="n">addrlist</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="ne">--&gt; </span><span class="mi">918</span>     <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">_socket</span><span class="o">.</span><span class="n">getaddrinfo</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">family</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">proto</span><span class="p">,</span> <span class="n">flags</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">919</span>         <span class="n">af</span><span class="p">,</span> <span class="n">socktype</span><span class="p">,</span> <span class="n">proto</span><span class="p">,</span> <span class="n">canonname</span><span class="p">,</span> <span class="n">sa</span> <span class="o">=</span> <span class="n">res</span>
+
+<span class="ne">gaierror</span>: [Errno -2] Name or service not known
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">NewConnectionError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">669</span>             <span class="c1"># Make the request on the httplib connection object.</span>
+<span class="ne">--&gt; </span><span class="mi">670</span>             <span class="n">httplib_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span>                 <span class="n">conn</span><span class="p">,</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">391</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">392</span>             <span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">httplib_request_kw</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">393</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/http/client.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, body, headers, encode_chunked)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1254</span>         <span class="sd">&quot;&quot;&quot;Send a complete request to the server.&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1255</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_send_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">encode_chunked</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1256</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/http/client.py</span> in <span class="ni">_send_request</span><span class="nt">(self, method, url, body, headers, encode_chunked)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1300</span>             <span class="n">body</span> <span class="o">=</span> <span class="n">_encode</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1301</span>         <span class="bp">self</span><span class="o">.</span><span class="n">endheaders</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">encode_chunked</span><span class="o">=</span><span class="n">encode_chunked</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1302</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/http/client.py</span> in <span class="ni">endheaders</span><span class="nt">(self, message_body, encode_chunked)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1249</span>             <span class="k">raise</span> <span class="n">CannotSendHeader</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">1250</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_send_output</span><span class="p">(</span><span class="n">message_body</span><span class="p">,</span> <span class="n">encode_chunked</span><span class="o">=</span><span class="n">encode_chunked</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1251</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/http/client.py</span> in <span class="ni">_send_output</span><span class="nt">(self, message_body, encode_chunked)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1009</span>         <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="p">[:]</span>
+<span class="ne">-&gt; </span><span class="mi">1010</span>         <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1011</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/http/client.py</span> in <span class="ni">send</span><span class="nt">(self, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">949</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_open</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">950</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">951</span>             <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/urllib3/connection.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span>     <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">187</span>         <span class="n">conn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_new_conn</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_conn</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/urllib3/connection.py</span> in <span class="ni">_new_conn</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span>         <span class="k">except</span> <span class="n">SocketError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">171</span>             <span class="k">raise</span> <span class="n">NewConnectionError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span>                 <span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;Failed to establish a new connection: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span>
+
+<span class="ne">NewConnectionError</span>: &lt;urllib3.connection.HTTPConnection object at 0x7f8f4af2ef70&gt;: Failed to establish a new connection: [Errno -2] Name or service not known
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">MaxRetryError</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">chunked</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">439</span>                 <span class="n">resp</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">440</span>                     <span class="n">method</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">725</span> 
+<span class="ne">--&gt; </span><span class="mi">726</span>             <span class="n">retries</span> <span class="o">=</span> <span class="n">retries</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">727</span>                 <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">e</span><span class="p">,</span> <span class="n">_pool</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">_stacktrace</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/urllib3/util/retry.py</span> in <span class="ni">increment</span><span class="nt">(self, method, url, response, error, _pool, _stacktrace)</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span>         <span class="k">if</span> <span class="n">new_retry</span><span class="o">.</span><span class="n">is_exhausted</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">439</span>             <span class="k">raise</span> <span class="n">MaxRetryError</span><span class="p">(</span><span class="n">_pool</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">error</span> <span class="ow">or</span> <span class="n">ResponseError</span><span class="p">(</span><span class="n">cause</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">440</span> 
+
+<span class="ne">MaxRetryError</span>: HTTPConnectionPool(host=&#39;mlr.cs.umass.edu&#39;, port=80): Max retries exceeded with url: /ml/machine-learning-databases/adult/adult.data (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7f8f4af2ef70&gt;: Failed to establish a new connection: [Errno -2] Name or service not known&#39;))
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ConnectionError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">83</span><span class="n">fe6576a1c2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://mlr.cs.umass.edu/ml/machine-learning-databases/adult/adult.data&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">request</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;adult.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> 
+<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;allow_redirects&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">76</span>     <span class="k">return</span> <span class="n">request</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span> 
+<span class="g g-Whitespace">     </span><span class="mi">78</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="c1"># cases, and look like a memory leak in others.</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span>     <span class="k">with</span> <span class="n">sessions</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">61</span>         <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> 
+<span class="g g-Whitespace">     </span><span class="mi">63</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="g g-Whitespace">    </span><span class="mi">528</span>         <span class="p">}</span>
+<span class="g g-Whitespace">    </span><span class="mi">529</span>         <span class="n">send_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">530</span>         <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">prep</span><span class="p">,</span> <span class="o">**</span><span class="n">send_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">531</span> 
+<span class="g g-Whitespace">    </span><span class="mi">532</span>         <span class="k">return</span> <span class="n">resp</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">641</span> 
+<span class="g g-Whitespace">    </span><span class="mi">642</span>         <span class="c1"># Send the request</span>
+<span class="ne">--&gt; </span><span class="mi">643</span>         <span class="n">r</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">644</span> 
+<span class="g g-Whitespace">    </span><span class="mi">645</span>         <span class="c1"># Total elapsed time of the request (approximately)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">514</span>                 <span class="k">raise</span> <span class="n">SSLError</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">515</span> 
+<span class="ne">--&gt; </span><span class="mi">516</span>             <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">517</span> 
+<span class="g g-Whitespace">    </span><span class="mi">518</span>         <span class="k">except</span> <span class="n">ClosedPoolError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="ne">ConnectionError</span>: HTTPConnectionPool(host=&#39;mlr.cs.umass.edu&#39;, port=80): Max retries exceeded with url: /ml/machine-learning-databases/adult/adult.data (Caused by NewConnectionError(&#39;&lt;urllib3.connection.HTTPConnection object at 0x7f8f4af2ef70&gt;: Failed to establish a new connection: [Errno -2] Name or service not known&#39;))
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="income-for-adults-from-the-1994-census">
+<h1>income for adults from the 1994 census<a class="headerlink" href="#income-for-adults-from-the-1994-census" title="Permalink to this headline">¶</a></h1>
+<p>This dataset was extracted  done by Barry Becker from the 1994 Census database.
+source: http://mlr.cs.umass.edu/ml/datasets/Adult</p>
+<p>Listing of attributes:</p>
+<ul class="simple">
+<li><p>age: continuous.</p></li>
+<li><p>workclass: Private, Self-emp-not-inc, Self-emp-inc, Federal-gov, Local-gov, State-gov, Without-pay, Never-worked.</p></li>
+<li><p>fnlwgt: continuous.</p></li>
+<li><p>education: Bachelors, Some-college, 11th, HS-grad, Prof-school, Assoc-acdm, Assoc-voc, 9th, 7th-8th, 12th, Masters, 1st-4th, 10th, Doctorate, 5th-6th, Preschool.</p></li>
+<li><p>education-num: continuous.</p></li>
+<li><p>marital-status: Married-civ-spouse, Divorced, Never-married, Separated, Widowed, Married-spouse-absent, Married-AF-spouse.</p></li>
+<li><p>occupation: Tech-support, Craft-repair, Other-service, Sales, Exec-managerial, Prof-specialty, Handlers-cleaners, Machine-op-inspct, Adm-clerical, Farming-fishing, Transport-moving, Priv-house-serv, Protective-serv, Armed-Forces.</p></li>
+<li><p>relationship: Wife, Own-child, Husband, Not-in-family, Other-relative, Unmarried.</p></li>
+<li><p>race: White, Asian-Pac-Islander, Amer-Indian-Eskimo, Other, Black.</p></li>
+<li><p>sex: Female, Male.</p></li>
+<li><p>capital-gain: continuous.</p></li>
+<li><p>capital-loss: continuous.</p></li>
+<li><p>hours-per-week: continuous.</p></li>
+<li><p>native-country: United-States, Cambodia, England, Puerto-Rico, Canada, Germany, Outlying-US(Guam-USVI-etc), India, Japan, Greece, South, China, Cuba, Iran, Honduras, Philippines, Italy, Poland, Jamaica, Vietnam, Mexico, Portugal, Ireland, France, Dominican-Republic, Laos, Ecuador, Taiwan, Haiti, Columbia, Hungary, Guatemala, Nicaragua, Scotland, Thailand, Yugoslavia, El-Salvador, Trinadad&amp;Tobago, Peru, Hong, Holand-Netherlands.</p></li>
+<li><p>income: &gt;50K, &lt;=50K.</p></li>
+</ul>
+<div class="section" id="load-the-data">
+<h2>1. load the data<a class="headerlink" href="#load-the-data" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>extract the column names from the description and read the csv while supplying the columns names</p>
+<ul class="simple">
+<li><p>rename columns with a hyphen <code class="docutils literal notranslate"><span class="pre">-</span></code> to use underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> insead. example: <code class="docutils literal notranslate"><span class="pre">capital-gain</span> <span class="pre">--&gt;</span> <span class="pre">capital_gain</span></code></p></li>
+<li><p>look at the head()</p></li>
+</ul>
+</li>
+<li><p>look at info, dtype, check for nan values</p></li>
+<li><p>what are the value counts of the categorical variables: workclass, education, marital_status, occupation, relationship, race, sex, native_country, income?</p>
+<ul class="simple">
+<li><p>do you notice the extra space ‘ ‘ at the beginning of each value?</p></li>
+<li><p>remove the extra space</p></li>
+</ul>
+</li>
+<li><p>turn ‘sex’ and ‘income’ into 0/1 fields</p>
+<ul class="simple">
+<li><p>replace the categorical ‘sex’ column with a numerical ‘female’ column with value 1 for females and 0 for males</p></li>
+<li><p>replace the categorical ‘income’ column with a numerical ‘over50k’ column with value 1 for ‘&gt;50k’ and 0 for ‘&lt;50K’</p></li>
+</ul>
+</li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> function to get descriptive statistics for most columns</p>
+<ul class="simple">
+<li><p>make sure that ‘sex’ and ‘over50k’ are now numerical fields</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="explore-capital-gains-losses">
+<h2>2. explore capital gains / losses<a class="headerlink" href="#explore-capital-gains-losses" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="capital-gain">
+<h3>capital_gain<a class="headerlink" href="#capital-gain" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>plot the histogram for capital gains</p>
+<ul class="simple">
+<li><p>verbally describe what you see</p></li>
+</ul>
+</li>
+<li><p>for people who have <code class="docutils literal notranslate"><span class="pre">capital_gain</span> <span class="pre">&gt;</span> <span class="pre">0</span></code></p>
+<ul class="simple">
+<li><p>plot the histogram for capital gains</p></li>
+</ul>
+</li>
+<li><p>how many people have capital gains over 25000?</p>
+<ul class="simple">
+<li><p>use <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> to look at all the values of capital_gain over 25000.</p></li>
+<li><p>what’s weird about the data?</p></li>
+</ul>
+</li>
+<li><p>could the people who had capital_gain==25124 be related?</p></li>
+<li><p>does capital_gain over 50k mean income is over 50k?</p></li>
+</ol>
+</div>
+<div class="section" id="capital-loss">
+<h3>capital_loss<a class="headerlink" href="#capital-loss" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>plot the histogram of capital_loss</p></li>
+<li><p>for people who have <code class="docutils literal notranslate"><span class="pre">capital_loss</span> <span class="pre">&gt;</span> <span class="pre">0</span></code></p>
+<ul class="simple">
+<li><p>plot the histogram for capital_loss</p></li>
+</ul>
+</li>
+<li><p>how many people had both <code class="docutils literal notranslate"><span class="pre">capital_gain&gt;0</span></code> and <code class="docutils literal notranslate"><span class="pre">capital_loss&gt;0</span></code> ?</p></li>
+<li><p>who can afford to lose money on capital investments?</p>
+<ul class="simple">
+<li><p>what percent of people overall had over 50K income?</p></li>
+<li><p>what percent of people with 0 capital_loss? with capital_loss&gt;0?</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="combining-and-binning">
+<h3>combining and binning<a class="headerlink" href="#combining-and-binning" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>create a new <code class="docutils literal notranslate"><span class="pre">capital_change</span></code> column that equals <code class="docutils literal notranslate"><span class="pre">capital_gain</span> <span class="pre">-</span> <span class="pre">capital_loss</span></code></p></li>
+<li><p>use the <code class="docutils literal notranslate"><span class="pre">qcut</span></code> function to quantize/bin/cut <code class="docutils literal notranslate"><span class="pre">capital_change</span></code> into a new columns called <code class="docutils literal notranslate"><span class="pre">capital_change_bin</span></code> with 10 bins of equal proportions.</p>
+<ol class="simple">
+<li><p>do not bin <code class="docutils literal notranslate"><span class="pre">capital_change==0</span></code> values as there are too many of them</p></li>
+<li><p>to simplify using this column later, use the left side of the interval created as the label</p></li>
+<li><p>label rows with <code class="docutils literal notranslate"><span class="pre">capital_change==0</span></code> as having <code class="docutils literal notranslate"><span class="pre">capital_change_bin=0</span></code></p></li>
+<li><p>make sure you have no null values for <code class="docutils literal notranslate"><span class="pre">capital_change_bin</span></code></p></li>
+</ol>
+</li>
+<li><p>how many people have a non-zero capital_change?</p>
+<ul class="simple">
+<li><p>lets call this ‘has_capital_change’</p></li>
+<li><p>plot ‘has_capital_change’ over ‘over50k’</p></li>
+<li><p>what do you learn from this diagram</p></li>
+</ul>
+</li>
+<li><p>plot <code class="docutils literal notranslate"><span class="pre">capital_change</span></code> by <code class="docutils literal notranslate"><span class="pre">over50k</span></code></p>
+<ul class="simple">
+<li><p>what do you learn from this diagram</p></li>
+</ul>
+</li>
+<li><p>plot <code class="docutils literal notranslate"><span class="pre">over50k</span></code> by <code class="docutils literal notranslate"><span class="pre">capital_change_bin</span></code></p>
+<ul class="simple">
+<li><p>what can you learn from this diagram?</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="education">
+<h2>education<a class="headerlink" href="#education" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>what is the mean education_num by education?</p></li>
+</ol>
+<ul class="simple">
+<li><p>sort the education categories by the mean_values. does it make sense</p></li>
+<li><p>check out other descriptive statistics to see if anything falls out of place</p></li>
+<li><p>turn education into a categorical ordered type</p></li>
+<li><p>plot education VS education_num</p></li>
+<li><p>what have we learned?</p></li>
+</ul>
+<ol class="simple">
+<li><p>plot the distribution for <code class="docutils literal notranslate"><span class="pre">education</span></code></p></li>
+<li><p>plot over50k by education</p>
+<ul class="simple">
+<li><p>what can we learn?</p></li>
+</ul>
+</li>
+<li><p>plot hours_per_week by education</p>
+<ol class="simple">
+<li><p>what can we learn from this plot?</p></li>
+<li><p>now use the hue=”over50k” of seaborn to see hours_per_week by education/over50k.</p>
+<ul class="simple">
+<li><p>learn anything else?</p></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>plot education_num by occupation</p></li>
+</ol>
+<ul class="simple">
+<li><p>sort by mean education_num</p></li>
+</ul>
+<ol class="simple">
+<li><p>plot education_num by workclass</p></li>
+</ol>
+<ul class="simple">
+<li><p>sort by mean education_num</p></li>
+</ul>
+<ol class="simple">
+<li><p>create a crosstab or a pivot_table of education VS occupation.</p>
+<ul class="simple">
+<li><p>normalize it by the education rows
+(each row X shows the conditional probability of having occupation Y by education level X)</p></li>
+<li><p>create a heatmap that shows which occpupations are most likely for each education level</p></li>
+<li><p>verbally describe what you’ve learned</p></li>
+</ul>
+</li>
+<li><p>create a crosstab or a pivot_table of education VS workclass.</p></li>
+</ol>
+<ul class="simple">
+<li><p>normalize it by the education rows
+(each row X shows the conditional probability of having workclass Y by education level X)</p></li>
+<li><p>create a heatmap that shows which workclass is most likely for each education level</p></li>
+<li><p>verbally describe what you’ve learned</p></li>
+<li><p>re-run this analysis without the private sector</p></li>
+</ul>
+<ol class="simple">
+<li><p>plot “race” vs “education_num</p></li>
+<li><p>plot “relationship” vs “education_num</p></li>
+</ol>
+</div>
+<div class="section" id="occupation-workclass">
+<h2>occupation / workclass<a class="headerlink" href="#occupation-workclass" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>how many levels of occupation?</p></li>
+<li><p>how many levels of worklass?</p></li>
+<li><p>how many combinations? potential? actual?</p></li>
+<li><p>plot <code class="docutils literal notranslate"><span class="pre">over50k</span></code> by <code class="docutils literal notranslate"><span class="pre">occupation</span></code></p>
+<ul class="simple">
+<li><p>sort by mean <code class="docutils literal notranslate"><span class="pre">over50k</span></code></p></li>
+<li><p>compare this to <code class="docutils literal notranslate"><span class="pre">over50k</span></code> by <code class="docutils literal notranslate"><span class="pre">education</span></code>. which variable more strongly predicts income?</p></li>
+<li><p>compare this to <code class="docutils literal notranslate"><span class="pre">education_num</span></code> by <code class="docutils literal notranslate"><span class="pre">occupation</span></code>. are the highest paying jobs correlated with highest earning education?</p></li>
+</ul>
+</li>
+<li><p>plot <code class="docutils literal notranslate"><span class="pre">over50k</span></code> by <code class="docutils literal notranslate"><span class="pre">workclass</span></code></p></li>
+<li><p>look at combinations of occupation / workclass</p>
+<ol class="simple">
+<li><p>what are the top combinations in terms of earning over50k (mean)? how many people in that category?</p></li>
+<li><p>how many of these combinations have more than 100 people?</p></li>
+<li><p>show a heatmap of the mean over50k of occupation-vs-worklass for combinations with more than 100 people.
+center the heatmap at the populations mean over50k for increased effect.
+what conclusions can you draw?</p></li>
+</ol>
+</li>
+<li><p>create a numerical encoding for occupation / workclass pairs</p>
+<ul class="simple">
+<li><p>create a new column called “occ_class” that combines the string of the occupation and workclass</p></li>
+<li><p>use the library <a class="reference external" href="http://contrib.scikit-learn.org/categorical-encoding/">category_encoders</a>, here’s an <a class="reference external" href="https://towardsdatascience.com/smarter-ways-to-encode-categorical-data-for-machine-learning-part-1-of-3-6dca2f71b159">intro</a> how to do it</p></li>
+<li><p>use the weight of evidence encoder <code class="docutils literal notranslate"><span class="pre">ce.woe.WOEEncoder</span></code> here’s an <a class="reference external" href="https://towardsdatascience.com/all-about-categorical-variable-encoding-305f3361fd02#targetText=Weight%20of%20Evidence%20Encoding,-Weight%20of%20Evidence&amp;targetText=Weight%20of%20evidence%20(WOE)%20is%20a%20measure%20of%20how%20much,P(Bads)%20%3D%201.">article</a> explaining it</p></li>
+<li><p>add the encoded occ_class as a new column called <code class="docutils literal notranslate"><span class="pre">occ_class_woe</span></code> to your dataframe</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="correlations">
+<h2>correlations<a class="headerlink" href="#correlations" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>which features are most important, which correlate?</p>
+<ul class="simple">
+<li><p>compute the correction matrix of features with themselves</p></li>
+</ul>
+</li>
+<li><p>draw a clustermap or heatmap of this correlation</p>
+<ul class="simple">
+<li><p>center the cluster at 0</p></li>
+<li><p>annotate the plot with the correlation values</p></li>
+</ul>
+</li>
+<li><p>look at the strongest correlations and draw some conclusions.</p></li>
+</ol>
+</div>
+<div class="section" id="todo">
+<h2>TODO:<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>look at <code class="docutils literal notranslate"><span class="pre">relationship</span></code> and <code class="docutils literal notranslate"><span class="pre">marriage_status</span></code>. how meaningful are they? should we encode them?</p></li>
+<li><p>look at <code class="docutils literal notranslate"><span class="pre">native_country</span></code>. how does immigration effect other variables? should we build further categories based on continent or on 1st/2nd/3rd world countries? should we add an <code class="docutils literal notranslate"><span class="pre">is_immigrant</span></code> boolean column?</p></li>
+<li><p>we’ve done the analysis treating each row of the data as a person, when <strong>in fact</strong> each row represents a large group of people, with the variable <code class="docutils literal notranslate"><span class="pre">fnlwgt</span></code> counting how many people are in the group. redo some of the analysis with weighted averages</p></li>
+<li><p>look further at age. should we cut this continous variable into age groups like 18-25, 25-40 etc ?</p>
+<ul class="simple">
+<li><p>combine age/relationship to see if relationship effects can be explained away by age</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">education_num</span></code> seems to be a label encoding of <code class="docutils literal notranslate"><span class="pre">education</span></code>. I think some degrees are not properly captured with that encoding, like <code class="docutils literal notranslate"><span class="pre">assoc-voc</span></code>. it would be interesting to to recode it with woe against <code class="docutils literal notranslate"><span class="pre">over50k</span></code> and see if anything changes.</p></li>
+<li><p>data quality questions:</p>
+<ul class="simple">
+<li><p>why are women under-represented in this data</p></li>
+<li><p>why are there no hispanic/latin category in race?</p></li>
+</ul>
+</li>
+<li><p>compare to other interesting analysis:</p>
+<ul class="simple">
+<li><p>Predicting Earning Potential using the Adult Dataset https://rpubs.com/H_Zhu/235617</p></li>
+<li><p>related notebook on kaggle https://www.kaggle.com/uciml/adult-census-income</p></li>
+</ul>
+</li>
+</ol>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./14_pandas/edm_us_adult_census_income"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../pandas_a_quick_tour.html" title="previous page">&lt;no title&gt;</a>
+    <a class='right-next' id="next-link" href="solution.html" title="next page">get the data</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Aviad Rozenhek<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,80 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/nbclient/client.py", line 1082, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/nbclient/client.py", line 535, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/nbclient/client.py", line 827, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/nbclient/client.py", line 735, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+class A:
+    def __init__(self):
+        print("A")
+        super().__init__()
+
+class B(object):
+    def __init__(self):
+        print("B")
+        super().__init__()
+
+class C(A):
+    def __init__(self, arg):
+        print("C","arg=",arg)
+        super().__init__()
+
+class D(B):
+    def __init__(self, arg):
+        print("D", "arg=",arg)
+        super().__init__()
+
+class E(C,D):
+    def __init__(self, arg):
+        print("E", "arg=",arg)
+        super().__init__(arg)
+
+print("MRO:", [x.__name__ for x in E.__mro__])
+E(10) # this won't work
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-2-7c928c6c4b55>[0m in [0;36m<module>[0;34m[0m
+[1;32m     25[0m [0;34m[0m[0m
+[1;32m     26[0m [0mprint[0m[0;34m([0m[0;34m"MRO:"[0m[0;34m,[0m [0;34m[[0m[0mx[0m[0;34m.[0m[0m__name__[0m [0;32mfor[0m [0mx[0m [0;32min[0m [0mE[0m[0;34m.[0m[0m__mro__[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 27[0;31m [0mE[0m[0;34m([0m[0;36m10[0m[0;34m)[0m [0;31m# this won't work[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m<ipython-input-2-7c928c6c4b55>[0m in [0;36m__init__[0;34m(self, arg)[0m
+[1;32m     22[0m     [0;32mdef[0m [0m__init__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0marg[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     23[0m         [0mprint[0m[0;34m([0m[0;34m"E"[0m[0;34m,[0m [0;34m"arg="[0m[0;34m,[0m[0marg[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 24[0;31m         [0msuper[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0marg[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     25[0m [0;34m[0m[0m
+[1;32m     26[0m [0mprint[0m[0;34m([0m[0;34m"MRO:"[0m[0;34m,[0m [0;34m[[0m[0mx[0m[0;34m.[0m[0m__name__[0m [0;32mfor[0m [0mx[0m [0;32min[0m [0mE[0m[0;34m.[0m[0m__mro__[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-2-7c928c6c4b55>[0m in [0;36m__init__[0;34m(self, arg)[0m
+[1;32m     12[0m     [0;32mdef[0m [0m__init__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0marg[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m         [0mprint[0m[0;34m([0m[0;34m"C"[0m[0;34m,[0m[0;34m"arg="[0m[0;34m,[0m[0marg[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 14[0;31m         [0msuper[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     15[0m [0;34m[0m[0m
+[1;32m     16[0m [0;32mclass[0m [0mD[0m[0;34m([0m[0mB[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-2-7c928c6c4b55>[0m in [0;36m__init__[0;34m(self)[0m
+[1;32m      2[0m     [0;32mdef[0m [0m__init__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m         [0mprint[0m[0;34m([0m[0;34m"A"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m         [0msuper[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m [0;32mclass[0m [0mB[0m[0;34m([0m[0mobject[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: __init__() missing 1 required positional argument: 'arg'
+TypeError: __init__() missing 1 required positional argument: 'arg'
+

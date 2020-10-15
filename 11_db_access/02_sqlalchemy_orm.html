@@ -1,0 +1,1600 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQLAlchemy &#8212; learn-python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chinook sample SQLite database" href="exercise/basic_db_access-questions.html" />
+    <link rel="prev" title="sqlite" href="01_basic_db_access.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">learn-python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_closures_and_decorators/closure_and_decorators.html">
+   Closures and decorators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_closures_and_decorators/closure_and_decorators.html#your-turn">
+   Your Turn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html">
+   Abstract Base Classes (ABCs)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_writing_our_own_container_types/writing_our_own_container_types.html">
+   Creating new collections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_writing_our_own_container_types/writing_our_own_container_types.html#iterator-protocol">
+   Iterator protocol
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_multiple_inheritance_and_super/multiple_inheritance_and_super.html">
+   super() and multiple inheritance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html">
+   Design patterns in python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#prototype">
+   Prototype
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#singleton">
+   Singleton
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#proxy">
+   Proxy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#composition">
+   Composition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#resource-acquisition-is-initialization-raii">
+   Resource Acquisition Is Initialization (RAII)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html">
+   useful resources:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#setup">
+   setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#how-pytest-discovers-tests">
+   How pytest discovers tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#our-first-test">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#pytest-context-sensitive-comparisons">
+   Pytest context-sensitive comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#using-fixtures-to-simplify-tests">
+   Using fixtures to simplify tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#parameterizing-fixtures">
+   parameterizing fixtures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#printing-and-logging-within-tests">
+   printing and logging within tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#float-when-things-are-almost-equal">
+   float: when things are (almost) equal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#adding-timeouts-to-tests">
+   adding timeouts to tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#testing-for-exceptions">
+   testing for exceptions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#running-tests-in-parallel">
+   running tests in parallel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#codebase-to-test-class-person">
+   Codebase to test: class Person
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#id14">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_package_management/10-package_management.html">
+   Where are my packages?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_package_management/10-package_management.html#development-of-projects-with-different-dependencies">
+   Development of Projects with Different Dependencies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_basic_db_access.html">
+   sqlite
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="01_basic_db_access.html#pyodbc">
+   pyodbc
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     SQLAlchemy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#further-reading">
+     Further reading
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercise/basic_db_access-questions.html">
+     Chinook sample SQLite database
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercise/basic_db_access-questions.html#open-the-database">
+     1. open the database
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercise/basic_db_access-questions.html#table-names">
+     2. table names
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercise/basic_db_access-questions.html#tracks">
+     3. Tracks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercise/basic_db_access-questions.html#albums-from-tracks">
+     4. Albums from Tracks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercise/basic_db_access-questions.html#tracks-sold">
+     5. Tracks sold
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercise/basic_db_access-questions.html#top-tracks-sold">
+     6. Top tracks sold
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercise/basic_db_access-questions.html#top-selling-artists">
+     7. top selling artists
+    </a>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/basic_db_access-solutions.html">
+       Chinook sample SQLite database
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/basic_db_access-solutions.html#open-the-database">
+       1. open the database
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/basic_db_access-solutions.html#table-names">
+       2. table names
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/basic_db_access-solutions.html#tracks">
+       3. Tracks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/basic_db_access-solutions.html#albums-from-tracks">
+       4. Albums from Tracks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/basic_db_access-solutions.html#tracks-sold">
+       5. Tracks sold
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/basic_db_access-solutions.html#top-tracks-sold">
+       6. Top tracks sold
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/basic_db_access-solutions.html#top-selling-artists">
+       7. top selling artists
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-questions.html">
+       Chinook sample database using SQLAlchemy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-questions.html#helper-methods">
+       Helper methods
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-questions.html#open-the-database">
+       1. open the database
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-questions.html#table-names">
+       2. table names
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-questions.html#tracks">
+       3. Tracks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-questions.html#albums-from-tracks">
+       4. Albums from Tracks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-questions.html#tracks-sold">
+       5. Tracks sold
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-questions.html#top-tracks-sold">
+       6. Top tracks sold
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-questions.html#top-selling-artists">
+       7. top selling artists
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-solutions.html">
+       Chinook sample database using SQLAlchemy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-solutions.html#helper-methods">
+       Helper methods
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-solutions.html#open-the-database">
+       1. open the database
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-solutions.html#table-names">
+       2. table names
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-solutions.html#tracks">
+       3. Tracks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-solutions.html#albums-from-tracks">
+       4. Albums from Tracks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-solutions.html#tracks-sold">
+       5. Tracks sold
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-solutions.html#top-tracks-sold">
+       6. Top tracks sold
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="exercise/sqlalchemy_orm-solutions.html#top-selling-artists">
+       7. top selling artists
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12_its_fun_to_be_eval/its_fun_to_be_eval.html">
+   Its fun to be eval
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13_complex_comprehensions/complex_comprehensions.html">
+   writing and understanding nested list comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14_pandas/edm_us_adult_census_income/questions.html">
+   get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14_pandas/edm_us_adult_census_income/questions.html#income-for-adults-from-the-1994-census">
+   income for adults from the 1994 census
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/11_db_access/02_sqlalchemy_orm.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/11_db_access/02_sqlalchemy_orm.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   SQLAlchemy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-new-database-from-scratch">
+     Create a new database from scratch
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#create-a-database-session">
+       1. Create a database session
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#helper-functions-to-print-sql-queries-and-sql-results">
+       2. Helper functions to print SQL queries and SQL results
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#creating-a-schema-base">
+       3.  creating a schema base
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#create-the-schema">
+       4. Create the schema
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#create-tables-in-the-database-to-conform-with-the-schema">
+       5. Create tables in the database to conform with the schema
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#create-a-customer">
+       6. Create a customer
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#run-queries">
+       7. run queries
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#using-sqlalchemy-expression-language">
+         Using SQLAlchemy expression language
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#using-sqlalchemy-orm-object-relation-manager">
+         Using SQLAlchemy ORM Object Relation Manager
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reflect-an-existing-database">
+     Reflect an existing database
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#chinook-sample-db">
+       Chinook sample DB
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-automap-to-refelect-a-db">
+       using automap to refelect a db
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-sqlacodegen-to-generate-classes-with-source-code">
+       using sqlacodegen to generate classes with source code
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   Further reading
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/11_db_access/02_sqlalchemy_orm.ipynb" target="_blank">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" 
+     title="Open this file in Google Colab" alt="Colab"/>
+</a>
+<div class="section" id="sqlalchemy">
+<h1>SQLAlchemy<a class="headerlink" href="#sqlalchemy" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>SQLAlchemy is the Python SQL toolkit and Object Relational Mapper that gives application developers the full power and flexibility of SQL.</p>
+</div></blockquote>
+<p>We’re going to show how to create a database, add some data and do basic queries.
+more complex queriex, doing migrations and database admin, are outside the scope of this lesson</p>
+<div class="section" id="create-a-new-database-from-scratch">
+<h2>Create a new database from scratch<a class="headerlink" href="#create-a-new-database-from-scratch" title="Permalink to this headline">¶</a></h2>
+<p>Lets create a new database from scratch. we will</p>
+<ol class="simple">
+<li><p>Create classes to define a schema</p></li>
+<li><p>Map the scheme to a database</p></li>
+<li><p>add objects to the database</p></li>
+<li><p>run queries</p></li>
+</ol>
+<blockquote>
+<div><p>NOTE: we will use an in-memory database, but running with a file based one or a remote database would be just as easy</p>
+</div></blockquote>
+<div class="section" id="create-a-database-session">
+<h3>1. Create a database session<a class="headerlink" href="#create-a-database-session" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<span class="c1">#engine = create_engine(&#39;sqlite:///example.db&#39;, echo=True)</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;sqlite:///:memory:&#39;</span><span class="p">,</span> <span class="n">echo</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#engine = create_engine(&#39;sqlite:///:memory:&#39;)</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
+<span class="n">Session</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2020-10-15 14:29:06,225 INFO sqlalchemy.engine.base.Engine SELECT CAST(&#39;test plain returns&#39; AS VARCHAR(60)) AS anon_1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2020-10-15 14:29:06,226 INFO sqlalchemy.engine.base.Engine ()
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2020-10-15 14:29:06,228 INFO sqlalchemy.engine.base.Engine SELECT CAST(&#39;test unicode returns&#39; AS VARCHAR(60)) AS anon_1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2020-10-15 14:29:06,228 INFO sqlalchemy.engine.base.Engine ()
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="helper-functions-to-print-sql-queries-and-sql-results">
+<h3>2. Helper functions to print SQL queries and SQL results<a class="headerlink" href="#helper-functions-to-print-sql-queries-and-sql-results" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">sqlalchemy</span>
+
+<span class="k">def</span> <span class="nf">sql</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">get_results</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">engine</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">statement</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">Query</span><span class="p">)</span> <span class="k">else</span> <span class="n">query</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">display_results</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">get_results</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="c1">#sql(query)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">7</span><span class="n">c3a0c6b1722</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">sqlalchemy</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">sql</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-a-schema-base">
+<h3>3.  creating a schema base<a class="headerlink" href="#creating-a-schema-base" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.ext.declarative</span> <span class="kn">import</span> <span class="n">declarative_base</span>
+<span class="kn">import</span> <span class="nn">sqlalchemy_explore</span>
+
+<span class="c1">### the basic base class for SQLAlchemy schema objects</span>
+<span class="c1"># Base = declarative_base(bind=engine)</span>
+
+<span class="c1">### base class including utils like an __repr__ method</span>
+<span class="c1">### see https://pypi.org/project/sqlalchemy-explore/</span>
+<span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">(</span><span class="bp">cls</span><span class="o">=</span><span class="n">sqlalchemy_explore</span><span class="o">.</span><span class="n">ReflectiveMixin</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="create-the-schema">
+<h3>4. Create the schema<a class="headerlink" href="#create-the-schema" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">DateTime</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">NVARCHAR</span><span class="p">,</span> <span class="n">Numeric</span><span class="p">,</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">relationship</span>
+
+<span class="k">class</span> <span class="nc">Customer</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;customers&#39;</span>
+
+    <span class="n">CustomerId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">(</span><span class="s1">&#39;customer_id_seq&#39;</span><span class="p">),</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">FirstName</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">LastName</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">Company</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">80</span><span class="p">))</span>
+    <span class="n">Address</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">70</span><span class="p">))</span>
+    <span class="n">Phone</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">24</span><span class="p">))</span>
+    <span class="n">Email</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">60</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;items&#39;</span>
+    
+    <span class="n">ItemId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">(</span><span class="s1">&#39;item_id_seq&#39;</span><span class="p">),</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">Name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">Price</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Numeric</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Purchase</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;purchases&#39;</span>
+    
+    <span class="n">PurchaseId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">(</span><span class="s1">&#39;purchase_id_seq&#39;</span><span class="p">),</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ItemId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;items.ItemId&#39;</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">CustomerId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;customers.CustomerId&#39;</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">Date</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">DateTime</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="n">item</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s1">&#39;Item&#39;</span><span class="p">)</span>
+    <span class="n">customer</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s1">&#39;Customer&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Purchase</span><span class="o">.</span><span class="n">ItemId</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ItemId&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="create-tables-in-the-database-to-conform-with-the-schema">
+<h3>5. Create tables in the database to conform with the schema<a class="headerlink" href="#create-tables-in-the-database-to-conform-with-the-schema" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Base</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2019-07-15 19:23:48,336 INFO sqlalchemy.engine.base.Engine PRAGMA table_info(&quot;customers&quot;)
+2019-07-15 19:23:48,337 INFO sqlalchemy.engine.base.Engine ()
+2019-07-15 19:23:48,338 INFO sqlalchemy.engine.base.Engine PRAGMA table_info(&quot;items&quot;)
+2019-07-15 19:23:48,339 INFO sqlalchemy.engine.base.Engine ()
+2019-07-15 19:23:48,339 INFO sqlalchemy.engine.base.Engine PRAGMA table_info(&quot;purchases&quot;)
+2019-07-15 19:23:48,340 INFO sqlalchemy.engine.base.Engine ()
+2019-07-15 19:23:48,341 INFO sqlalchemy.engine.base.Engine 
+CREATE TABLE customers (
+	&quot;CustomerId&quot; INTEGER NOT NULL, 
+	&quot;FirstName&quot; NVARCHAR(40) NOT NULL, 
+	&quot;LastName&quot; NVARCHAR(20) NOT NULL, 
+	&quot;Company&quot; NVARCHAR(80), 
+	&quot;Address&quot; NVARCHAR(70), 
+	&quot;Phone&quot; NVARCHAR(24), 
+	&quot;Email&quot; NVARCHAR(60) NOT NULL, 
+	PRIMARY KEY (&quot;CustomerId&quot;)
+)
+
+
+2019-07-15 19:23:48,342 INFO sqlalchemy.engine.base.Engine ()
+2019-07-15 19:23:48,342 INFO sqlalchemy.engine.base.Engine COMMIT
+2019-07-15 19:23:48,343 INFO sqlalchemy.engine.base.Engine 
+CREATE TABLE items (
+	&quot;ItemId&quot; INTEGER NOT NULL, 
+	&quot;Name&quot; NVARCHAR(40) NOT NULL, 
+	&quot;Price&quot; NUMERIC NOT NULL, 
+	PRIMARY KEY (&quot;ItemId&quot;)
+)
+
+
+2019-07-15 19:23:48,344 INFO sqlalchemy.engine.base.Engine ()
+2019-07-15 19:23:48,344 INFO sqlalchemy.engine.base.Engine COMMIT
+2019-07-15 19:23:48,345 INFO sqlalchemy.engine.base.Engine 
+CREATE TABLE purchases (
+	&quot;PurchaseId&quot; INTEGER NOT NULL, 
+	&quot;ItemId&quot; INTEGER NOT NULL, 
+	&quot;CustomerId&quot; INTEGER NOT NULL, 
+	&quot;Date&quot; DATETIME NOT NULL, 
+	PRIMARY KEY (&quot;PurchaseId&quot;), 
+	FOREIGN KEY(&quot;ItemId&quot;) REFERENCES items (&quot;ItemId&quot;), 
+	FOREIGN KEY(&quot;CustomerId&quot;) REFERENCES customers (&quot;CustomerId&quot;)
+)
+
+
+2019-07-15 19:23:48,346 INFO sqlalchemy.engine.base.Engine ()
+2019-07-15 19:23:48,346 INFO sqlalchemy.engine.base.Engine COMMIT
+2019-07-15 19:23:48,347 INFO sqlalchemy.engine.base.Engine CREATE INDEX &quot;ix_purchases_CustomerId&quot; ON purchases (&quot;CustomerId&quot;)
+2019-07-15 19:23:48,348 INFO sqlalchemy.engine.base.Engine ()
+2019-07-15 19:23:48,349 INFO sqlalchemy.engine.base.Engine COMMIT
+2019-07-15 19:23:48,349 INFO sqlalchemy.engine.base.Engine CREATE INDEX &quot;ix_purchases_ItemId&quot; ON purchases (&quot;ItemId&quot;)
+2019-07-15 19:23:48,350 INFO sqlalchemy.engine.base.Engine ()
+2019-07-15 19:23:48,351 INFO sqlalchemy.engine.base.Engine COMMIT
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="create-a-customer">
+<h3>6. Create a customer<a class="headerlink" href="#create-a-customer" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moshe</span> <span class="o">=</span> <span class="n">Customer</span><span class="p">(</span>
+    <span class="n">FirstName</span><span class="o">=</span><span class="s1">&#39;Moshe&#39;</span><span class="p">,</span> 
+    <span class="n">LastName</span><span class="o">=</span><span class="s1">&#39;Cohen&#39;</span><span class="p">,</span> 
+    <span class="n">Address</span><span class="o">=</span><span class="s1">&#39;Alenbi 99, Tel Aviv&#39;</span><span class="p">,</span> 
+    <span class="n">Phone</span><span class="o">=</span><span class="s2">&quot;053-5556789&quot;</span><span class="p">,</span> 
+    <span class="n">Email</span><span class="o">=</span><span class="s1">&#39;moshe@cohen.com&#39;</span><span class="p">)</span>
+
+<span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">moshe</span><span class="p">)</span>
+<span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2019-07-15 19:23:48,361 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+2019-07-15 19:23:48,363 INFO sqlalchemy.engine.base.Engine INSERT INTO customers (&quot;FirstName&quot;, &quot;LastName&quot;, &quot;Company&quot;, &quot;Address&quot;, &quot;Phone&quot;, &quot;Email&quot;) VALUES (?, ?, ?, ?, ?, ?)
+2019-07-15 19:23:48,364 INFO sqlalchemy.engine.base.Engine (&#39;Moshe&#39;, &#39;Cohen&#39;, None, &#39;Alenbi 99, Tel Aviv&#39;, &#39;053-5556789&#39;, &#39;moshe@cohen.com&#39;)
+2019-07-15 19:23:48,365 INFO sqlalchemy.engine.base.Engine COMMIT
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="run-queries">
+<h3>7. run queries<a class="headerlink" href="#run-queries" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="using-sqlalchemy-expression-language">
+<h4>Using SQLAlchemy expression language<a class="headerlink" href="#using-sqlalchemy-expression-language" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">select</span> 
+
+<span class="n">customers_query</span> <span class="o">=</span> <span class="n">select</span><span class="p">([</span><span class="n">Customer</span><span class="o">.</span><span class="n">FirstName</span><span class="p">,</span> <span class="n">Customer</span><span class="o">.</span><span class="n">Email</span><span class="p">])</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">customers_query</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">row</span><span class="p">))</span> <span class="c1"># rows are of type sqlalchemy.engine.result.RowProxy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2019-07-15 19:23:48,373 INFO sqlalchemy.engine.base.Engine SELECT customers.&quot;FirstName&quot;, customers.&quot;Email&quot; 
+FROM customers
+2019-07-15 19:23:48,374 INFO sqlalchemy.engine.base.Engine ()
+
+(&#39;Moshe&#39;, &#39;moshe@cohen.com&#39;)
+
+&lt;class &#39;sqlalchemy.engine.result.RowProxy&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>Our handy <code class="docutils literal notranslate"><span class="pre">display_results</span></code> function uses <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library to display the results as a table</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_results</span><span class="p">(</span><span class="n">customers_query</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2019-07-15 19:23:48,382 INFO sqlalchemy.engine.base.Engine SELECT customers.&quot;FirstName&quot;, customers.&quot;Email&quot; 
+FROM customers
+2019-07-15 19:23:48,383 INFO sqlalchemy.engine.base.Engine ()
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>FirstName</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Moshe</td>
+      <td>moshe@cohen.com</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="using-sqlalchemy-orm-object-relation-manager">
+<h4>Using SQLAlchemy ORM Object Relation Manager<a class="headerlink" href="#using-sqlalchemy-orm-object-relation-manager" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Customer</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">customer</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">customer</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">customer</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2019-07-15 19:23:48,399 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+2019-07-15 19:23:48,401 INFO sqlalchemy.engine.base.Engine SELECT customers.&quot;CustomerId&quot; AS &quot;customers_CustomerId&quot;, customers.&quot;FirstName&quot; AS &quot;customers_FirstName&quot;, customers.&quot;LastName&quot; AS &quot;customers_LastName&quot;, customers.&quot;Company&quot; AS &quot;customers_Company&quot;, customers.&quot;Address&quot; AS &quot;customers_Address&quot;, customers.&quot;Phone&quot; AS &quot;customers_Phone&quot;, customers.&quot;Email&quot; AS &quot;customers_Email&quot; 
+FROM customers
+2019-07-15 19:23:48,402 INFO sqlalchemy.engine.base.Engine ()
+Customer(CustomerId=1, FirstName=&#39;Moshe&#39;, LastName=&#39;Cohen&#39;, Company=None, Address=&#39;Alenbi 99, Tel Aviv&#39;, Phone=&#39;053-5556789&#39;, Email=&#39;moshe@cohen.com&#39;)
+
+&lt;class &#39;__main__.Customer&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reflect-an-existing-database">
+<h2>Reflect an existing database<a class="headerlink" href="#reflect-an-existing-database" title="Permalink to this headline">¶</a></h2>
+<p>When we have an existing database, and would like to start accessing this database using SQLAlchemy, we need to have classes that represent the database.</p>
+<p>Being good lazy programmers, we often don’t want to write these classes by hand, and would like a helpful start.
+We’re going to show how to create such classes from an existing database.</p>
+<p>we will do it in two methods</p>
+<ol class="simple">
+<li><p>use the automap class in SQLAlchemy to create dynamic classes (without source) for the db</p></li>
+<li><p>use the <code class="docutils literal notranslate"><span class="pre">sqlacodegen</span></code> module <a class="reference external" href="https://pypi.org/project/sqlacodegen/">1</a> to generate source code for classes</p></li>
+</ol>
+<div class="section" id="chinook-sample-db">
+<h3>Chinook sample DB<a class="headerlink" href="#chinook-sample-db" title="Permalink to this headline">¶</a></h3>
+<p>Let’s download a sample database called <a class="reference external" href="http://www.sqlitetutorial.net/sqlite-sample-database/">Chinook</a>
+<img alt="Chinook" src="http://www.sqlitetutorial.net/wp-content/uploads/2015/11/sqlite-sample-database-color.jpg" /></p>
+<p>there’s a file in the <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> directory called <code class="docutils literal notranslate"><span class="pre">download_chinook.py</span></code> with simple code to download this zip to the current directory.</p>
+<blockquote>
+<div><p>lets run <code class="docutils literal notranslate"><span class="pre">download_chinook.download</span></code> now</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run this code to get the chinook database</span>
+<span class="kn">import</span> <span class="nn">download_chinook</span>
+<span class="n">download_chinook</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ready: C:\Users\CP\Downloads\learn-advanced-python-master\notebooks\chinook.db
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>Now lets connect to the database and create an <code class="docutils literal notranslate"><span class="pre">engine</span></code> variable</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlalchemy</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;sqlite:///chinook.db&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>lets get the list of table names from the database</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">engine</span><span class="o">.</span><span class="n">table_names</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;albums&#39;,
+ &#39;artists&#39;,
+ &#39;customers&#39;,
+ &#39;employees&#39;,
+ &#39;genres&#39;,
+ &#39;invoice_items&#39;,
+ &#39;invoices&#39;,
+ &#39;media_types&#39;,
+ &#39;playlist_track&#39;,
+ &#39;playlists&#39;,
+ &#39;sqlite_sequence&#39;,
+ &#39;sqlite_stat1&#39;,
+ &#39;tracks&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="using-automap-to-refelect-a-db">
+<h3>using automap to refelect a db<a class="headerlink" href="#using-automap-to-refelect-a-db" title="Permalink to this headline">¶</a></h3>
+<p>We use the <code class="docutils literal notranslate"><span class="pre">automap</span></code> extension to <strong>dynamically</strong> create classes for each table <strong>at runtime</strong>.</p>
+<ul class="simple">
+<li><p><strong>advantage</strong>: automap is faily easy to use, and it comes bundled in SQLAlchemy without a need for installing additional modules</p></li>
+<li><p><strong>disadvantage</strong>: There is no way to see the <em>code</em> for these automap classes. we need to use the classes without seeing the code for it</p></li>
+</ul>
+<blockquote>
+<div><p>first, lets define a helper function called <code class="docutils literal notranslate"><span class="pre">automap_database()</span></code> that generates classes for us</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">automap_database</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+    <span class="c1">### useful: extract classes from the chinook database</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">MetaData</span><span class="p">()</span>
+    <span class="n">metadata</span><span class="o">.</span><span class="n">reflect</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+
+    <span class="c1">## we need to do this once</span>
+    <span class="kn">from</span> <span class="nn">sqlalchemy.ext.automap</span> <span class="kn">import</span> <span class="n">automap_base</span>
+
+    <span class="c1"># produce a set of mappings from this MetaData.</span>
+    <span class="n">Base</span> <span class="o">=</span> <span class="n">automap_base</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">)</span>
+
+    <span class="c1"># calling prepare() just sets up mapped classes and relationships.</span>
+    <span class="n">Base</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">Base</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>next, lets use the <code class="docutils literal notranslate"><span class="pre">automap_database()</span></code> function and see which classes were generated</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create dynamic classes for every table using automap </span>
+<span class="n">AutoMapBase</span> <span class="o">=</span> <span class="n">automap_database</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="c1"># which classes were generated?</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Generated the following classes:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">AutoMapBase</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+
+<span class="c1"># Let&#39;s prepare an ORM session so we can query the database based on these classes</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
+<span class="n">Session</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generated the following classes:
+	 albums, artists, customers, employees, genres, invoice_items, invoices, tracks, media_types, playlists
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>Lastly, lets use one of these classes, see what columns it has and use it to query the database</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets get the Album class for the albums table</span>
+<span class="n">Album</span> <span class="o">=</span> <span class="n">AutoMapBase</span><span class="o">.</span><span class="n">classes</span><span class="p">[</span><span class="s1">&#39;albums&#39;</span><span class="p">]</span>
+
+<span class="c1"># what columns are available in this class?</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;columns for Album class:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">Album</span><span class="o">.</span><span class="n">__table__</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="c1"># &#39;albums.AlbumId&#39;, &#39;albums.Title&#39;, &#39;albums.ArtistId&#39;</span>
+
+<span class="c1"># lets get the first album and print it out</span>
+<span class="n">first_album</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Album</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;first album:&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">first_album</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">first_album</span><span class="o">.</span><span class="n">AlbumId</span><span class="p">,</span> <span class="n">first_album</span><span class="o">.</span><span class="n">Title</span><span class="p">,</span> <span class="n">first_album</span><span class="o">.</span><span class="n">ArtistId</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>columns for Album class:
+	 [&#39;albums.AlbumId&#39;, &#39;albums.Title&#39;, &#39;albums.ArtistId&#39;]
+
+first album: &lt;class &#39;sqlalchemy.ext.automap.albums&#39;&gt;
+	 1 For Those About To Rock We Salute You 1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="using-sqlacodegen-to-generate-classes-with-source-code">
+<h3>using sqlacodegen to generate classes with source code<a class="headerlink" href="#using-sqlacodegen-to-generate-classes-with-source-code" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>first, we need to install the <code class="docutils literal notranslate"><span class="pre">sqlacodegen</span></code> module</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sqlacodegen</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sqlacodegen in c:\users\cp\appdata\local\programs\python\python37-32\lib\site-packages (2.0.1)
+Requirement already satisfied: inflect&gt;=0.2.0 in c:\users\cp\appdata\local\programs\python\python37-32\lib\site-packages (from sqlacodegen) (2.1.0)
+Requirement already satisfied: SQLAlchemy&gt;=0.8.0 in c:\users\cp\appdata\local\programs\python\python37-32\lib\site-packages (from sqlacodegen) (1.3.5)
+Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>now, lets run it</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>sqlacodegen sqlite:///chinook.db --tables albums,artists,customers,employees,genres,invoice_items,invoices,tracks
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># coding: utf-8
+from sqlalchemy import Column, DateTime, ForeignKey, Integer, NVARCHAR, Numeric
+from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
+metadata = Base.metadata
+
+
+class Artist(Base):
+    __tablename__ = &#39;artists&#39;
+
+    ArtistId = Column(Integer, primary_key=True)
+    Name = Column(NVARCHAR(120))
+
+
+class Employee(Base):
+    __tablename__ = &#39;employees&#39;
+
+    EmployeeId = Column(Integer, primary_key=True)
+    LastName = Column(NVARCHAR(20), nullable=False)
+    FirstName = Column(NVARCHAR(20), nullable=False)
+    Title = Column(NVARCHAR(30))
+    ReportsTo = Column(ForeignKey(&#39;employees.EmployeeId&#39;), index=True)
+    BirthDate = Column(DateTime)
+    HireDate = Column(DateTime)
+    Address = Column(NVARCHAR(70))
+    City = Column(NVARCHAR(40))
+    State = Column(NVARCHAR(40))
+    Country = Column(NVARCHAR(40))
+    PostalCode = Column(NVARCHAR(10))
+    Phone = Column(NVARCHAR(24))
+    Fax = Column(NVARCHAR(24))
+    Email = Column(NVARCHAR(60))
+
+    parent = relationship(&#39;Employee&#39;, remote_side=[EmployeeId])
+
+
+class Genre(Base):
+    __tablename__ = &#39;genres&#39;
+
+    GenreId = Column(Integer, primary_key=True)
+    Name = Column(NVARCHAR(120))
+
+
+class MediaType(Base):
+    __tablename__ = &#39;media_types&#39;
+
+    MediaTypeId = Column(Integer, primary_key=True)
+    Name = Column(NVARCHAR(120))
+
+
+class Album(Base):
+    __tablename__ = &#39;albums&#39;
+
+    AlbumId = Column(Integer, primary_key=True)
+    Title = Column(NVARCHAR(160), nullable=False)
+    ArtistId = Column(ForeignKey(&#39;artists.ArtistId&#39;), nullable=False, index=True)
+
+    artist = relationship(&#39;Artist&#39;)
+
+
+class Customer(Base):
+    __tablename__ = &#39;customers&#39;
+
+    CustomerId = Column(Integer, primary_key=True)
+    FirstName = Column(NVARCHAR(40), nullable=False)
+    LastName = Column(NVARCHAR(20), nullable=False)
+    Company = Column(NVARCHAR(80))
+    Address = Column(NVARCHAR(70))
+    City = Column(NVARCHAR(40))
+    State = Column(NVARCHAR(40))
+    Country = Column(NVARCHAR(40))
+    PostalCode = Column(NVARCHAR(10))
+    Phone = Column(NVARCHAR(24))
+    Fax = Column(NVARCHAR(24))
+    Email = Column(NVARCHAR(60), nullable=False)
+    SupportRepId = Column(ForeignKey(&#39;employees.EmployeeId&#39;), index=True)
+
+    employee = relationship(&#39;Employee&#39;)
+
+
+class Invoice(Base):
+    __tablename__ = &#39;invoices&#39;
+
+    InvoiceId = Column(Integer, primary_key=True)
+    CustomerId = Column(ForeignKey(&#39;customers.CustomerId&#39;), nullable=False, index=True)
+    InvoiceDate = Column(DateTime, nullable=False)
+    BillingAddress = Column(NVARCHAR(70))
+    BillingCity = Column(NVARCHAR(40))
+    BillingState = Column(NVARCHAR(40))
+    BillingCountry = Column(NVARCHAR(40))
+    BillingPostalCode = Column(NVARCHAR(10))
+    Total = Column(Numeric(10, 2), nullable=False)
+
+    customer = relationship(&#39;Customer&#39;)
+
+
+class Track(Base):
+    __tablename__ = &#39;tracks&#39;
+
+    TrackId = Column(Integer, primary_key=True)
+    Name = Column(NVARCHAR(200), nullable=False)
+    AlbumId = Column(ForeignKey(&#39;albums.AlbumId&#39;), index=True)
+    MediaTypeId = Column(ForeignKey(&#39;media_types.MediaTypeId&#39;), nullable=False, index=True)
+    GenreId = Column(ForeignKey(&#39;genres.GenreId&#39;), index=True)
+    Composer = Column(NVARCHAR(220))
+    Milliseconds = Column(Integer, nullable=False)
+    Bytes = Column(Integer)
+    UnitPrice = Column(Numeric(10, 2), nullable=False)
+
+    album = relationship(&#39;Album&#39;)
+    genre = relationship(&#39;Genre&#39;)
+    media_type = relationship(&#39;MediaType&#39;)
+
+
+class InvoiceItem(Base):
+    __tablename__ = &#39;invoice_items&#39;
+
+    InvoiceLineId = Column(Integer, primary_key=True)
+    InvoiceId = Column(ForeignKey(&#39;invoices.InvoiceId&#39;), nullable=False, index=True)
+    TrackId = Column(ForeignKey(&#39;tracks.TrackId&#39;), nullable=False, index=True)
+    UnitPrice = Column(Numeric(10, 2), nullable=False)
+    Quantity = Column(Integer, nullable=False)
+
+    invoice = relationship(&#39;Invoice&#39;)
+    track = relationship(&#39;Track&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>We can now copy-paste the generated source for these classes into our code so we can start using it</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">DateTime</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">NVARCHAR</span><span class="p">,</span> <span class="n">Numeric</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">relationship</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.ext.declarative</span> <span class="kn">import</span> <span class="n">declarative_base</span>
+
+<span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">()</span>
+<span class="n">metadata</span> <span class="o">=</span> <span class="n">Base</span><span class="o">.</span><span class="n">metadata</span>
+
+<span class="k">class</span> <span class="nc">Artist</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;artists&#39;</span>
+
+    <span class="n">ArtistId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">Name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">))</span>
+
+
+<span class="k">class</span> <span class="nc">Employee</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;employees&#39;</span>
+
+    <span class="n">EmployeeId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">LastName</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">FirstName</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">Title</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
+    <span class="n">ReportsTo</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;employees.EmployeeId&#39;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">BirthDate</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">DateTime</span><span class="p">)</span>
+    <span class="n">HireDate</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">DateTime</span><span class="p">)</span>
+    <span class="n">Address</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">70</span><span class="p">))</span>
+    <span class="n">City</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">))</span>
+    <span class="n">State</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">))</span>
+    <span class="n">Country</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">))</span>
+    <span class="n">PostalCode</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+    <span class="n">Phone</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">24</span><span class="p">))</span>
+    <span class="n">Fax</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">24</span><span class="p">))</span>
+    <span class="n">Email</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">60</span><span class="p">))</span>
+
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s1">&#39;Employee&#39;</span><span class="p">,</span> <span class="n">remote_side</span><span class="o">=</span><span class="p">[</span><span class="n">EmployeeId</span><span class="p">])</span>
+
+
+<span class="k">class</span> <span class="nc">Genre</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;genres&#39;</span>
+
+    <span class="n">GenreId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">Name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">))</span>
+
+
+<span class="k">class</span> <span class="nc">MediaType</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;media_types&#39;</span>
+
+    <span class="n">MediaTypeId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">Name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">))</span>
+
+
+<span class="k">class</span> <span class="nc">Album</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;albums&#39;</span>
+
+    <span class="n">AlbumId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">Title</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">160</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ArtistId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;artists.ArtistId&#39;</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">artist</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s1">&#39;Artist&#39;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Customer</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;customers&#39;</span>
+
+    <span class="n">CustomerId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">FirstName</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">LastName</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">Company</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">80</span><span class="p">))</span>
+    <span class="n">Address</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">70</span><span class="p">))</span>
+    <span class="n">City</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">))</span>
+    <span class="n">State</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">))</span>
+    <span class="n">Country</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">))</span>
+    <span class="n">PostalCode</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+    <span class="n">Phone</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">24</span><span class="p">))</span>
+    <span class="n">Fax</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">24</span><span class="p">))</span>
+    <span class="n">Email</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">60</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">SupportRepId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;employees.EmployeeId&#39;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">employee</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s1">&#39;Employee&#39;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Invoice</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;invoices&#39;</span>
+
+    <span class="n">InvoiceId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">CustomerId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;customers.CustomerId&#39;</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">InvoiceDate</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">DateTime</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">BillingAddress</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">70</span><span class="p">))</span>
+    <span class="n">BillingCity</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">))</span>
+    <span class="n">BillingState</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">))</span>
+    <span class="n">BillingCountry</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">))</span>
+    <span class="n">BillingPostalCode</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+    <span class="n">Total</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Numeric</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">customer</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s1">&#39;Customer&#39;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Track</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;tracks&#39;</span>
+
+    <span class="n">TrackId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">Name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">AlbumId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;albums.AlbumId&#39;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">MediaTypeId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;media_types.MediaTypeId&#39;</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">GenreId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;genres.GenreId&#39;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">Composer</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">220</span><span class="p">))</span>
+    <span class="n">Milliseconds</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">Bytes</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">)</span>
+    <span class="n">UnitPrice</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Numeric</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">album</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s1">&#39;Album&#39;</span><span class="p">)</span>
+    <span class="n">genre</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s1">&#39;Genre&#39;</span><span class="p">)</span>
+    <span class="n">media_type</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s1">&#39;MediaType&#39;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">InvoiceItem</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;invoice_items&#39;</span>
+
+    <span class="n">InvoiceLineId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">InvoiceId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;invoices.InvoiceId&#39;</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">TrackId</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;tracks.TrackId&#39;</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">UnitPrice</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Numeric</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">Quantity</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">invoice</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s1">&#39;Invoice&#39;</span><span class="p">)</span>
+    <span class="n">track</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s1">&#39;Track&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>lets create a new engine and new orm session to use with this metadata (it is different from the automap metadata)</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;sqlite:///chinook.db&#39;</span><span class="p">)</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="n">metadata</span><span class="o">.</span><span class="n">reflect</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
+<span class="n">Session</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>lets make a simple query</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets get the first album and print it out</span>
+<span class="n">first_track</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Track</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">first_track</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Song:&#39;</span><span class="p">,</span> <span class="n">first_track</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="s1">&#39;| Album:&#39;</span><span class="p">,</span> <span class="n">first_track</span><span class="o">.</span><span class="n">album</span><span class="o">.</span><span class="n">Title</span><span class="p">,</span> <span class="s1">&#39;| Artist:&#39;</span><span class="p">,</span> <span class="n">first_track</span><span class="o">.</span><span class="n">album</span><span class="o">.</span><span class="n">artist</span><span class="o">.</span><span class="n">Name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;__main__.Track&#39;&gt;
+Song: For Those About To Rock (We Salute You) | Album: For Those About To Rock We Salute You | Artist: AC/DC
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\users\cp\appdata\local\programs\python\python37-32\lib\site-packages\sqlalchemy\sql\sqltypes.py:665: SAWarning: Dialect sqlite+pysqlite does *not* support Decimal objects natively, and SQLAlchemy must convert from floating point - rounding errors and other issues may occur. Please consider storing Decimal numbers as strings or integers on this platform for lossless storage.
+  &quot;storage.&quot; % (dialect.name, dialect.driver)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="further-reading">
+<h1>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://towardsdatascience.com/sqlalchemy-python-tutorial-79a577141a91">Toward Data Science’ SQLAlchemy tutorial</a></p></li>
+<li><p><a class="reference external" href="https://docs.sqlalchemy.org/en/13/orm/tutorial.html">SQLAlchemy Object Relational Tutorial</a></p></li>
+<li><p><a class="reference external" href="https://docs.sqlalchemy.org/en/13/core/tutorial.html">SQLAlchemy Expression Language Tutorial</a></p></li>
+<li><p><a class="reference external" href="https://auth0.com/blog/sqlalchemy-orm-tutorial-for-python-developers/">SQLAlchemy ORM Tutorial for Python Developers</a></p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/sqlalchemy-explore/">sqlalchemy-explore</a></p></li>
+<li><p>Sample databases</p>
+<ul>
+<li><p>https://github.com/jpwhite3/northwind-SQLite3</p></li>
+<li><p>https://github.com/arjunchndr/Analyzing-Chinook-Database-using-SQL-and-Python</p></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./11_db_access"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="01_basic_db_access.html" title="previous page">sqlite</a>
+    <a class='right-next' id="next-link" href="exercise/basic_db_access-questions.html" title="next page">Chinook sample SQLite database</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Aviad Rozenhek<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

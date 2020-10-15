@@ -1,0 +1,740 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Its fun to be eval &#8212; learn-python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="writing and understanding nested list comprehensions" href="../13_complex_comprehensions/complex_comprehensions.html" />
+    <link rel="prev" title="Chinook sample database using SQLAlchemy" href="../11_db_access/exercise/sqlalchemy_orm-solutions.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">learn-python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_closures_and_decorators/closure_and_decorators.html">
+   Closures and decorators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_closures_and_decorators/closure_and_decorators.html#your-turn">
+   Your Turn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html">
+   Abstract Base Classes (ABCs)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_writing_our_own_container_types/writing_our_own_container_types.html">
+   Creating new collections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_writing_our_own_container_types/writing_our_own_container_types.html#iterator-protocol">
+   Iterator protocol
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_multiple_inheritance_and_super/multiple_inheritance_and_super.html">
+   super() and multiple inheritance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html">
+   Design patterns in python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#prototype">
+   Prototype
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#singleton">
+   Singleton
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#proxy">
+   Proxy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#composition">
+   Composition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#resource-acquisition-is-initialization-raii">
+   Resource Acquisition Is Initialization (RAII)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html">
+   useful resources:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#setup">
+   setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#how-pytest-discovers-tests">
+   How pytest discovers tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#our-first-test">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#pytest-context-sensitive-comparisons">
+   Pytest context-sensitive comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#using-fixtures-to-simplify-tests">
+   Using fixtures to simplify tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#parameterizing-fixtures">
+   parameterizing fixtures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#printing-and-logging-within-tests">
+   printing and logging within tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#float-when-things-are-almost-equal">
+   float: when things are (almost) equal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#adding-timeouts-to-tests">
+   adding timeouts to tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#testing-for-exceptions">
+   testing for exceptions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#running-tests-in-parallel">
+   running tests in parallel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#codebase-to-test-class-person">
+   Codebase to test: class Person
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#id14">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_package_management/10-package_management.html">
+   Where are my packages?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_package_management/10-package_management.html#development-of-projects-with-different-dependencies">
+   Development of Projects with Different Dependencies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_db_access/01_basic_db_access.html">
+   sqlite
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_db_access/01_basic_db_access.html#pyodbc">
+   pyodbc
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Its fun to be eval
+  </a>
+  <ul class="simple">
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13_complex_comprehensions/complex_comprehensions.html">
+   writing and understanding nested list comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14_pandas/edm_us_adult_census_income/questions.html">
+   get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14_pandas/edm_us_adult_census_income/questions.html#income-for-adults-from-the-1994-census">
+   income for adults from the 1994 census
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/12_its_fun_to_be_eval/its_fun_to_be_eval.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/12_its_fun_to_be_eval/its_fun_to_be_eval.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eval">
+   eval
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-parse-json-using-eval">
+     Example: parse JSON using eval
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exec">
+   exec
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#controlling-the-environment">
+     controlling the environment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-rule-engine">
+     Example: rule engine
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-is-exec-eval-a-security-risk">
+   why is exec / eval a security risk?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   Further reading
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/12_its_fun_to_be_eval/its_fun_to_be_eval.ipynb" target="_blank">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" 
+     title="Open this file in Google Colab" alt="Colab"/>
+</a>
+<div class="section" id="its-fun-to-be-eval">
+<h1>Its fun to be eval<a class="headerlink" href="#its-fun-to-be-eval" title="Permalink to this headline">¶</a></h1>
+<p>it is said about python that</p>
+<blockquote>
+<div><p>python gives you enough rope to shoot yourself in both feet</p>
+</div></blockquote>
+<p>one of the awesomest tools (but also a HUGE potential security issue) is the ability to dynamically run any code.
+we can do this using the <em>unholy trinity</em>:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">eval</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exec</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compile</span></code></p></li>
+</ol>
+<p>we will take a look at some fun things we can do with <code class="docutils literal notranslate"><span class="pre">eval</span></code></p>
+<div class="section" id="eval">
+<h2>eval<a class="headerlink" href="#eval" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">globals</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">locals</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>the <code class="docutils literal notranslate"><span class="pre">eval</span></code> function (pronounced like EVIL) allows us to evaluate a string as a single <strong>expression</strong></p>
+<p>An expression in Python is whatever you can have as the value in a variable assignment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a_variable</span> <span class="o">=</span> <span class="p">(</span><span class="n">anything</span> <span class="n">you</span> <span class="n">can</span> <span class="n">put</span> <span class="n">within</span> <span class="n">these</span> <span class="n">parentheses</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">expression</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>eval <strong>returns</strong> the value of the given expression</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">c</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">x</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s2">&quot;a*x**2 + b*x + c&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="example-parse-json-using-eval">
+<h3>Example: parse JSON using eval<a class="headerlink" href="#example-parse-json-using-eval" title="Permalink to this headline">¶</a></h3>
+<p>a JSON object is basically a javascript expression.
+as it happens, javascript/JSON syntax is very similar (but not identical <a class="reference external" href="https://docs.python.org/3/library/json.html#encoders-and-decoders">1</a> ) to python syntax. <br>
+many JSON strings can easily be parsed using <code class="docutils literal notranslate"><span class="pre">eval</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">{</span>
+<span class="s2">    &quot;firstName&quot;: &quot;Jane&quot;,</span>
+<span class="s2">    &quot;lastName&quot;: &quot;Doe&quot;,</span>
+<span class="s2">    &quot;hobbies&quot;: [&quot;running&quot;, &quot;sky diving&quot;, &quot;singing&quot;],</span>
+<span class="s2">    &quot;age&quot;: 35,</span>
+<span class="s2">    &quot;children&quot;: [</span>
+<span class="s2">        {</span>
+<span class="s2">            &quot;firstName&quot;: &quot;Alice&quot;,</span>
+<span class="s2">            &quot;age&quot;: 6</span>
+<span class="s2">        },</span>
+<span class="s2">        {</span>
+<span class="s2">            &quot;firstName&quot;: &quot;Bob&quot;,</span>
+<span class="s2">            &quot;age&quot;: 8</span>
+<span class="s2">        }</span>
+<span class="s2">    ]</span>
+<span class="s2">}</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">json_obj</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">json_str</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">json_obj</span><span class="p">),</span> <span class="n">json_obj</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;dict&#39;&gt; dict_keys([&#39;firstName&#39;, &#39;lastName&#39;, &#39;hobbies&#39;, &#39;age&#39;, &#39;children&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exec">
+<h2>exec<a class="headerlink" href="#exec" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exec</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">globals</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">locals</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">exec</span></code> function allows us to evaluate a string as a statement or series of statements</p>
+<p>two famous modules that use exec:</p>
+<ol class="simple">
+<li><p>namedtuples</p></li>
+<li><p>doctest</p></li>
+</ol>
+<p>Note: exec <strong>ignores the return value</strong> from its code, and always returns <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">x=10</span>
+<span class="s2">y=20</span>
+<span class="s2">z=x+y</span>
+<span class="s2">print(x, &#39;+&#39;, y, &#39;=&#39;, z)</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">exec</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10 + 20 = 30
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="controlling-the-environment">
+<h3>controlling the environment<a class="headerlink" href="#controlling-the-environment" title="Permalink to this headline">¶</a></h3>
+<p>Both <code class="docutils literal notranslate"><span class="pre">exec</span></code> and <code class="docutils literal notranslate"><span class="pre">eval</span></code> accept 2 additional positional arguments - <code class="docutils literal notranslate"><span class="pre">globals</span></code> and <code class="docutils literal notranslate"><span class="pre">locals</span></code> -
+which are the global and local variable scopes that the code sees.
+These default to the globals() and locals() within the scope that called exec or eval,
+but any dictionary can be used for globals and any mapping for locals (including dict of course).
+These can be used not only to restrict/modify the variables that the code sees, but are often also used
+for capturing the variables that the executed code creates</p>
+<blockquote>
+<div><p>NOTE: exec and eval add the built-ins module as <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> to the globals automatically if it is missing.</p>
+</div></blockquote>
+</div>
+<div class="section" id="example-rule-engine">
+<h3>Example: rule engine<a class="headerlink" href="#example-rule-engine" title="Permalink to this headline">¶</a></h3>
+<p>lets imagine we have some rule-based product, such as a firewall.</p>
+<p>furthermore:</p>
+<ol class="simple">
+<li><p>we would like to be able to add, modify and delete rules of this product, by changing the configuration of the product, but without changing the source code of the product itself</p></li>
+<li><p>we would like to be able to write very complex rules, that may needs complicated logic or even loops</p></li>
+</ol>
+<p>to solve for such requirements, we can ask users to write these rules as strings in configuration files, expressed in python langauge. <br>
+and to load and <code class="docutils literal notranslate"><span class="pre">exec</span></code>-ute these strings at runtime from the host product</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rule we read from file</span>
+<span class="n">rule</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">if x&gt;100:</span>
+<span class="s2">    result = 100</span>
+<span class="s2">elif y&lt;0:</span>
+<span class="s2">    result = 0</span>
+<span class="s2">else:</span>
+<span class="s2">    result = (x+y) / 2 </span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># create an environment for our rule to run in</span>
+<span class="n">globals_</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">locals_</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span> <span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+
+<span class="c1"># run the rule</span>
+<span class="n">exec</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span> <span class="n">globals_</span><span class="p">,</span> <span class="n">locals_</span><span class="p">)</span>
+
+<span class="c1"># get the result</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">locals_</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the example above we used a <strong>convention</strong> that the rule should output the result of its calculation into the <code class="docutils literal notranslate"><span class="pre">result</span></code> variable. this is a very simple and effective method of extracting the results from an exec.</p>
+<blockquote>
+<div><p>it is possible (but requires much more work) to create an rule processing engine that does not require such conventions. one way is to look more deeply into the code we’re executing, such as by using python’s <a class="reference external" href="https://docs.python.org/3.7/library/ast.html">ast</a> abstract syntax trees module</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="why-is-exec-eval-a-security-risk">
+<h2>why is exec / eval a security risk?<a class="headerlink" href="#why-is-exec-eval-a-security-risk" title="Permalink to this headline">¶</a></h2>
+<p>Consider a situation, where your server runs rules written in text files, and an attacker gets access to modify these text files The attacker could write a rule that imports the <code class="docutils literal notranslate"><span class="pre">os</span></code> module and then use it to execute arbitrary code on the operating system.</p>
+<p>If you allow users to input a value using eval(input()), the user may issue commands to change file or even delete all the files using command os.system(‘rm -rf *’).</p>
+<p>If you are using eval(input()) in your code, it’s a good idea to check which variables and methods the user can use. You can see which variables and methods are available using dir() method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">security_risk_code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">import os</span>
+<span class="s2">os.system(&quot;echo gotcha, I have access to your OS I can delete all your files &gt;&gt; gotcha.txt&quot;)</span>
+<span class="s2">os.system(&#39;notepad gotcha.txt&#39;)</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># exec code - you just lost control</span>
+<span class="n">exec</span><span class="p">(</span><span class="n">security_risk_code</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use the same attack even with the much simpler <code class="docutils literal notranslate"><span class="pre">eval</span></code> <br>
+we just need the expression to itself run an <code class="docutils literal notranslate"><span class="pre">exec</span></code> code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">security_risk_expression</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">exec(</span><span class="se">\&quot;\&quot;\&quot;</span><span class="s2">import os</span>
+<span class="s2">os.system(&quot;echo gotcha, I have access to your OS I can delete all your files &gt;&gt; gotcha.txt&quot;)</span>
+<span class="s2">os.system(&#39;notepad gotcha.txt&#39;)</span>
+<span class="se">\&quot;\&quot;\&quot;</span><span class="s2">)</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="nb">eval</span><span class="p">(</span><span class="n">security_risk_expression</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>to solve this particular vulnerability, you should explicitly add an empty <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> key to the globals dictionary passed to <code class="docutils literal notranslate"><span class="pre">exec</span></code> or <code class="docutils literal notranslate"><span class="pre">eval</span></code></p>
+<blockquote>
+<div><p>NOTE: just because we solved THIS security issue, doesn’t mean that there can’t be more security issues, especially as you become more leniant with what the executed code can or can’t do. the only way to be 100% sure we’re not exposed to tricky security issues with eval/exec is to <em>not use them</em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">exec</span><span class="p">(</span><span class="n">security_risk_code</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;__builtins__&#39;</span><span class="p">:</span> <span class="p">{}})</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;prevented security issue:&#39;</span><span class="p">,</span> <span class="n">ex</span><span class="p">)</span>
+    
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">eval</span><span class="p">(</span><span class="n">security_risk_expression</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;__builtins__&#39;</span><span class="p">:</span> <span class="p">{}})</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;prevented security issue:&#39;</span><span class="p">,</span> <span class="n">ex</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>prevented security issue: __import__ not found
+prevented security issue: name &#39;exec&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Difference between eval, exec and compile <a class="reference external" href="https://docs.python.org/3/library/json.html#encoders-and-decoders">1</a></p></li>
+<li><p>How to get results out of eval <a class="reference external" href="https://stackoverflow.com/questions/37237034/how-to-get-results-out-of-a-python-exec-eval-call">2</a></p></li>
+<li><p>How to safely use eval in python <a class="reference external" href="https://stackoverflow.com/questions/9672791/how-to-safely-use-exec-in-python">3</a></p></li>
+<li><p>Use of exec in python <a class="reference external" href="https://stackoverflow.com/questions/4158117/use-of-exec-and-eval-in-python">4</a></p></li>
+</ol>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./12_its_fun_to_be_eval"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../11_db_access/exercise/sqlalchemy_orm-solutions.html" title="previous page">Chinook sample database using SQLAlchemy</a>
+    <a class='right-next' id="next-link" href="../13_complex_comprehensions/complex_comprehensions.html" title="next page">writing and understanding nested list comprehensions</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Aviad Rozenhek<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
