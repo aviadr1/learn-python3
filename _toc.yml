@@ -1,0 +1,9 @@
+file: CONDUCT
+sections:
+- file: CONTRIBUTING
+- file: README
+- file: learn_python/content
+  sections:
+  - file: learn_python/intro
+  - file: learn_python/markdown
+  - file: learn_python/notebooks

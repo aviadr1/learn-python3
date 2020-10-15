@@ -1,0 +1,76 @@
+file: content
+sections:
+- file: intro
+- file: markdown
+- file: notebooks
+- file: 02_closures_and_decorators/closure_and_decorators
+  sections:
+  - file: 02_closures_and_decorators/variadic_functions
+  - file: 02_closures_and_decorators/exercise/questions
+    sections:
+    - file: 02_closures_and_decorators/exercise/solutions
+- file: 03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs
+- file: 04_writing_our_own_container_types/writing_our_own_container_types
+  sections:
+  - file: 04_writing_our_own_container_types/exercise/questions
+    sections:
+    - file: 04_writing_our_own_container_types/exercise/solutions
+- file: 05_more_on_classes_and_objects/methods
+  sections:
+  - file: 05_more_on_classes_and_objects/more_on_classes_and_objects
+  - file: 05_more_on_classes_and_objects/exercise/questions
+    sections:
+    - file: 05_more_on_classes_and_objects/exercise/solutions
+- file: 06_multiple_inheritance_and_super/multiple_inheritance_and_super
+  sections:
+  - file: 06_multiple_inheritance_and_super/superobject
+  - file: 06_multiple_inheritance_and_super/exercise/questions
+    sections:
+    - file: 06_multiple_inheritance_and_super/exercise/solutions
+- file: 07_design_patterns_in_python/07-design_patterns_in_python
+  sections:
+  - file: 07_design_patterns_in_python/composition
+  - file: 07_design_patterns_in_python/earth
+  - file: 07_design_patterns_in_python/singleton
+- file: 08_test_driven_development/08-pytest
+  sections:
+  - file: 08_test_driven_development/08-unittest_mock
+  - file: 08_test_driven_development/exercise/questions
+    sections:
+    - file: 08_test_driven_development/exercise/solutions
+- file: 10_package_management/10-package_management
+  sections:
+  - file: 10_package_management/exercise/questions
+    sections:
+    - file: 10_package_management/exercise/solutions
+- file: 11_db_access/01_basic_db_access
+  sections:
+  - file: 11_db_access/02_sqlalchemy_orm
+  - file: 11_db_access/download_chinook
+  - file: 11_db_access/exercise/basic_db_access-questions
+    sections:
+    - file: 11_db_access/exercise/basic_db_access-solutions
+    - file: 11_db_access/exercise/sqlalchemy_orm-questions
+    - file: 11_db_access/exercise/sqlalchemy_orm-solutions
+- file: 12_its_fun_to_be_eval/its_fun_to_be_eval
+  sections:
+  - file: 12_its_fun_to_be_eval/exercise/game-of-life
+    sections:
+    - file: 12_its_fun_to_be_eval/exercise/game-of-life
+    - file: 12_its_fun_to_be_eval/exercise/questions
+    - file: 12_its_fun_to_be_eval/exercise/solutions
+- file: 13_complex_comprehensions/complex_comprehensions
+  sections:
+  - file: 13_complex_comprehensions/exercise/questions
+    sections:
+    - file: 13_complex_comprehensions/exercise/solutions
+- file: 14_pandas/pandas_a_quick_tour
+  sections:
+  - file: 14_pandas/edm_us_adult_census_income/questions
+    sections:
+    - file: 14_pandas/edm_us_adult_census_income/solution
+- file: 15_logging/logging_in_python
+  sections:
+  - file: 15_logging/exercise/questions
+    sections:
+    - file: 15_logging/exercise/solutions
