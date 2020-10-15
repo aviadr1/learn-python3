@@ -1,0 +1,1135 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Constructors are inheritable &#8212; learn-python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">learn-python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_closures_and_decorators/closure_and_decorators.html">
+   Closures and decorators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_closures_and_decorators/closure_and_decorators.html#your-turn">
+   Your Turn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html">
+   Abstract Base Classes (ABCs)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_writing_our_own_container_types/writing_our_own_container_types.html">
+   Creating new collections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_writing_our_own_container_types/writing_our_own_container_types.html#iterator-protocol">
+   Iterator protocol
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_multiple_inheritance_and_super/multiple_inheritance_and_super.html">
+   super() and multiple inheritance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html">
+   Design patterns in python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#prototype">
+   Prototype
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#singleton">
+   Singleton
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#proxy">
+   Proxy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#composition">
+   Composition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#resource-acquisition-is-initialization-raii">
+   Resource Acquisition Is Initialization (RAII)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html">
+   useful resources:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#setup">
+   setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#how-pytest-discovers-tests">
+   How pytest discovers tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#our-first-test">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#pytest-context-sensitive-comparisons">
+   Pytest context-sensitive comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#using-fixtures-to-simplify-tests">
+   Using fixtures to simplify tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#parameterizing-fixtures">
+   parameterizing fixtures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#printing-and-logging-within-tests">
+   printing and logging within tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#float-when-things-are-almost-equal">
+   float: when things are (almost) equal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#adding-timeouts-to-tests">
+   adding timeouts to tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#testing-for-exceptions">
+   testing for exceptions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#running-tests-in-parallel">
+   running tests in parallel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#codebase-to-test-class-person">
+   Codebase to test: class Person
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#id14">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_package_management/10-package_management.html">
+   Where are my packages?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_package_management/10-package_management.html#development-of-projects-with-different-dependencies">
+   Development of Projects with Different Dependencies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_db_access/01_basic_db_access.html">
+   sqlite
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_db_access/01_basic_db_access.html#pyodbc">
+   pyodbc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12_its_fun_to_be_eval/its_fun_to_be_eval.html">
+   Its fun to be eval
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13_complex_comprehensions/complex_comprehensions.html">
+   writing and understanding nested list comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14_pandas/edm_us_adult_census_income/questions.html">
+   get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14_pandas/edm_us_adult_census_income/questions.html#income-for-adults-from-the-1994-census">
+   income for adults from the 1994 census
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/05_more_on_classes_and_objects/more_on_classes_and_objects.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05_more_on_classes_and_objects/more_on_classes_and_objects.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Constructors are inheritable
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bound-and-unbound-methods">
+   Bound and unbound methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#umbound-methods">
+     Umbound methods
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bound-methods">
+     Bound methods
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#monkey-patching-methods-to-a-class-or-instance">
+   Monkey-patching methods to a class or instance
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#where-is-everything">
+   Where is everything?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testing-if-an-object-has-an-attribute">
+   Testing if an object has an attribute
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inspecting-objects">
+   inspecting objects
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#which-method-will-get-called">
+   Which method will get called?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-your-base-class-es">
+   Accessing your base class(es)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-explicit-method">
+     The explicit method
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-super">
+     using super()
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#super-and-multiple-inheritance">
+     Super and multiple inheritance
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#class-scope-code-and-variables">
+   class scope: code and variables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-kind-of-code-can-we-run-at-class-scope">
+     What kind of code can we run at class scope?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-getattr-to-dynamically-support-more-attributes">
+   using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     __getattr__()
+    </span>
+   </code>
+   to dynamically support more attributes
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/05_more_on_classes_and_objects/more_on_classes_and_objects.ipynb" target="_blank">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" 
+     title="Open this file in Google Colab" alt="Colab"/>
+</a>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">!r}</span><span class="s2">)&quot;</span>
+    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;walking&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="s1">&#39;running&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">swim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="s1">&#39;swimming&#39;</span><span class="p">)</span>
+        
+<span class="k">class</span> <span class="nc">OlympicRunner</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="s2">&quot;running incredibly fast!&quot;</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">show_medals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;showing my olympic medals&#39;</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">person</span><span class="p">):</span>
+    <span class="n">person</span><span class="o">.</span><span class="n">walk</span><span class="p">()</span>
+    <span class="n">person</span><span class="o">.</span><span class="n">swim</span><span class="p">()</span>
+    <span class="n">person</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    
+<span class="n">terry</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;Terry Gilliam&#39;</span><span class="p">)</span>
+<span class="n">graham</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;Graham Chapman&#39;</span><span class="p">)</span>
+<span class="n">train</span><span class="p">(</span><span class="n">terry</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Terry Gilliam walking
+Terry Gilliam swimming
+Terry Gilliam running
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="constructors-are-inheritable">
+<h1>Constructors are inheritable<a class="headerlink" href="#constructors-are-inheritable" title="Permalink to this headline">¶</a></h1>
+<p>we define a constructor in class <code class="docutils literal notranslate"><span class="pre">Person</span></code>, notice how since I didnt redefine the constructor
+in <code class="docutils literal notranslate"><span class="pre">OlympicRunner</span></code> I can reuse it</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usainbolt</span> <span class="o">=</span> <span class="n">OlympicRunner</span><span class="p">(</span><span class="s1">&#39;Usain Bolt&#39;</span><span class="p">)</span>
+<span class="n">usainbolt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OlympicRunner(&#39;Usain Bolt&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bound-and-unbound-methods">
+<h1>Bound and unbound methods<a class="headerlink" href="#bound-and-unbound-methods" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="umbound-methods">
+<h2>Umbound methods<a class="headerlink" href="#umbound-methods" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># what&#39;s heppening here</span>
+<span class="n">terry</span><span class="o">.</span><span class="n">swim</span><span class="p">()</span>
+
+<span class="c1"># its actually equivalent to:</span>
+<span class="n">Person</span><span class="o">.</span><span class="n">swim</span><span class="p">(</span><span class="n">terry</span><span class="p">)</span>
+
+<span class="c1"># we can take the function swim out of the Person class</span>
+<span class="n">swim</span> <span class="o">=</span> <span class="n">Person</span><span class="o">.</span><span class="n">swim</span>
+
+<span class="c1"># this is called an unbound function - it is not glued to a particular object</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">swim</span><span class="p">)</span> <span class="c1"># &lt;function Person.swim at 0x06737228&gt;</span>
+
+<span class="c1"># we can call it on any person</span>
+<span class="n">swim</span><span class="p">(</span><span class="n">terry</span><span class="p">)</span>
+<span class="n">swim</span><span class="p">(</span><span class="n">graham</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Terry Gilliam swimming
+Terry Gilliam swimming
+&lt;function Person.swim at 0x000002402113EA68&gt;
+Terry Gilliam swimming
+Graham Chapman swimming
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bound-methods">
+<h2>Bound methods<a class="headerlink" href="#bound-methods" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets take the function &#39;swim&#39; from terry</span>
+<span class="n">terry_swim</span> <span class="o">=</span> <span class="n">terry</span><span class="o">.</span><span class="n">swim</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">terry_swim</span><span class="p">)</span> <span class="c1"># &lt;bound method Person.swim of Person(&#39;Terry Gilliam&#39;)&gt;</span>
+
+<span class="c1"># this function is bound to Terry Gilliam. </span>
+<span class="c1"># the &#39;self&#39; parameter has been determined - we dont need any parameters</span>
+<span class="n">terry_swim</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">terry_swim</span><span class="p">(</span><span class="n">graham</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;you cannot change the object:&#39;</span><span class="p">,</span> <span class="n">ex</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bound method Person.swim of Person(&#39;Terry Gilliam&#39;)&gt;
+Terry Gilliam swimming
+you cannot change the object: swim() takes 1 positional argument but 2 were given
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="monkey-patching-methods-to-a-class-or-instance">
+<h1>Monkey-patching methods to a class or instance<a class="headerlink" href="#monkey-patching-methods-to-a-class-or-instance" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>We can monkey-patch classes (change classes at run time) by just adding function to the class</p></li>
+<li><p>We can ‘trick’ functions to think they are methods of a class, bound to a particular object</p></li>
+<li><p>We can add methods to a particular object</p></li>
+</ul>
+<blockquote>
+<div><p>This works through the magic of ‘descriptors’ i.e. objects that know who owns them [ <a class="reference external" href="https://docs.python.org/3.7/howto/descriptor.html">more details</a> ]</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;is singing&#39;</span><span class="p">)</span>
+
+<span class="c1"># add sing() method to Person class</span>
+<span class="c1"># from this moment on, any Person object also has a sing() method </span>
+<span class="n">Person</span><span class="o">.</span><span class="n">sing</span> <span class="o">=</span> <span class="n">sing</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sing</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">terry</span><span class="o">.</span><span class="n">sing</span><span class="p">)</span>
+<span class="n">terry</span><span class="o">.</span><span class="n">sing</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># can we add functions to a particular instance?</span>
+<span class="c1"># just putting a function in an instance does not bind it to the instance</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train</span><span class="p">)</span> <span class="c1"># the train() function</span>
+<span class="n">usainbolt</span><span class="o">.</span><span class="n">train</span> <span class="o">=</span> <span class="n">train</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">usainbolt</span><span class="o">.</span><span class="n">train</span><span class="p">()</span> <span class="c1"># this won&#39;t work</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the train function is not bound:&#39;</span><span class="p">,</span> <span class="n">ex</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+<span class="c1"># here&#39;s how we can can do it</span>
+<span class="c1"># bind the function `train` to think it bound to usainbolt</span>
+<span class="n">train_usain</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="fm">__get__</span><span class="p">(</span><span class="n">usainbolt</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">usainbolt</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_usain</span><span class="p">)</span>
+<span class="n">train_usain</span><span class="p">()</span>
+<span class="n">usainbolt</span><span class="o">.</span><span class="n">train</span> <span class="o">=</span> <span class="n">train_usain</span>
+<span class="n">usainbolt</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function sing at 0x000002402113E0D8&gt;
+&lt;bound method sing of Person(&#39;Terry Gilliam&#39;)&gt;
+Person(&#39;Terry Gilliam&#39;) is singing
+
+&lt;function train at 0x000002402113EC18&gt;
+the train function is not bound: train() missing 1 required positional argument: &#39;person&#39; 
+
+&lt;bound method train of OlympicRunner(&#39;Usain Bolt&#39;)&gt;
+Usain Bolt walking
+Usain Bolt swimming
+Usain Bolt Usain Bolt running incredibly fast!
+Usain Bolt walking
+Usain Bolt swimming
+Usain Bolt Usain Bolt running incredibly fast!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="where-is-everything">
+<h1>Where is everything?<a class="headerlink" href="#where-is-everything" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>the attributes of each instance are stored in a <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> attribute</p></li>
+<li><p>the class of an instance is stored in the <code class="docutils literal notranslate"><span class="pre">__class__</span></code> attribute</p></li>
+<li><p>methods are usually stored in the <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> object of the class</p></li>
+<li><p>base classes are stored in the <code class="docutils literal notranslate"><span class="pre">__base__</span></code> and <code class="docutils literal notranslate"><span class="pre">__bases__</span></code> atrributes of the class</p></li>
+</ul>
+<p>It gets a bit more complicated though:</p>
+<ul class="simple">
+<li><p>an object can have a <code class="docutils literal notranslate"><span class="pre">__slots__</span></code>  variable instead of a <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> this is used to save memory <a class="reference external" href="https://stackoverflow.com/questions/472000/usage-of-slots">more details</a></p></li>
+<li><p>an object can have a <code class="docutils literal notranslate"><span class="pre">__getattr__</span></code> (or <code class="docutils literal notranslate"><span class="pre">__getattribute__</span></code>) function to return additional attributes <a class="reference external" href="https://stackoverflow.com/questions/4295678/understanding-the-difference-between-getattr-and-getattribute">more details</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">usainbolt</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="n">pprint</span><span class="p">(</span><span class="n">usainbolt</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span> <span class="c1"># OlympicRunner</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">OlympicRunner</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="n">pprint</span><span class="p">(</span><span class="n">OlympicRunner</span><span class="o">.</span><span class="n">__base__</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">Person</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Usain Bolt&#39;,
+ &#39;train&#39;: &lt;bound method train of OlympicRunner(&#39;Usain Bolt&#39;)&gt;}
+
+&lt;class &#39;__main__.OlympicRunner&#39;&gt;
+mappingproxy({&#39;__doc__&#39;: None,
+              &#39;__module__&#39;: &#39;__main__&#39;,
+              &#39;run&#39;: &lt;function OlympicRunner.run at 0x000002402113E318&gt;,
+              &#39;show_medals&#39;: &lt;function OlympicRunner.show_medals at 0x000002402113ECA8&gt;})
+
+&lt;class &#39;__main__.Person&#39;&gt;
+mappingproxy({&#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Person&#39; objects&gt;,
+              &#39;__doc__&#39;: None,
+              &#39;__init__&#39;: &lt;function Person.__init__ at 0x000002402113E4C8&gt;,
+              &#39;__module__&#39;: &#39;__main__&#39;,
+              &#39;__repr__&#39;: &lt;function Person.__repr__ at 0x000002402113E678&gt;,
+              &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Person&#39; objects&gt;,
+              &#39;run&#39;: &lt;function Person.run at 0x000002402113E9D8&gt;,
+              &#39;sing&#39;: &lt;function sing at 0x000002402113E0D8&gt;,
+              &#39;swim&#39;: &lt;function Person.swim at 0x000002402113EA68&gt;,
+              &#39;walk&#39;: &lt;function Person.walk at 0x000002402113E948&gt;})
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="testing-if-an-object-has-an-attribute">
+<h1>Testing if an object has an attribute<a class="headerlink" href="#testing-if-an-object-has-an-attribute" title="Permalink to this headline">¶</a></h1>
+<p>To get an attribute <code class="docutils literal notranslate"><span class="pre">x</span></code> from an object <code class="docutils literal notranslate"><span class="pre">obj</span></code>, we can easily just write <code class="docutils literal notranslate"><span class="pre">obj.x</span></code>
+but what if the object doesn’t have the x property? then <code class="docutils literal notranslate"><span class="pre">obj.x</span></code> will throw an exception</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span>                            <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">42</span><span class="o">-</span><span class="mi">5</span><span class="n">a93966dfc11</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">4</span> <span class="n">obj</span><span class="o">.</span><span class="n">x</span>
+
+<span class="ne">AttributeError</span><span class="p">:</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;x&#39;</span>
+</pre></div>
+</div>
+<p>how can we test for an attribute? we can either catch the exception, or use the <code class="docutils literal notranslate"><span class="pre">getattr()</span></code> function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">getattr</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">name</span><span class="p">[,</span> <span class="n">default</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">value</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">usainbolt</span><span class="p">,</span> <span class="s1">&#39;run&#39;</span><span class="p">)</span> <span class="c1"># equivalent to usainbolt.run</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">run</span><span class="p">)</span>
+
+<span class="n">time_machine</span> <span class="o">=</span> <span class="n">attribute_usain_doesnt_have</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">usainbolt</span><span class="p">,</span> <span class="s1">&#39;time_machine&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time_machine</span><span class="p">)</span> <span class="k">if</span> <span class="n">time_machine</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;no time machine yet&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bound method OlympicRunner.run of OlympicRunner(&#39;Usain Bolt&#39;)&gt;
+no time machine yet
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="inspecting-objects">
+<h1>inspecting objects<a class="headerlink" href="#inspecting-objects" title="Permalink to this headline">¶</a></h1>
+<p>the <code class="docutils literal notranslate"><span class="pre">dir</span></code> function is useful when inspecting objects in an interactive environment - it is designed to return the most ‘interesting’ things in an object.
+but it is not necessarily complete or consistent, and may change between versions</p>
+<p>if are writing reflection code to iterate through other objects, we need something more consistent and powerful - the <code class="docutils literal notranslate"><span class="pre">inspect</span></code> module [ <a class="reference external" href="https://docs.python.org/3/library/inspect.html">more details</a> ]</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">inspect</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="n">inspect</span><span class="p">))</span> <span class="c1"># what .py created this module?</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="n">pprint</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getmembers</span><span class="p">(</span><span class="n">usainbolt</span><span class="p">,</span> <span class="n">inspect</span><span class="o">.</span><span class="n">ismethod</span><span class="p">))</span> <span class="c1"># get methods of usainbolt</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="n">pprint</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">train</span><span class="p">))</span> <span class="c1"># returns the parameters of the function train()</span>
+<span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;c:\\users\\aviad\\appdata\\local\\programs\\python\\python37\\lib\\inspect.py&#39;
+
+[(&#39;__init__&#39;, &lt;bound method Person.__init__ of OlympicRunner(&#39;Usain Bolt&#39;)&gt;),
+ (&#39;__repr__&#39;, &lt;bound method Person.__repr__ of OlympicRunner(&#39;Usain Bolt&#39;)&gt;),
+ (&#39;run&#39;, &lt;bound method OlympicRunner.run of OlympicRunner(&#39;Usain Bolt&#39;)&gt;),
+ (&#39;show_medals&#39;,
+  &lt;bound method OlympicRunner.show_medals of OlympicRunner(&#39;Usain Bolt&#39;)&gt;),
+ (&#39;sing&#39;, &lt;bound method sing of OlympicRunner(&#39;Usain Bolt&#39;)&gt;),
+ (&#39;swim&#39;, &lt;bound method Person.swim of OlympicRunner(&#39;Usain Bolt&#39;)&gt;),
+ (&#39;train&#39;, &lt;bound method train of OlympicRunner(&#39;Usain Bolt&#39;)&gt;),
+ (&#39;walk&#39;, &lt;bound method Person.walk of OlympicRunner(&#39;Usain Bolt&#39;)&gt;)]
+
+&lt;Signature (person)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="which-method-will-get-called">
+<h1>Which method will get called?<a class="headerlink" href="#which-method-will-get-called" title="Permalink to this headline">¶</a></h1>
+<p>When calling a function that exists in both a base class (<code class="docutils literal notranslate"><span class="pre">Person.run()</span></code>) and in a derived class (<code class="docutils literal notranslate"><span class="pre">OlympicRunner.run()</span></code>) which function will actually be called?</p>
+<ul class="simple">
+<li><p>the function that will be called depends on the type of the object and the <strong>Method Resolution Order</strong> or <em>MRO</em> - (see example below).</p></li>
+<li><p>when calling <code class="docutils literal notranslate"><span class="pre">usainbolt.run()</span></code> python will access <code class="docutils literal notranslate"><span class="pre">type(usainbolt).__mro__</span></code> to get at the list of classes in the object’s inheritance tree.</p></li>
+<li><p>python will iterate through this list of classes, looking for the method <code class="docutils literal notranslate"><span class="pre">run</span></code> and returns the method from the first class that has this method.</p></li>
+</ul>
+<p>the property of having a different function called depending on the type of the object and its location in an inheritance tree is a well-known OO principle that goes by many names:</p>
+<ul class="simple">
+<li><p>Polymorphism</p></li>
+<li><p>Virtual functions</p></li>
+<li><p>Liskov-Substition principle</p></li>
+<li><p>Single dispatch</p></li>
+</ul>
+<blockquote>
+<div><blockquote>
+<div><p><em>in python, all methods are ‘virtual’</em></p>
+</div></blockquote>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># objects of type Person first look for methods in class Person, then in class object</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Person</span><span class="o">.</span><span class="vm">__mro__</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># objects of type OlympicRunner first look for methods in class OlympicRunner, then in Person, then in class object</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">OlympicRunner</span><span class="o">.</span><span class="vm">__mro__</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">terry</span><span class="o">.</span><span class="n">swim</span><span class="p">()</span>     <span class="c1"># Person.swim(terry)</span>
+<span class="n">usainbolt</span><span class="o">.</span><span class="n">swim</span><span class="p">()</span> <span class="c1"># Person.swim(usainbolt)</span>
+<span class="n">terry</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>      <span class="c1"># Person.run()</span>
+<span class="n">usainbolt</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>  <span class="c1"># OlympicRunner.run(usainbolt)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&lt;class &#39;__main__.Person&#39;&gt;, &lt;class &#39;object&#39;&gt;) 
+
+(&lt;class &#39;__main__.OlympicRunner&#39;&gt;, &lt;class &#39;__main__.Person&#39;&gt;, &lt;class &#39;object&#39;&gt;) 
+
+Terry Gilliam swimming
+Usain Bolt swimming
+Terry Gilliam running
+Usain Bolt Usain Bolt running incredibly fast!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="accessing-your-base-class-es">
+<h1>Accessing your base class(es)<a class="headerlink" href="#accessing-your-base-class-es" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-explicit-method">
+<h2>The explicit method<a class="headerlink" href="#the-explicit-method" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes when inheriting a class we want to override a function, while still reusing the implementation of the base class.
+we can do so by explitily referring naming the unbound name of the function we want to use from the base class:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">InstagramCelebrity</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>        
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Person</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="c1"># call the run() method defined in class Person</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;taking picture and uploading to instagram&#39;</span><span class="p">)</span>
+
+<span class="n">kardashian</span> <span class="o">=</span> <span class="n">InstagramCelebrity</span><span class="p">(</span><span class="s1">&#39;Kardashian&#39;</span><span class="p">)</span>
+<span class="n">kardashian</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kardashian running
+Kardashian taking picture and uploading to instagram
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="using-super">
+<h2>using super()<a class="headerlink" href="#using-super" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>What if we don’t want to explicitly write the name of the base class? <code class="docutils literal notranslate"><span class="pre">super()</span></code> can help with that</p>
+</div></blockquote>
+<p>consider these two scenarios:</p>
+<ol class="simple">
+<li><p>Notice in the example above how we’ve not followed the <em>DRY</em> principle (Don’t Repeat Yourself) and explicitly referred to class <code class="docutils literal notranslate"><span class="pre">Person</span></code> in <code class="docutils literal notranslate"><span class="pre">InstagramCelebrity.run()</span></code>? what if we later decided that <code class="docutils literal notranslate"><span class="pre">InstagramCelebrity</span></code> should not inherit directly from <code class="docutils literal notranslate"><span class="pre">Person</span></code> but rather inherit from (say) <code class="docutils literal notranslate"><span class="pre">Celebrity</span></code>? we would need to change the run() method to call <code class="docutils literal notranslate"><span class="pre">Celebrity.run(self)</span></code> instead, but we might forget to do so. <br><br></p></li>
+<li><p>What if we have a complicated <em>diamond-shape multiple inheritance</em> and we’re not sure what’s the right base class to call?</p></li>
+</ol>
+<p>Lets first focus on scenario 1, where we don’t really need to know much about how <code class="docutils literal notranslate"><span class="pre">super()</span></code> works. <br>
+in the example below works exactly the same as the example above, except it uses <code class="docutils literal notranslate"><span class="pre">super()</span></code> instead of an explicit <code class="docutils literal notranslate"><span class="pre">Person.</span></code> notation</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">InstagramCelebrity</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>        
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span> <span class="c1"># calls the run() on the first base class that has a run() function</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;taking picture and uploading to instagram&#39;</span><span class="p">)</span>
+
+<span class="n">kardashian</span> <span class="o">=</span> <span class="n">InstagramCelebrity</span><span class="p">(</span><span class="s1">&#39;Kardashian&#39;</span><span class="p">)</span>
+<span class="n">kardashian</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kardashian running
+Kardashian taking picture and uploading to instagram
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="super-and-multiple-inheritance">
+<h2>Super and multiple inheritance<a class="headerlink" href="#super-and-multiple-inheritance" title="Permalink to this headline">¶</a></h2>
+<p>we’ll talk about how super() interacts with multiple inheritance in lesson 06</p>
+</div>
+</div>
+<div class="section" id="class-scope-code-and-variables">
+<h1>class scope: code and variables<a class="headerlink" href="#class-scope-code-and-variables" title="Permalink to this headline">¶</a></h1>
+<p>consider the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Comedian</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="n">funny_level</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>what’s happening here? when is this code run? where does the <code class="docutils literal notranslate"><span class="pre">funny_level</span></code> attribute live?</p>
+<ol class="simple">
+<li><p>code inside a class scope is run at the time the class is defined, <strong>NOT</strong> when an instance is created</p></li>
+<li><p>variables defined at class scope, including methods defined using <code class="docutils literal notranslate"><span class="pre">def</span></code> or any other variables, end up as attributes of the class in its <code class="docutils literal notranslate"><span class="pre">__dict__</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Comedian</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="c1"># this code is run NOW, when this class is being defined</span>
+    <span class="n">funny_level</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># therefore we can access Comedian.funny_level even BEFORE creating any instances</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Comedian</span><span class="o">.</span><span class="n">funny_level</span><span class="p">)</span> <span class="c1"># 0</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">Comedian</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span> <span class="c1"># funny_level is an attribute of Comedian class</span>
+<span class="n">Comedian</span><span class="o">.</span><span class="n">funny_level</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># create a comedian instance</span>
+<span class="n">eric</span> <span class="o">=</span> <span class="n">Comedian</span><span class="p">(</span><span class="s1">&#39;Eric Idle&#39;</span><span class="p">)</span>
+
+<span class="c1">#  eric doesn&#39;t its own funny_level attribute</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">eric</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+
+<span class="c1"># eric.funny_level actually returns Comedian.funny_level</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eric</span><span class="o">.</span><span class="n">funny_level</span><span class="p">)</span> <span class="c1"># 50 </span>
+
+<span class="c1"># when we&#39;re assigning a value to eric.funny_level, we&#39;re actually ADDING a new attribute to eric&#39;s __dict__</span>
+<span class="n">eric</span><span class="o">.</span><span class="n">funny_level</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">eric</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eric</span><span class="o">.</span><span class="n">funny_level</span><span class="p">)</span> <span class="c1"># 100</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Comedian</span><span class="o">.</span><span class="n">funny_level</span><span class="p">)</span> <span class="c1"># unchanged, it is still 50</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+mappingproxy({&#39;__module__&#39;: &#39;__main__&#39;, &#39;funny_level&#39;: 0, &#39;__doc__&#39;: None})
+{&#39;name&#39;: &#39;Eric Idle&#39;}
+50
+{&#39;funny_level&#39;: 100, &#39;name&#39;: &#39;Eric Idle&#39;}
+100
+50
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="what-kind-of-code-can-we-run-at-class-scope">
+<h2>What kind of code can we run at class scope?<a class="headerlink" href="#what-kind-of-code-can-we-run-at-class-scope" title="Permalink to this headline">¶</a></h2>
+<p>Answer: <strong>any legal python code</strong> can be written at class scope, including:</p>
+<ul class="simple">
+<li><p>defining functions (obviously)</p></li>
+<li><p>defining variables</p></li>
+<li><p>creating inner classes</p></li>
+<li><p>calling functions or print</p></li>
+<li><p>even run loops!</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_dict_helper</span><span class="p">(</span><span class="n">dict_</span><span class="p">):</span> <span class="k">return</span> <span class="p">[</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">dict_</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">)]</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">:</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;computing squares:&quot;</span><span class="p">)</span>
+    <span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;finished computing squares:&quot;</span><span class="p">,</span> <span class="n">squares</span><span class="p">)</span>
+        
+    <span class="k">class</span> <span class="nc">InnerClass</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Defining an inner function now&quot;</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">myfunc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+        
+<span class="nb">print</span><span class="p">()</span>        
+<span class="n">pprint</span><span class="p">(</span><span class="n">Test</span><span class="o">.</span><span class="n">squares</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">show_dict_helper</span><span class="p">(</span><span class="n">Test</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">))</span> <span class="c1"># [&#39;squares&#39;, &#39;i&#39;, &#39;InnerClass&#39;, &#39;myfunc&#39;]      </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>computing squares:
+finished computing squares: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+Defining an inner function now
+
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+[&#39;squares&#39;, &#39;i&#39;, &#39;InnerClass&#39;, &#39;myfunc&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## How is it different from __init__ methods?</span>
+<span class="k">class</span> <span class="nc">Comedian2</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    
+    <span class="c1"># code to *define* the __init__ function runs *now*</span>
+    <span class="c1"># the __init__ function goes into Comedian2.__dict__</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">funny_level</span><span class="p">):</span>
+        <span class="c1"># this code runs only when we are creating an instance</span>
+        <span class="c1"># name, funny_level end up in the instance&#39;s dict</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">funny_level</span> <span class="o">=</span> <span class="n">funny_level</span>
+        
+<span class="n">eric2</span> <span class="o">=</span> <span class="n">Comedian2</span><span class="p">(</span><span class="s1">&#39;Eric Idle&#39;</span><span class="p">,</span> <span class="n">funny_level</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># now Comedian2 only has attributes related to the class</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">Comedian2</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span> <span class="c1"># mostly just __init__</span>
+
+<span class="c1"># and our instance eric2 has all the attributes related to instances</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">eric2</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span> <span class="c1"># &#39;name&#39; and &#39;funny_level&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mappingproxy({&#39;__doc__&#39;: None,
+              &#39;__init__&#39;: &lt;function Comedian2.__init__ at 0x000002402116A948&gt;,
+              &#39;__module__&#39;: &#39;__main__&#39;})
+{&#39;funny_level&#39;: 100, &#39;name&#39;: &#39;Eric Idle&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="using-getattr-to-dynamically-support-more-attributes">
+<h1>using <code class="docutils literal notranslate"><span class="pre">__getattr__()</span></code> to dynamically support more attributes<a class="headerlink" href="#using-getattr-to-dynamically-support-more-attributes" title="Permalink to this headline">¶</a></h1>
+<p>python is incredibly dynamic and extensible. a class can handle requests for attributes even if they don’t actual “exist” in the class by implementing the <code class="docutils literal notranslate"><span class="pre">__getattr__</span></code> function. this can be useful in many design patterns such as <code class="docutils literal notranslate"><span class="pre">Composition</span></code> or <code class="docutils literal notranslate"><span class="pre">Proxy</span></code> as we will see in the next chapter.</p>
+<blockquote>
+<div><p>The notebook <strong>ex 05 - questions</strong> has a question about <code class="docutils literal notranslate"><span class="pre">__setattr__()</span></code></p>
+</div></blockquote>
+<p>meanwhile, lets look at a silly example of an <code class="docutils literal notranslate"><span class="pre">ImprovComedian</span></code> class that returns random jokes for every attribute that isn’t found in the class</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="k">class</span> <span class="nc">ImprovComedian</span><span class="p">(</span><span class="n">Comedian2</span><span class="p">):</span>
+    <span class="n">JOKES</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;why is 10 afraid of 7? because 7 8 9&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;How did 10 die ? he was in the middle of 9 11&#39;</span><span class="p">,</span>
+        <span class="s2">&quot;What&#39;s the difference between insomnia and amnesia? &quot;</span> \
+            <span class="s2">&quot;I stayed up all night yesterday trying to remember ...&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;what&#39;s a freudian slip? its when you mean one thing but you say your mother&quot;</span>
+    <span class="p">]</span>
+        
+    <span class="c1"># return random joke for every attribute that doesn&#39;t already exist in the class</span>
+    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;so regarding </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">... &quot;</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">JOKES</span><span class="p">)</span>    
+
+    
+<span class="n">seinfeld</span> <span class="o">=</span> <span class="n">ImprovComedian</span><span class="p">(</span><span class="s1">&#39;Seinfeld&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">seinfeld</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">seinfeld</span><span class="o">.</span><span class="n">funny_level</span><span class="p">)</span> <span class="c1"># normal attributes continue to work</span>
+
+<span class="c1"># when you ask for attributes that &quot;don&#39;t exist&quot; __getattr__ gets called</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">seinfeld</span><span class="o">.</span><span class="n">numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">seinfeld</span><span class="o">.</span><span class="n">sleep</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seinfeld 100
+so regarding numbers... How did 10 die ? he was in the middle of 9 11
+so regarding sleep... why is 10 afraid of 7? because 7 8 9
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./05_more_on_classes_and_objects"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Aviad Rozenhek<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

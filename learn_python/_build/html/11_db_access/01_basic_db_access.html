@@ -1,0 +1,868 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sqlite &#8212; learn-python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SQLAlchemy" href="02_sqlalchemy_orm.html" />
+    <link rel="prev" title="using new modules without polluting your system" href="../10_package_management/exercise/solutions.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">learn-python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_closures_and_decorators/closure_and_decorators.html">
+   Closures and decorators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_closures_and_decorators/closure_and_decorators.html#your-turn">
+   Your Turn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html">
+   Abstract Base Classes (ABCs)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_writing_our_own_container_types/writing_our_own_container_types.html">
+   Creating new collections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_writing_our_own_container_types/writing_our_own_container_types.html#iterator-protocol">
+   Iterator protocol
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_multiple_inheritance_and_super/multiple_inheritance_and_super.html">
+   super() and multiple inheritance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html">
+   Design patterns in python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#prototype">
+   Prototype
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#singleton">
+   Singleton
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#proxy">
+   Proxy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#composition">
+   Composition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#resource-acquisition-is-initialization-raii">
+   Resource Acquisition Is Initialization (RAII)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html">
+   useful resources:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#setup">
+   setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#how-pytest-discovers-tests">
+   How pytest discovers tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#our-first-test">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#pytest-context-sensitive-comparisons">
+   Pytest context-sensitive comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#using-fixtures-to-simplify-tests">
+   Using fixtures to simplify tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#parameterizing-fixtures">
+   parameterizing fixtures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#printing-and-logging-within-tests">
+   printing and logging within tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#float-when-things-are-almost-equal">
+   float: when things are (almost) equal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#adding-timeouts-to-tests">
+   adding timeouts to tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#testing-for-exceptions">
+   testing for exceptions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#running-tests-in-parallel">
+   running tests in parallel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#codebase-to-test-class-person">
+   Codebase to test: class Person
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#id14">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_package_management/10-package_management.html">
+   Where are my packages?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_package_management/10-package_management.html#development-of-projects-with-different-dependencies">
+   Development of Projects with Different Dependencies
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   sqlite
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#pyodbc">
+   pyodbc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12_its_fun_to_be_eval/its_fun_to_be_eval.html">
+   Its fun to be eval
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13_complex_comprehensions/complex_comprehensions.html">
+   writing and understanding nested list comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14_pandas/edm_us_adult_census_income/questions.html">
+   get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14_pandas/edm_us_adult_census_income/questions.html#income-for-adults-from-the-1994-census">
+   income for adults from the 1994 census
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/11_db_access/01_basic_db_access.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/11_db_access/01_basic_db_access.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   sqlite
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table-metadata">
+     Table metadata
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sqlite-and-python-types">
+     SQLite and Python types
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#custom-types">
+     Custom types
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pyodbc">
+   pyodbc
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-connections">
+     Example connections
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ms-sql-server">
+       MS SQL Server
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mysql">
+       MySQL
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     SQLite
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/11_db_access/01_basic_db_access.ipynb" target="_blank">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" 
+     title="Open this file in Google Colab" alt="Colab"/>
+</a>
+<div class="section" id="sqlite">
+<h1>sqlite<a class="headerlink" href="#sqlite" title="Permalink to this headline">¶</a></h1>
+<p>SQLite is an open-source library that provides a lightweight <strong>disk-based</strong> database.</p>
+<blockquote>
+<div><ol class="simple">
+<li><p>sqlite it  doesn’t require a separate server process</p></li>
+<li><p>allows accessing the database using a nonstandard variant of the SQL query language.</p></li>
+<li><p>provides a SQL interface compliant with the python’s DB-API 2.0 specification described by <a class="reference external" href="https://www.python.org/dev/peps/pep-0249">PEP 249</a>.</p></li>
+</ol>
+</div></blockquote>
+<p>applications can use SQLite for internal data storage. It’s also possible to prototype an application using SQLite and then port the code to a larger database such as PostgreSQL or Oracle.</p>
+<p>To use the module, you must first create a <code class="docutils literal notranslate"><span class="pre">Connection</span></code> object that represents the database.</p>
+<p>a connection object’s key methods are:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cursor()</span></code>
+returns a cursor object that can execute queries and retrieve results</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">commit()</span></code>
+submits the current transaction to the DB. If you don’t call this method, anything you did since the last call to commit() is not visible from other database connections. If you wonder why you don’t see the data you’ve written to the database, please check you didn’t forget to call this method.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rollback()</span></code>
+rolls back any changes to the database since the last call to commit().</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">close()</span></code>
+closes the database connection. Note that this does not automatically call commit(). If you just close your database connection without calling commit() first, your changes will be lost!</p></li>
+</ol>
+<p>in our example the data will be stored in a local file called <code class="docutils literal notranslate"><span class="pre">example.db</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;example.db&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>You can also supply the special name <code class="docutils literal notranslate"><span class="pre">:memory:</span></code> to create a database in RAM.</p>
+</div></blockquote>
+<p>Once you have a Connection, you can create a <code class="docutils literal notranslate"><span class="pre">Cursor</span></code> object and call its <code class="docutils literal notranslate"><span class="pre">execute()</span></code> method to perform SQL commands:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="c1"># Create table called stocks</span>
+<span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    CREATE TABLE stocks (</span>
+<span class="s1">        date text, </span>
+<span class="s1">        trans text, </span>
+<span class="s1">        symbol text, </span>
+<span class="s1">        qty real, </span>
+<span class="s1">        price real</span>
+<span class="s1">        )</span>
+<span class="s1">    &#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="c1"># Save (commit) the changes</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OperationalError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">7</span><span class="n">dd1553262cf</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>         <span class="n">price</span> <span class="n">real</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">12</span>     <span class="s1">&#39;&#39;&#39;)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span><span class="s1"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span><span class="s1"> # Save (commit) the changes</span>
+
+<span class="ne">OperationalError</span>: table stocks already exists
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can also close the connection if we are done with it.</span>
+<span class="c1"># Just be sure any changes have been committed or they will be lost.</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>since we don’t want to forget closing the connection, here’s a nice utility function
+that opens a connection and returns a handy cursor object</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+
+<span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">sqlite3_connect</span><span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="k">yield</span> <span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">cursor</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<p>and here’s how <code class="docutils literal notranslate"><span class="pre">sqlite3_connect()</span></code> can be used:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">sqlite3_connect</span><span class="p">(</span><span class="s1">&#39;example.db&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="p">[</span><span class="n">conn</span><span class="p">,</span> <span class="n">c</span><span class="p">]:</span>
+
+    <span class="c1"># Insert a row of data</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;INSERT INTO stocks VALUES (&#39;2008-01-05&#39;,&#39;BUY&#39;,&#39;AAPL&#39;,120,37.14)&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Save (commit) the changes</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    
+<span class="c1"># closing is done for us</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Usually your SQL operations will need to use values from Python variables like people’s names, and fields from forms.</p>
+<p>DO NOT assemble your SQL using Python’s string operations because doing so is insecure; it makes your program vulnerable to an SQL injection attack</p>
+<p><img alt="XKCD" src="https://imgs.xkcd.com/comics/exploits_of_a_mom.png" /></p>
+<p>Instead, use the API’s parameter substitution - Put ? as a placeholder wherever you want to use a value, and then provide a tuple of values as the second argument to the cursor’s execute() method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">sqlite3_connect</span><span class="p">(</span><span class="s1">&#39;example.db&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="p">[</span><span class="n">conn</span><span class="p">,</span> <span class="n">c</span><span class="p">]:</span>
+
+    <span class="c1"># DO NOT use str.format or f-strings or any other way to embed your variables into strings</span>
+
+    <span class="c1"># INSTEAD, use the sanitized substitution capability of the execute() function</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;RHAT&#39;</span><span class="p">,)</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM stocks WHERE symbol=?&#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">fetchone</span><span class="p">())</span>
+
+    <span class="c1"># Larger example that inserts many records at a time</span>
+    <span class="n">purchases</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;2006-03-28&#39;</span><span class="p">,</span> <span class="s1">&#39;BUY&#39;</span><span class="p">,</span> <span class="s1">&#39;IBM&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mf">45.00</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s1">&#39;2006-04-05&#39;</span><span class="p">,</span> <span class="s1">&#39;BUY&#39;</span><span class="p">,</span> <span class="s1">&#39;MSFT&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mf">72.00</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s1">&#39;2006-04-06&#39;</span><span class="p">,</span> <span class="s1">&#39;SELL&#39;</span><span class="p">,</span> <span class="s1">&#39;IBM&#39;</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mf">53.00</span><span class="p">),</span>
+                <span class="p">]</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s1">&#39;INSERT INTO stocks VALUES (?,?,?,?,?)&#39;</span><span class="p">,</span> <span class="n">purchases</span><span class="p">)</span>
+    
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+</pre></div>
+</div>
+</div>
+</div>
+<p>To retrieve data after executing a SELECT statement, you can treat the cursor as an iterator:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">sqlite3_connect</span><span class="p">(</span><span class="s1">&#39;example.db&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="p">[</span><span class="n">conn</span><span class="p">,</span> <span class="n">c</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM stocks ORDER BY price&#39;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((&#39;date&#39;, None, None, None, None, None, None), (&#39;trans&#39;, None, None, None, None, None, None), (&#39;symbol&#39;, None, None, None, None, None, None), (&#39;qty&#39;, None, None, None, None, None, None), (&#39;price&#39;, None, None, None, None, None, None))
+(&#39;2006-03-28&#39;, &#39;BUY&#39;, &#39;IBM&#39;, 1000.0, 45.0)
+((&#39;date&#39;, None, None, None, None, None, None), (&#39;trans&#39;, None, None, None, None, None, None), (&#39;symbol&#39;, None, None, None, None, None, None), (&#39;qty&#39;, None, None, None, None, None, None), (&#39;price&#39;, None, None, None, None, None, None))
+(&#39;2006-04-06&#39;, &#39;SELL&#39;, &#39;IBM&#39;, 500.0, 53.0)
+((&#39;date&#39;, None, None, None, None, None, None), (&#39;trans&#39;, None, None, None, None, None, None), (&#39;symbol&#39;, None, None, None, None, None, None), (&#39;qty&#39;, None, None, None, None, None, None), (&#39;price&#39;, None, None, None, None, None, None))
+(&#39;2006-04-05&#39;, &#39;BUY&#39;, &#39;MSFT&#39;, 1000.0, 72.0)
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>you can also call the cursor’s <code class="docutils literal notranslate"><span class="pre">fetchone()</span></code> method to retrieve a single matching row, or call <code class="docutils literal notranslate"><span class="pre">fetchall()</span></code> to get a list of the matching rows.</p>
+</div></blockquote>
+<div class="section" id="table-metadata">
+<h2>Table metadata<a class="headerlink" href="#table-metadata" title="Permalink to this headline">¶</a></h2>
+<p>We can access all the tables, their fields and their types using a simple query</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">sqlite3_connect</span><span class="p">(</span><span class="s1">&#39;example.db&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="p">[</span><span class="n">conn</span><span class="p">,</span> <span class="n">c</span><span class="p">]:</span>
+    <span class="n">rs</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SELECT name, sql FROM sqlite_master</span>
+<span class="sd">    WHERE type=&#39;table&#39;</span>
+<span class="sd">    ORDER BY name;</span>
+<span class="sd">    &quot;&quot;&quot;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">sql</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stocks
+CREATE TABLE stocks (
+        date text, 
+        trans text, 
+        symbol text, 
+        qty real, 
+        price real
+        )
+test
+CREATE TABLE test(
+            p
+            )
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sqlite-and-python-types">
+<h2>SQLite and Python types<a class="headerlink" href="#sqlite-and-python-types" title="Permalink to this headline">¶</a></h2>
+<p>SQLite natively supports the following types: <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, <code class="docutils literal notranslate"><span class="pre">INTEGER</span></code>, <code class="docutils literal notranslate"><span class="pre">REAL</span></code>, <code class="docutils literal notranslate"><span class="pre">TEXT</span></code>, <code class="docutils literal notranslate"><span class="pre">BLOB</span></code>.</p>
+<p>The following Python types can thus be sent to SQLite without any problem:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Python type</p></th>
+<th class="head"><p>SQLite type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>None</p></td>
+<td><p>NULL</p></td>
+</tr>
+<tr class="row-odd"><td><p>int</p></td>
+<td><p>INTEGER</p></td>
+</tr>
+<tr class="row-even"><td><p>float</p></td>
+<td><p>REAL</p></td>
+</tr>
+<tr class="row-odd"><td><p>str</p></td>
+<td><p>TEXT</p></td>
+</tr>
+<tr class="row-even"><td><p>bytes</p></td>
+<td><p>BLOB</p></td>
+</tr>
+</tbody>
+</table>
+<p>SQLite supports only a limited set of types natively. To use other Python types with SQLite, you must adapt them to one of the sqlite3 module’s supported types for SQLite: one of <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">bytes</span></code>.</p>
+</div>
+<div class="section" id="custom-types">
+<h2>Custom types<a class="headerlink" href="#custom-types" title="Permalink to this headline">¶</a></h2>
+<p>there are two ways to read/write objects from a database:</p>
+<ol class="simple">
+<li><p>encoding the object into a text/blob column using some format (often JSON)</p></li>
+<li><p>converting objects into tables rows (respecting foreign keys as potential links to other objects)</p></li>
+</ol>
+<p>with a DB-API based SQL interface like sqlite3, both of these methods can contain a lot of boiler plate code and so we will leave them out of thid tutorial</p>
+</div>
+</div>
+<div class="section" id="pyodbc">
+<h1>pyodbc<a class="headerlink" href="#pyodbc" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>pip install pyodbc</p>
+</div></blockquote>
+<p><a class="reference external" href="https://github.com/mkleehammer/pyodbc/wiki">pyodbc</a> is a python-ODBC bridge library that also supports the DB-API 2.0 specification. and can connect to a vast number of databases, including MS SQL Server, MySQL, PostgreSQL, Oracel, Google Big Data, SQLite, among others.</p>
+<blockquote>
+<div><p>supporting the DB-API 2.0 means that code that uses pyodbc can look almost identical to code using SQLite</p>
+</div></blockquote>
+<blockquote>
+<div><p>Open Database Connectivity (ODBC) is the standard that allows using identical (or at least very similar) SQL statements for querying different Databases (DBMS). The designers of ODBC aimed to make it independent of database systems and operating systems.</p>
+</div></blockquote>
+<blockquote>
+<div><p>ODBC accomplishes DBMS independence by using an ODBC driver as a translation layer between the application and the DBMS. The driver often has to be installed on the client operating system</p>
+</div></blockquote>
+<div class="section" id="example-connections">
+<h2>Example connections<a class="headerlink" href="#example-connections" title="Permalink to this headline">¶</a></h2>
+<p>to connect to a DB, your often need to know the server/IP it is running on,
+the name of the datanase, and username/password to access the databse</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyodbc</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;your_server&quot;</span>
+<span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;your_db&quot;</span>
+<span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;your_user&quot;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;your_password&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ms-sql-server">
+<h3>MS SQL Server<a class="headerlink" href="#ms-sql-server" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">connection_str</span> <span class="o">=</span> \
+    <span class="s1">&#39;DRIVER={ODBC Driver 17 for SQL Server};&#39;</span> <span class="o">+</span> \
+    <span class="sa">f</span><span class="s1">&#39;SERVER=</span><span class="si">{</span><span class="n">server</span><span class="si">}</span><span class="s1">;&#39;</span>\
+    <span class="sa">f</span><span class="s1">&#39;DATABASE=</span><span class="si">{</span><span class="n">db</span><span class="si">}</span><span class="s1">;&#39;</span>\
+    <span class="sa">f</span><span class="s1">&#39;UID=</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s1">;&#39;</span> \
+    <span class="sa">f</span><span class="s1">&#39;PWD=</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">connection_str</span><span class="p">)</span>
+
+<span class="c1"># # Connect to MS SQL Server</span>
+<span class="c1"># conn = pyodbc.connect(connection_str)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DRIVER={ODBC Driver 17 for SQL Server};SERVER=your_server;DATABASE=your_db;UID=your_user;PWD=your_password
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mysql">
+<h3>MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">connection_str</span> <span class="o">=</span> \
+    <span class="s2">&quot;DRIVER={MySQL ODBC 3.51 Driver};&quot;</span> \
+    <span class="sa">f</span><span class="s2">&quot;SERVER=</span><span class="si">{</span><span class="n">server</span><span class="si">}</span><span class="s2">;&quot;</span> \
+    <span class="sa">f</span><span class="s2">&quot;DATABASE=</span><span class="si">{</span><span class="n">db</span><span class="si">}</span><span class="s2">;&quot;</span>\
+    <span class="sa">f</span><span class="s2">&quot;UID=</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">;&quot;</span>\
+    <span class="sa">f</span><span class="s2">&quot;PASSWORD=</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">connection_str</span><span class="p">)</span>
+
+<span class="c1"># # Connect to MySQL</span>
+<span class="c1"># conn = pyodbc.connect(connection_str) </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DRIVER={MySQL ODBC 3.51 Driver};SERVER=your_server;DATABASE=your_db;UID=your_user;PASSWORD=your_password;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>SQLite<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>We don’t to connect to SQLite via ODBC, because python can use these databases directly. <br>
+however, if we want to show this as a demo, we need to install the SQLite ODBC driver</p>
+</div></blockquote>
+<blockquote>
+<div><p>For Windows, you can get the SQLite ODBC driver <a class="reference external" href="http://www.ch-werner.de/sqliteodbc/">here</a>. Download “sqliteodbc.exe” if you are using 32-bit Python, or “sqliteodbc_w64.exe” if you are using 64-bit Python.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">=</span><span class="s2">&quot;example.db&quot;</span>
+
+<span class="n">connection_str</span> <span class="o">=</span> \
+    <span class="s2">&quot;Driver=SQLite3 ODBC Driver;&quot;</span> \
+    <span class="sa">f</span><span class="s2">&quot;Database=</span><span class="si">{</span><span class="n">db</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">connection_str</span><span class="p">)</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">connection_str</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM stocks ORDER BY price&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Driver=SQLite3 ODBC Driver;Database=example.db
+(&#39;2006-03-28&#39;, &#39;BUY&#39;, &#39;IBM&#39;, 1000.0, 45.0)
+(&#39;2006-04-06&#39;, &#39;SELL&#39;, &#39;IBM&#39;, 500.0, 53.0)
+(&#39;2006-04-05&#39;, &#39;BUY&#39;, &#39;MSFT&#39;, 1000.0, 72.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./11_db_access"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../10_package_management/exercise/solutions.html" title="previous page">using new modules without polluting your system</a>
+    <a class='right-next' id="next-link" href="02_sqlalchemy_orm.html" title="next page">SQLAlchemy</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Aviad Rozenhek<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

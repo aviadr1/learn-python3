@@ -1,0 +1,1107 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chinook sample SQLite database &#8212; learn-python</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Chinook sample database using SQLAlchemy" href="sqlalchemy_orm-questions.html" />
+    <link rel="prev" title="Chinook sample SQLite database" href="basic_db_access-questions.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">learn-python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../02_closures_and_decorators/closure_and_decorators.html">
+   Closures and decorators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../02_closures_and_decorators/closure_and_decorators.html#your-turn">
+   Your Turn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html">
+   Abstract Base Classes (ABCs)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../04_writing_our_own_container_types/writing_our_own_container_types.html">
+   Creating new collections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../04_writing_our_own_container_types/writing_our_own_container_types.html#iterator-protocol">
+   Iterator protocol
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../06_multiple_inheritance_and_super/multiple_inheritance_and_super.html">
+   super() and multiple inheritance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html">
+   Design patterns in python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html#prototype">
+   Prototype
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html#singleton">
+   Singleton
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html#proxy">
+   Proxy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html#composition">
+   Composition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html#resource-acquisition-is-initialization-raii">
+   Resource Acquisition Is Initialization (RAII)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html">
+   useful resources:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#setup">
+   setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#how-pytest-discovers-tests">
+   How pytest discovers tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#our-first-test">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#pytest-context-sensitive-comparisons">
+   Pytest context-sensitive comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#using-fixtures-to-simplify-tests">
+   Using fixtures to simplify tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#parameterizing-fixtures">
+   parameterizing fixtures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#printing-and-logging-within-tests">
+   printing and logging within tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#float-when-things-are-almost-equal">
+   float: when things are (almost) equal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#adding-timeouts-to-tests">
+   adding timeouts to tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#testing-for-exceptions">
+   testing for exceptions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#running-tests-in-parallel">
+   running tests in parallel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#codebase-to-test-class-person">
+   Codebase to test: class Person
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#id14">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../10_package_management/10-package_management.html">
+   Where are my packages?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../10_package_management/10-package_management.html#development-of-projects-with-different-dependencies">
+   Development of Projects with Different Dependencies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_basic_db_access.html">
+   sqlite
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="../01_basic_db_access.html#pyodbc">
+   pyodbc
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_sqlalchemy_orm.html">
+     SQLAlchemy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_sqlalchemy_orm.html#further-reading">
+     Further reading
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="basic_db_access-questions.html">
+     Chinook sample SQLite database
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="basic_db_access-questions.html#open-the-database">
+     1. open the database
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="basic_db_access-questions.html#table-names">
+     2. table names
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="basic_db_access-questions.html#tracks">
+     3. Tracks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="basic_db_access-questions.html#albums-from-tracks">
+     4. Albums from Tracks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="basic_db_access-questions.html#tracks-sold">
+     5. Tracks sold
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="basic_db_access-questions.html#top-tracks-sold">
+     6. Top tracks sold
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="reference internal" href="basic_db_access-questions.html#top-selling-artists">
+     7. top selling artists
+    </a>
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Chinook sample SQLite database
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#open-the-database">
+       1. open the database
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#table-names">
+       2. table names
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#tracks">
+       3. Tracks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#albums-from-tracks">
+       4. Albums from Tracks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#tracks-sold">
+       5. Tracks sold
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#top-tracks-sold">
+       6. Top tracks sold
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#top-selling-artists">
+       7. top selling artists
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-questions.html">
+       Chinook sample database using SQLAlchemy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-questions.html#helper-methods">
+       Helper methods
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-questions.html#open-the-database">
+       1. open the database
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-questions.html#table-names">
+       2. table names
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-questions.html#tracks">
+       3. Tracks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-questions.html#albums-from-tracks">
+       4. Albums from Tracks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-questions.html#tracks-sold">
+       5. Tracks sold
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-questions.html#top-tracks-sold">
+       6. Top tracks sold
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-questions.html#top-selling-artists">
+       7. top selling artists
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-solutions.html">
+       Chinook sample database using SQLAlchemy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-solutions.html#helper-methods">
+       Helper methods
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-solutions.html#open-the-database">
+       1. open the database
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-solutions.html#table-names">
+       2. table names
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-solutions.html#tracks">
+       3. Tracks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-solutions.html#albums-from-tracks">
+       4. Albums from Tracks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-solutions.html#tracks-sold">
+       5. Tracks sold
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-solutions.html#top-tracks-sold">
+       6. Top tracks sold
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sqlalchemy_orm-solutions.html#top-selling-artists">
+       7. top selling artists
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../12_its_fun_to_be_eval/its_fun_to_be_eval.html">
+   Its fun to be eval
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../13_complex_comprehensions/complex_comprehensions.html">
+   writing and understanding nested list comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../14_pandas/edm_us_adult_census_income/questions.html">
+   get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../14_pandas/edm_us_adult_census_income/questions.html#income-for-adults-from-the-1994-census">
+   income for adults from the 1994 census
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/11_db_access/exercise/basic_db_access-solutions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/11_db_access/exercise/basic_db_access-solutions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Chinook sample SQLite database
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#open-the-database">
+   1. open the database
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-names">
+   2. table names
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tracks">
+   3. Tracks
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#albums-from-tracks">
+   4. Albums from Tracks
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tracks-sold">
+   5. Tracks sold
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#top-tracks-sold">
+   6. Top tracks sold
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#top-selling-artists">
+   7. top selling artists
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/11_db_access/exercise/basic_db_access-solutions.ipynb" target="_blank">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" 
+     title="Open this file in Google Colab" alt="Colab"/>
+</a>
+<div class="section" id="chinook-sample-sqlite-database">
+<h1>Chinook sample SQLite database<a class="headerlink" href="#chinook-sample-sqlite-database" title="Permalink to this headline">¶</a></h1>
+<p>in this exercise we’re going to experiment with the <a class="reference external" href="http://www.sqlitetutorial.net/sqlite-sample-database/">Chinook sample DB</a>.</p>
+<p><img alt="Chinook" src="http://www.sqlitetutorial.net/wp-content/uploads/2015/11/sqlite-sample-database-color.jpg" /></p>
+<p>First, run the code below to download the database locally</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### useful: download and extract chinook sample DB</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">chinook_url</span> <span class="o">=</span> <span class="s1">&#39;http://www.sqlitetutorial.net/wp-content/uploads/2018/03/chinook.zip&#39;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;chinook.zip&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;downloading chinook.zip &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">chinook_url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;chinook.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="mi">1024</span><span class="p">),</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;chinook.zip&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;chinook.db&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="open-the-database">
+<h1>1. open the database<a class="headerlink" href="#open-the-database" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>connect to the database using the <code class="docutils literal notranslate"><span class="pre">sqlite3</span></code> or <code class="docutils literal notranslate"><span class="pre">pyodbc</span></code> module interface. place the connection object in a variable named <code class="docutils literal notranslate"><span class="pre">conn</span></code></p></li>
+<li><p>create a cursor object and put it in the variable <code class="docutils literal notranslate"><span class="pre">cur</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="n">db</span><span class="o">=</span><span class="s2">&quot;chinook.db&quot;</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="table-names">
+<h1>2. table names<a class="headerlink" href="#table-names" title="Permalink to this headline">¶</a></h1>
+<p>run an SQL to print out all the table names and their schema</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rs</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SELECT name, sql FROM sqlite_master</span>
+<span class="sd">    WHERE type=&#39;table&#39;</span>
+<span class="sd">    ORDER BY name;</span>
+<span class="sd">    &quot;&quot;&quot;</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">sql</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>albums
+CREATE TABLE &quot;albums&quot;
+(
+    [AlbumId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [Title] NVARCHAR(160)  NOT NULL,
+    [ArtistId] INTEGER  NOT NULL,
+    FOREIGN KEY ([ArtistId]) REFERENCES &quot;artists&quot; ([ArtistId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+artists
+CREATE TABLE &quot;artists&quot;
+(
+    [ArtistId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [Name] NVARCHAR(120)
+)
+
+customers
+CREATE TABLE &quot;customers&quot;
+(
+    [CustomerId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [FirstName] NVARCHAR(40)  NOT NULL,
+    [LastName] NVARCHAR(20)  NOT NULL,
+    [Company] NVARCHAR(80),
+    [Address] NVARCHAR(70),
+    [City] NVARCHAR(40),
+    [State] NVARCHAR(40),
+    [Country] NVARCHAR(40),
+    [PostalCode] NVARCHAR(10),
+    [Phone] NVARCHAR(24),
+    [Fax] NVARCHAR(24),
+    [Email] NVARCHAR(60)  NOT NULL,
+    [SupportRepId] INTEGER,
+    FOREIGN KEY ([SupportRepId]) REFERENCES &quot;employees&quot; ([EmployeeId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+employees
+CREATE TABLE &quot;employees&quot;
+(
+    [EmployeeId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [LastName] NVARCHAR(20)  NOT NULL,
+    [FirstName] NVARCHAR(20)  NOT NULL,
+    [Title] NVARCHAR(30),
+    [ReportsTo] INTEGER,
+    [BirthDate] DATETIME,
+    [HireDate] DATETIME,
+    [Address] NVARCHAR(70),
+    [City] NVARCHAR(40),
+    [State] NVARCHAR(40),
+    [Country] NVARCHAR(40),
+    [PostalCode] NVARCHAR(10),
+    [Phone] NVARCHAR(24),
+    [Fax] NVARCHAR(24),
+    [Email] NVARCHAR(60),
+    FOREIGN KEY ([ReportsTo]) REFERENCES &quot;employees&quot; ([EmployeeId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+genres
+CREATE TABLE &quot;genres&quot;
+(
+    [GenreId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [Name] NVARCHAR(120)
+)
+
+invoice_items
+CREATE TABLE &quot;invoice_items&quot;
+(
+    [InvoiceLineId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [InvoiceId] INTEGER  NOT NULL,
+    [TrackId] INTEGER  NOT NULL,
+    [UnitPrice] NUMERIC(10,2)  NOT NULL,
+    [Quantity] INTEGER  NOT NULL,
+    FOREIGN KEY ([InvoiceId]) REFERENCES &quot;invoices&quot; ([InvoiceId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY ([TrackId]) REFERENCES &quot;tracks&quot; ([TrackId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+invoices
+CREATE TABLE &quot;invoices&quot;
+(
+    [InvoiceId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [CustomerId] INTEGER  NOT NULL,
+    [InvoiceDate] DATETIME  NOT NULL,
+    [BillingAddress] NVARCHAR(70),
+    [BillingCity] NVARCHAR(40),
+    [BillingState] NVARCHAR(40),
+    [BillingCountry] NVARCHAR(40),
+    [BillingPostalCode] NVARCHAR(10),
+    [Total] NUMERIC(10,2)  NOT NULL,
+    FOREIGN KEY ([CustomerId]) REFERENCES &quot;customers&quot; ([CustomerId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+media_types
+CREATE TABLE &quot;media_types&quot;
+(
+    [MediaTypeId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [Name] NVARCHAR(120)
+)
+
+playlist_track
+CREATE TABLE &quot;playlist_track&quot;
+(
+    [PlaylistId] INTEGER  NOT NULL,
+    [TrackId] INTEGER  NOT NULL,
+    CONSTRAINT [PK_PlaylistTrack] PRIMARY KEY  ([PlaylistId], [TrackId]),
+    FOREIGN KEY ([PlaylistId]) REFERENCES &quot;playlists&quot; ([PlaylistId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY ([TrackId]) REFERENCES &quot;tracks&quot; ([TrackId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+playlists
+CREATE TABLE &quot;playlists&quot;
+(
+    [PlaylistId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [Name] NVARCHAR(120)
+)
+
+sqlite_sequence
+CREATE TABLE sqlite_sequence(name,seq)
+
+sqlite_stat1
+CREATE TABLE sqlite_stat1(tbl,idx,stat)
+
+tracks
+CREATE TABLE &quot;tracks&quot;
+(
+    [TrackId] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    [Name] NVARCHAR(200)  NOT NULL,
+    [AlbumId] INTEGER,
+    [MediaTypeId] INTEGER  NOT NULL,
+    [GenreId] INTEGER,
+    [Composer] NVARCHAR(220),
+    [Milliseconds] INTEGER  NOT NULL,
+    [Bytes] INTEGER,
+    [UnitPrice] NUMERIC(10,2)  NOT NULL,
+    FOREIGN KEY ([AlbumId]) REFERENCES &quot;albums&quot; ([AlbumId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY ([GenreId]) REFERENCES &quot;genres&quot; ([GenreId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY ([MediaTypeId]) REFERENCES &quot;media_types&quot; ([MediaTypeId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tracks">
+<h1>3. Tracks<a class="headerlink" href="#tracks" title="Permalink to this headline">¶</a></h1>
+<p>print out the first three tracks in the <code class="docutils literal notranslate"><span class="pre">tracks</span></code> table</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rs</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SELECT * </span>
+<span class="sd">    FROM tracks</span>
+<span class="sd">    LIMIT 3;</span>
+<span class="sd">    &quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, &#39;For Those About To Rock (We Salute You)&#39;, 1, 1, 1, &#39;Angus Young, Malcolm Young, Brian Johnson&#39;, 343719, 11170334, 0.99)
+(2, &#39;Balls to the Wall&#39;, 2, 2, 1, None, 342562, 5510424, 0.99)
+(3, &#39;Fast As a Shark&#39;, 3, 2, 1, &#39;F. Baltes, S. Kaufman, U. Dirkscneider &amp; W. Hoffman&#39;, 230619, 3990994, 0.99)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="albums-from-tracks">
+<h1>4. Albums from Tracks<a class="headerlink" href="#albums-from-tracks" title="Permalink to this headline">¶</a></h1>
+<p>print out the track name and albums title of the first 20 tracks in the <code class="docutils literal notranslate"><span class="pre">tracks</span></code> table</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rs</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SELECT tracks.Name, albums.*</span>
+<span class="sd">    FROM tracks</span>
+<span class="sd">    JOIN albums ON tracks.AlbumId == albums.AlbumId</span>
+<span class="sd">    LIMIT 20</span>
+<span class="sd">    ;</span>
+<span class="sd">    &quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;For Those About To Rock (We Salute You)&#39;, 1, &#39;For Those About To Rock We Salute You&#39;, 1)
+(&#39;Put The Finger On You&#39;, 1, &#39;For Those About To Rock We Salute You&#39;, 1)
+(&quot;Let&#39;s Get It Up&quot;, 1, &#39;For Those About To Rock We Salute You&#39;, 1)
+(&#39;Inject The Venom&#39;, 1, &#39;For Those About To Rock We Salute You&#39;, 1)
+(&#39;Snowballed&#39;, 1, &#39;For Those About To Rock We Salute You&#39;, 1)
+(&#39;Evil Walks&#39;, 1, &#39;For Those About To Rock We Salute You&#39;, 1)
+(&#39;C.O.D.&#39;, 1, &#39;For Those About To Rock We Salute You&#39;, 1)
+(&#39;Breaking The Rules&#39;, 1, &#39;For Those About To Rock We Salute You&#39;, 1)
+(&#39;Night Of The Long Knives&#39;, 1, &#39;For Those About To Rock We Salute You&#39;, 1)
+(&#39;Spellbound&#39;, 1, &#39;For Those About To Rock We Salute You&#39;, 1)
+(&#39;Balls to the Wall&#39;, 2, &#39;Balls to the Wall&#39;, 2)
+(&#39;Fast As a Shark&#39;, 3, &#39;Restless and Wild&#39;, 2)
+(&#39;Restless and Wild&#39;, 3, &#39;Restless and Wild&#39;, 2)
+(&#39;Princess of the Dawn&#39;, 3, &#39;Restless and Wild&#39;, 2)
+(&#39;Go Down&#39;, 4, &#39;Let There Be Rock&#39;, 1)
+(&#39;Dog Eat Dog&#39;, 4, &#39;Let There Be Rock&#39;, 1)
+(&#39;Let There Be Rock&#39;, 4, &#39;Let There Be Rock&#39;, 1)
+(&#39;Bad Boy Boogie&#39;, 4, &#39;Let There Be Rock&#39;, 1)
+(&#39;Problem Child&#39;, 4, &#39;Let There Be Rock&#39;, 1)
+(&#39;Overdose&#39;, 4, &#39;Let There Be Rock&#39;, 1)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tracks-sold">
+<h1>5. Tracks sold<a class="headerlink" href="#tracks-sold" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>print out the first 10 track sales from the <code class="docutils literal notranslate"><span class="pre">invoice_items</span></code> table</p></li>
+<li><p>for these first 10 sales, print what are the names of the track sold, and the quantity sold</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print out the first 10 track sales from the invoice_items table</span>
+<span class="n">rs</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SELECT *</span>
+<span class="sd">    FROM invoice_items</span>
+<span class="sd">    LIMIT 10</span>
+<span class="sd">    ;</span>
+<span class="sd">    &quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># what are the names of the tracks sold in the first 10 invoices?</span>
+<span class="n">rs</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SELECT tracks.Name, invoice_items.Quantity</span>
+<span class="sd">    FROM invoice_items</span>
+<span class="sd">    JOIN tracks ON invoice_items.TrackId == tracks.TrackId </span>
+<span class="sd">    LIMIT 10</span>
+<span class="sd">    ;</span>
+<span class="sd">    &quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 1, 2, 0.99, 1)
+(2, 1, 4, 0.99, 1)
+(3, 2, 6, 0.99, 1)
+(4, 2, 8, 0.99, 1)
+(5, 2, 10, 0.99, 1)
+(6, 2, 12, 0.99, 1)
+(7, 3, 16, 0.99, 1)
+(8, 3, 20, 0.99, 1)
+(9, 3, 24, 0.99, 1)
+(10, 3, 28, 0.99, 1)
+
+(&#39;Balls to the Wall&#39;, 1)
+(&#39;Restless and Wild&#39;, 1)
+(&#39;Put The Finger On You&#39;, 1)
+(&#39;Inject The Venom&#39;, 1)
+(&#39;Evil Walks&#39;, 1)
+(&#39;Breaking The Rules&#39;, 1)
+(&#39;Dog Eat Dog&#39;, 1)
+(&#39;Overdose&#39;, 1)
+(&#39;Love In An Elevator&#39;, 1)
+(&quot;Janie&#39;s Got A Gun&quot;, 1)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="top-tracks-sold">
+<h1>6. Top tracks sold<a class="headerlink" href="#top-tracks-sold" title="Permalink to this headline">¶</a></h1>
+<p>print the names of top 10 tracks sold, and how many they times they were sold</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rs</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SELECT tracks.Name, SUM(Quantity) AS sold</span>
+<span class="sd">    FROM invoice_items</span>
+<span class="sd">    JOIN tracks ON invoice_items.TrackId == tracks.TrackId </span>
+<span class="sd">    GROUP BY invoice_items.TrackId</span>
+<span class="sd">    ORDER BY sold DESC    </span>
+<span class="sd">    LIMIT 10</span>
+<span class="sd">    ;</span>
+<span class="sd">    &quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Balls to the Wall&#39;, 2)
+(&#39;Inject The Venom&#39;, 2)
+(&#39;Snowballed&#39;, 2)
+(&#39;Overdose&#39;, 2)
+(&#39;Deuces Are Wild&#39;, 2)
+(&#39;Not The Doctor&#39;, 2)
+(&#39;Por Causa De Você&#39;, 2)
+(&#39;Welcome Home (Sanitarium)&#39;, 2)
+(&#39;Snowblind&#39;, 2)
+(&#39;Cornucopia&#39;, 2)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="top-selling-artists">
+<h1>7. top selling artists<a class="headerlink" href="#top-selling-artists" title="Permalink to this headline">¶</a></h1>
+<p>Who are the top 10 highest selling artists?</p>
+<blockquote>
+<div><p><em>hint: you need to join the invoice_items, tracks, albums and artists tables</em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rs</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SELECT artists.Name, SUM(Quantity) AS sold</span>
+<span class="sd">    FROM invoice_items</span>
+<span class="sd">    JOIN tracks ON invoice_items.TrackId == tracks.TrackId</span>
+<span class="sd">    JOIN albums ON tracks.AlbumId == albums.AlbumId</span>
+<span class="sd">    JOIN artists ON albums.ArtistId == artists.ArtistId</span>
+<span class="sd">    GROUP BY artists.ArtistId</span>
+<span class="sd">    ORDER BY sold DESC    </span>
+<span class="sd">    LIMIT 10</span>
+<span class="sd">    ;</span>
+<span class="sd">    &quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Iron Maiden&#39;, 140)
+(&#39;U2&#39;, 107)
+(&#39;Metallica&#39;, 91)
+(&#39;Led Zeppelin&#39;, 87)
+(&#39;Os Paralamas Do Sucesso&#39;, 45)
+(&#39;Deep Purple&#39;, 44)
+(&#39;Faith No More&#39;, 42)
+(&#39;Lost&#39;, 41)
+(&#39;Eric Clapton&#39;, 40)
+(&#39;R.E.M.&#39;, 39)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./11_db_access\exercise"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="basic_db_access-questions.html" title="previous page">Chinook sample SQLite database</a>
+    <a class='right-next' id="next-link" href="sqlalchemy_orm-questions.html" title="next page">Chinook sample database using SQLAlchemy</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Aviad Rozenhek<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

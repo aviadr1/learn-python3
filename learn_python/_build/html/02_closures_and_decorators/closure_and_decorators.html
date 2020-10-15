@@ -1,0 +1,1787 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closures and decorators &#8212; learn-python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="print() accepts variable number of positional arguments" href="variadic_functions.html" />
+    <link rel="prev" title="Content with notebooks" href="../notebooks.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">learn-python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Closures and decorators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#your-turn">
+   Your Turn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html">
+   Abstract Base Classes (ABCs)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_writing_our_own_container_types/writing_our_own_container_types.html">
+   Creating new collections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_writing_our_own_container_types/writing_our_own_container_types.html#iterator-protocol">
+   Iterator protocol
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_multiple_inheritance_and_super/multiple_inheritance_and_super.html">
+   super() and multiple inheritance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html">
+   Design patterns in python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#prototype">
+   Prototype
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#singleton">
+   Singleton
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#proxy">
+   Proxy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#composition">
+   Composition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#resource-acquisition-is-initialization-raii">
+   Resource Acquisition Is Initialization (RAII)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html">
+   useful resources:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#setup">
+   setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#how-pytest-discovers-tests">
+   How pytest discovers tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#our-first-test">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#pytest-context-sensitive-comparisons">
+   Pytest context-sensitive comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#using-fixtures-to-simplify-tests">
+   Using fixtures to simplify tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#parameterizing-fixtures">
+   parameterizing fixtures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#printing-and-logging-within-tests">
+   printing and logging within tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#float-when-things-are-almost-equal">
+   float: when things are (almost) equal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#adding-timeouts-to-tests">
+   adding timeouts to tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#testing-for-exceptions">
+   testing for exceptions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#running-tests-in-parallel">
+   running tests in parallel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#codebase-to-test-class-person">
+   Codebase to test: class Person
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#id14">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_package_management/10-package_management.html">
+   Where are my packages?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_package_management/10-package_management.html#development-of-projects-with-different-dependencies">
+   Development of Projects with Different Dependencies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_db_access/01_basic_db_access.html">
+   sqlite
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_db_access/01_basic_db_access.html#pyodbc">
+   pyodbc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12_its_fun_to_be_eval/its_fun_to_be_eval.html">
+   Its fun to be eval
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13_complex_comprehensions/complex_comprehensions.html">
+   writing and understanding nested list comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14_pandas/edm_us_adult_census_income/questions.html">
+   get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14_pandas/edm_us_adult_census_income/questions.html#income-for-adults-from-the-1994-census">
+   income for adults from the 1994 census
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/02_closures_and_decorators/closure_and_decorators.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/02_closures_and_decorators/closure_and_decorators.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Closures and decorators
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#closures">
+     Closures
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-s-happening-here">
+       What’s happening here?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#when-do-we-have-a-closure">
+       When do we have a closure?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#when-are-closures-useful">
+       When are closures useful?
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-turn">
+   Your Turn
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#replacing-do-something-classes-with-closures">
+     replacing do_something classes with closures
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decorators">
+     Decorators
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#syntactic-sugar">
+       Syntactic Sugar!
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reusing-decorators">
+       Reusing Decorators
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#decorating-functions-with-arguments">
+       Decorating Functions With Arguments
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#returning-values-from-decorated-functions">
+       Returning Values From Decorated Functions
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#who-are-you-really">
+       Who Are You, Really?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-few-real-world-examples">
+       A Few Real World Examples
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#timing-functions">
+         Timing Functions
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#debugging-code">
+         Debugging Code
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#registering-plugins">
+         Registering Plugins
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fancy-decorators">
+     Fancy decorators
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#decorating-classes">
+       Decorating Classes
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#commonly-used-decorators-classmethod-staticmethod-and-property">
+         Commonly used decorators:
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           @classmethod
+          </span>
+         </code>
+         ,
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           @staticmethod
+          </span>
+         </code>
+         , and
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           @property
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#decorating-functions-in-a-class">
+         Decorating functions in a class
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#whole-class-decorators">
+       Whole class decorators
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#whole-class-decorators-constructor-decorator">
+         Whole class decorators - Constructor decorator
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#nesting-decorators">
+       Nesting Decorators
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#decorators-with-arguments">
+       Decorators With Arguments
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/02_closures_and_decorators/closure_and_decorators.ipynb" target="_blank">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" 
+     title="Open this file in Google Colab" alt="Colab"/>
+</a>
+<div class="section" id="closures-and-decorators">
+<h1>Closures and decorators<a class="headerlink" href="#closures-and-decorators" title="Permalink to this headline">¶</a></h1>
+<p>In this lesson, we will learn what closures are,
+and see two uses of closures:</p>
+<ol class="simple">
+<li><p>replacing trivial do_something classes with closures</p></li>
+<li><p>decorators</p></li>
+</ol>
+<p>decorators will take the bulk of time in this lesson</p>
+<div class="section" id="closures">
+<h2>Closures<a class="headerlink" href="#closures" title="Permalink to this headline">¶</a></h2>
+<p>Consider the example below, where a function defines an inner function and returns it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Printer</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span>
+
+    <span class="k">def</span> <span class="nf">do_it</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+
+<span class="n">print_hello</span> <span class="o">=</span> <span class="n">Printer</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+<span class="n">print_hello</span><span class="o">.</span><span class="n">do_it</span><span class="p">()</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make_printer() is a function that creates functions!</span>
+<span class="k">def</span> <span class="nf">make_printer</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+    
+    <span class="k">def</span> <span class="nf">nested_printer_func</span><span class="p">():</span> <span class="c1"># this creates a new function object</span>
+        <span class="c1"># use the message parameter to the make_printer() printer</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+    
+    <span class="c1"># return the nested function object</span>
+    <span class="k">return</span> <span class="n">nested_printer_func</span>
+
+<span class="c1"># lets create a function that prints &#39;hello&#39; when called</span>
+<span class="n">print_hello</span> <span class="o">=</span> <span class="n">make_printer</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+<span class="n">print_hello</span><span class="p">()</span>
+
+<span class="c1"># lets create a function that prints &#39;world&#39; when called</span>
+<span class="n">print_world</span> <span class="o">=</span> <span class="n">make_printer</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">)</span>
+<span class="n">print_world</span><span class="p">()</span>
+
+<span class="c1"># notice that these are not the same object, they are not the same function</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;are these the same function?&#39;</span><span class="p">,</span> <span class="n">print_world</span> <span class="o">==</span> <span class="n">print_hello</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello
+world
+are these the same function? False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_hello</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.make_printer.&lt;locals&gt;.nested_printer_func()&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="what-s-happening-here">
+<h3>What’s happening here?<a class="headerlink" href="#what-s-happening-here" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">make_printer()</span></code> function was called with the string “hello” and the returned function was bound to the name print_hello. On calling print_hello(), the message was still remembered although we had already finished executing the <code class="docutils literal notranslate"><span class="pre">make_printer()</span></code> function.</p>
+<p>This technique by which some data (“hello”) gets attached to the code is called closure in Python.</p>
+</div>
+<div class="section" id="when-do-we-have-a-closure">
+<h3>When do we have a closure?<a class="headerlink" href="#when-do-we-have-a-closure" title="Permalink to this headline">¶</a></h3>
+<p>As seen from the above example, we have a closure in Python when a nested function references a value in its enclosing scope.</p>
+<p>The criteria that must be met to create closure in Python are summarized in the following points.</p>
+<ul class="simple">
+<li><p>We must have a nested function (function inside a function).</p></li>
+<li><p>The nested function must refer to a value defined in the enclosing function.</p></li>
+<li><p>The enclosing function must return the nested function.</p></li>
+</ul>
+</div>
+<div class="section" id="when-are-closures-useful">
+<h3>When are closures useful?<a class="headerlink" href="#when-are-closures-useful" title="Permalink to this headline">¶</a></h3>
+<p>There’s two main cases:</p>
+<ol class="simple">
+<li><p>trivial <em>do_something</em> classes <br>
+If you see an object-oriented solution that creates a class with just one method, or one method and a constructor, it can easily be replaced with functions or functions created as coloures. often with these classes, the function will be called something opaque like update(), do_it(), action() etc</p></li>
+<li><p><em>decorators</em> <br>
+if we want to take an exising function and add functionality to that function without changing the original function’s code by ‘wrapping’ or ‘decorating’ that function, closures are a good solution</p></li>
+</ol>
+<p>we will take a long look at decorators at the end of this lesson, so for now, lets focus on do_something classes</p>
+</div>
+</div>
+</div>
+<div class="section" id="your-turn">
+<h1>Your Turn<a class="headerlink" href="#your-turn" title="Permalink to this headline">¶</a></h1>
+<p>write a function called <code class="docutils literal notranslate"><span class="pre">constant_function_factory()</span></code> that creates contant function.
+a constant function is a function that takes no parameters and always returns the same value</p>
+<blockquote>
+<div><p>hint: Use closures</p>
+</div></blockquote>
+<p>it should work like so</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f10</span> <span class="o">=</span> <span class="n">constant_function_factory</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f10</span><span class="p">())</span> <span class="c1"># 10</span>
+
+<span class="n">f2</span> <span class="o">=</span> <span class="n">constant_function_factory</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f2</span><span class="p">())</span> <span class="c1"># 2</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### your answer:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test your code</span>
+<span class="n">f10</span> <span class="o">=</span> <span class="n">constant_function_factory</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f10</span><span class="p">())</span> <span class="c1"># 10</span>
+ 
+<span class="n">f2</span> <span class="o">=</span> <span class="n">constant_function_factory</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f2</span><span class="p">())</span> <span class="c1"># 2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">ee9b1afad312</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># test your code</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">f10</span> <span class="o">=</span> <span class="n">constant_function_factory</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">f10</span><span class="p">())</span> <span class="c1"># 10</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">f2</span> <span class="o">=</span> <span class="n">constant_function_factory</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;constant_function_factory&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="replacing-do-something-classes-with-closures">
+<h2>replacing do_something classes with closures<a class="headerlink" href="#replacing-do-something-classes-with-closures" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Here is a classic example of a do_something class interface.</span>
+<span class="sd">class Event registers event handlers objects that must have an event_handler function</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span> <span class="nc">PrintEventHandler</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__message</span> <span class="o">=</span> <span class="n">message</span>
+        
+    <span class="k">def</span> <span class="nf">handle_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__message</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Event</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Event class allows registering event handler objects, which must have a handle_event() function</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__handlers</span> <span class="o">=</span> <span class="p">[]</span>
+        
+    <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__handlers</span><span class="p">:</span>
+            <span class="c1"># notice </span>
+            <span class="n">handler</span><span class="o">.</span><span class="n">handle_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+            
+    <span class="k">def</span> <span class="nf">add_event_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler_object</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__handlers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">handler_object</span><span class="p">)</span>
+        
+<span class="n">e</span> <span class="o">=</span> <span class="n">Event</span><span class="p">()</span>
+<span class="n">e</span><span class="o">.</span><span class="n">add_event_handler</span><span class="p">(</span><span class="n">PrintEventHandler</span><span class="p">(</span><span class="s1">&#39;well I didnt expect&#39;</span><span class="p">))</span>
+<span class="n">e</span><span class="o">.</span><span class="n">add_event_handler</span><span class="p">(</span><span class="n">PrintEventHandler</span><span class="p">(</span><span class="s1">&#39;nobody expects&#39;</span><span class="p">))</span>
+<span class="n">e</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="s1">&#39;the spanish inquisition&#39;</span><span class="p">)</span>
+
+        
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>well I didnt expect the spanish inquisition
+nobody expects the spanish inquisition
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Simplified version of above example, where the class PrintEventHandler is not needed</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">make_print_handler</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">handler</span>
+
+<span class="k">class</span> <span class="nc">SimplerEvent</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Event class allows registering event handling *functions*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__handlers</span> <span class="o">=</span> <span class="p">[]</span>
+        
+    <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__handlers</span><span class="p">:</span> 
+            <span class="n">handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="c1"># handler now is simply a callable function</span>
+            
+    <span class="k">def</span> <span class="nf">add_event_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__handlers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+        
+<span class="n">e</span> <span class="o">=</span> <span class="n">SimplerEvent</span><span class="p">()</span>
+<span class="n">e</span><span class="o">.</span><span class="n">add_event_handler</span><span class="p">(</span><span class="n">make_print_handler</span><span class="p">(</span><span class="s1">&#39;well I didnt expect&#39;</span><span class="p">))</span>
+<span class="n">e</span><span class="o">.</span><span class="n">add_event_handler</span><span class="p">(</span><span class="n">make_print_handler</span><span class="p">(</span><span class="s1">&#39;nobody expects&#39;</span><span class="p">))</span>
+<span class="n">e</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="s1">&#39;the spanish inquisition&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>well I didnt expect the spanish inquisition
+nobody expects the spanish inquisition
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="decorators">
+<h2>Decorators<a class="headerlink" href="#decorators" title="Permalink to this headline">¶</a></h2>
+<p>Decorators are a simple pattern to add functionality to an existing function, without changing the code for that function.</p>
+<p>here is an extremely simplified example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something is happening before the function is called.&quot;</span><span class="p">)</span>
+        <span class="n">func</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something is happening after the function is called.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="k">def</span> <span class="nf">say_whee</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Whee!&quot;</span><span class="p">)</span>
+
+<span class="c1"># decorate the say_whee function </span>
+<span class="n">say_whee</span> <span class="o">=</span> <span class="n">my_decorator</span><span class="p">(</span><span class="n">say_whee</span><span class="p">)</span>
+
+<span class="c1"># use it</span>
+<span class="n">say_whee</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Something is happening before the function is called.
+Whee!
+Something is happening after the function is called.
+</pre></div>
+</div>
+</div>
+</div>
+<p>To understand what’s going on here, look back at the previous examples.
+We are literally just applying everything you have learned so far.</p>
+<p>The so-called decoration happens at the following line:</p>
+<p><code class="docutils literal notranslate"><span class="pre">say_whee</span> <span class="pre">=</span> <span class="pre">my_decorator(say_whee)</span></code>
+In effect, the name say_whee now points to the <code class="docutils literal notranslate"><span class="pre">wrapper()</span></code> inner function.
+Remember that you return wrapper as a function when you call <code class="docutils literal notranslate"><span class="pre">my_decorator(say_whee)</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">say_whee</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function my_decorator.&lt;locals&gt;.wrapper at 0x05D4D348&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, <code class="docutils literal notranslate"><span class="pre">wrapper()</span></code> has a reference to the original <code class="docutils literal notranslate"><span class="pre">say_whee()</span></code> as func, and calls that function between the two calls to <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p>
+<p>Put simply: decorators wrap a function, modifying its behavior.</p>
+<p>Before moving on, let’s have a look at a second example.
+Because wrapper() is a regular Python function,
+the way a decorator modifies a function can change dynamically.
+So as not to disturb your neighbors, the following example will only run the decorated code during the day:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="n">override_hour</span> <span class="o">=</span>  <span class="kc">None</span>
+
+<span class="k">def</span> <span class="nf">not_during_the_night</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">():</span>
+        <span class="n">hour</span> <span class="o">=</span> <span class="n">override_hour</span> <span class="ow">or</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">hour</span>
+        <span class="k">if</span> <span class="mi">7</span> <span class="o">&lt;=</span> <span class="n">hour</span> <span class="o">&lt;</span> <span class="mi">22</span><span class="p">:</span>
+            <span class="n">func</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>  <span class="c1"># Hush, the neighbors are asleep</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="k">def</span> <span class="nf">say_whee</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Whee!&quot;</span><span class="p">)</span>
+
+<span class="n">say_whee</span> <span class="o">=</span> <span class="n">not_during_the_night</span><span class="p">(</span><span class="n">say_whee</span><span class="p">)</span>
+
+<span class="c1"># If you try to call say_whee() after bedtime, nothing will happen:</span>
+<span class="n">override_hour</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="n">say_whee</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="syntactic-sugar">
+<h3>Syntactic Sugar!<a class="headerlink" href="#syntactic-sugar" title="Permalink to this headline">¶</a></h3>
+<p>The way we decorated <code class="docutils literal notranslate"><span class="pre">say_whee()</span></code> above is a little clunky.
+First of all, we end up typing the name say_whee three times.</p>
+<p>In addition, the decoration gets a bit hidden away below the definition of the function.</p>
+<p>Instead, Python allows us to use decorators in a simpler way with the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> symbol, sometimes called the “pie” syntax.</p>
+<p>The following example does the exact same thing as the first decorator example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something is happening before the function is called.&quot;</span><span class="p">)</span>
+        <span class="n">func</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something is happening after the function is called.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@my_decorator</span>
+<span class="k">def</span> <span class="nf">say_whee</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Whee!&quot;</span><span class="p">)</span>
+    
+<span class="c1"># So, @my_decorator is just an easier way of saying </span>
+<span class="c1"># say_whee = my_decorator(say_whee). </span>
+<span class="c1"># It’s how you apply a decorator to a function.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reusing-decorators">
+<h3>Reusing Decorators<a class="headerlink" href="#reusing-decorators" title="Permalink to this headline">¶</a></h3>
+<p>Recall that a decorator is just a regular Python function.
+All the usual tools for easy reusability are available: such as placing the decorator in a module and importing it.</p>
+<p>obviously, There’s a bunch of decorators in the standard library, which we will go through.</p>
+<p>lets start with defining a more useful decorator:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># imagine you place this in a file called my_decorators.py</span>
+
+<span class="k">def</span> <span class="nf">do_twice</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper_do_twice</span><span class="p">():</span>
+        <span class="n">func</span><span class="p">()</span>
+        <span class="n">func</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">wrapper_do_twice</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can now use this new decorator wherever we want in our code by importing it</span>
+<span class="c1"># from decorators import do_twice</span>
+
+<span class="nd">@do_twice</span>
+<span class="k">def</span> <span class="nf">say_whee</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Whee!&quot;</span><span class="p">)</span>
+    
+<span class="n">say_whee</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Whee!
+Whee!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="decorating-functions-with-arguments">
+<h3>Decorating Functions With Arguments<a class="headerlink" href="#decorating-functions-with-arguments" title="Permalink to this headline">¶</a></h3>
+<p>Say that you have a function that accepts some arguments. Can you still decorate it? Let’s try:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@do_twice</span>
+<span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">greet</span><span class="p">(</span><span class="s1">&#39;bob&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">250</span><span class="n">b00126245</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">5</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+      <span class="mi">6</span> 
+<span class="o">----&gt;</span> <span class="mi">7</span> <span class="n">greet</span><span class="p">(</span><span class="s1">&#39;bob&#39;</span><span class="p">)</span>
+      <span class="mi">8</span> 
+      <span class="mi">9</span> <span class="c1"># The problem is that the inner function wrapper_do_twice() does not take any arguments,</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">wrapper_do_twice</span><span class="p">()</span> <span class="n">takes</span> <span class="mi">0</span> <span class="n">positional</span> <span class="n">arguments</span> <span class="n">but</span> <span class="mi">1</span> <span class="n">was</span> <span class="n">given</span>
+</pre></div>
+</div>
+<p>The problem is that the inner function wrapper_do_twice() does not take any arguments,
+but name=”World” was passed to it.</p>
+<p>You could fix this by letting wrapper_do_twice() accept one argument,
+but then it would not work for the say_whee() function you created earlier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The solution is to use *args and **kwargs in the inner wrapper function. </span>
+<span class="c1"># Then it will accept an arbitrary number of positional and keyword arguments. </span>
+
+<span class="k">def</span> <span class="nf">do_twice</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper_do_twice</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper_do_twice</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The wrapper_do_twice() inner function now accepts any number of arguments </span>
+<span class="c1"># and passes them on to the function it decorates. </span>
+
+<span class="c1"># Now both your say_whee() and greet() examples works:</span>
+    
+<span class="nd">@do_twice</span>
+<span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+<span class="nd">@do_twice</span>
+<span class="k">def</span> <span class="nf">say_whee</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Whee!&quot;</span><span class="p">)</span>
+
+<span class="n">greet</span><span class="p">(</span><span class="s1">&#39;bob&#39;</span><span class="p">)</span>
+<span class="n">say_whee</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello bob
+Hello bob
+Whee!
+Whee!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="returning-values-from-decorated-functions">
+<h3>Returning Values From Decorated Functions<a class="headerlink" href="#returning-values-from-decorated-functions" title="Permalink to this headline">¶</a></h3>
+<p>What happens to the return value of decorated functions? Well, that’s up to the decorator to decide.
+Let’s say you decorate a simple function as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@do_twice</span>
+<span class="k">def</span> <span class="nf">return_greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creating greeting&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hi </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">hi_bob</span> <span class="o">=</span> <span class="n">return_greeting</span><span class="p">(</span><span class="s2">&quot;bob&quot;</span><span class="p">)</span>
+<span class="c1"># Creating greeting</span>
+<span class="c1"># Creating greeting</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">hi_bob</span><span class="p">)</span>
+<span class="c1"># None</span>
+
+
+<span class="c1"># Oops, our decorator ate the return value from the function.</span>
+
+<span class="c1"># Because the do_twice_wrapper() doesn’t explicitly return a value, </span>
+<span class="c1"># the call return_greeting(&quot;bob&quot;) ended up returning None.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating greeting
+Creating greeting
+None
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To fix this, we need to make sure the wrapper function returns the return value of the decorated function. </span>
+
+<span class="k">def</span> <span class="nf">do_twice</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper_do_twice</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper_do_twice</span>
+
+<span class="nd">@do_twice</span>
+<span class="k">def</span> <span class="nf">return_greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creating greeting&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hi </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1"># The return value from the last execution of the function is returned:</span>
+<span class="n">return_greeting</span><span class="p">(</span><span class="s2">&quot;Adam&quot;</span><span class="p">)</span>
+<span class="c1"># Creating greeting</span>
+<span class="c1"># Creating greeting</span>
+<span class="c1"># &#39;Hi Adam&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating greeting
+Creating greeting
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hi Adam&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="who-are-you-really">
+<h3>Who Are You, Really?<a class="headerlink" href="#who-are-you-really" title="Permalink to this headline">¶</a></h3>
+<p>A great convenience when working with Python, especially in the interactive shell, is its powerful introspection ability. Introspection is the ability of an object to know about its own attributes at runtime. For instance, a function knows its own name and documentation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a function knows its own name and documentation:</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">)</span> 
+<span class="c1"># &lt;built-in function len&gt;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="c1"># &#39;sin&#39;</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">)</span>
+<span class="c1"># Help on built-in function sin in module math:</span>
+<span class="c1"># sin(x, /)</span>
+<span class="c1">#     Return the sine of x (measured in radians).</span>
+
+<span class="c1">#</span>
+<span class="c1"># The introspection works for functions you define yourself as well:</span>
+<span class="c1">#</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">say_whee</span><span class="p">)</span>
+<span class="c1"># &lt;function do_twice.&lt;locals&gt;.wrapper_do_twice at 0x7f43700e52f0&gt;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">say_whee</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="c1"># &#39;wrapper_do_twice&#39;</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">say_whee</span><span class="p">)</span>
+<span class="c1"># Help on function wrapper_do_twice in module decorators:</span>
+<span class="c1">#  wrapper_do_twice()</span>
+
+
+<span class="c1">#</span>
+<span class="c1"># However, after being decorated, say_whee() has gotten very confused about its identity. </span>
+<span class="c1"># It now reports being the wrapper_do_twice() inner function inside the do_twice() decorator. </span>
+<span class="c1"># Although technically true, this is not very useful information.</span>
+<span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;built-in function sin&gt;
+sin
+Help on built-in function sin in module math:
+
+sin(x, /)
+    Return the sine of x (measured in radians).
+
+&lt;function do_twice.&lt;locals&gt;.wrapper_do_twice at 0x05D4DFA8&gt;
+wrapper_do_twice
+Help on function wrapper_do_twice in module __main__:
+
+wrapper_do_twice(*args, **kwargs)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To fix this, decorators should use the @functools.wraps decorator, </span>
+<span class="c1"># which will preserve information about the original function. </span>
+
+<span class="kn">import</span> <span class="nn">functools</span>
+
+<span class="k">def</span> <span class="nf">do_twice</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper_do_twice</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper_do_twice</span>
+
+<span class="c1"># We do not need to change anything about the decorated say_whee() function:</span>
+<span class="nd">@do_twice</span>
+<span class="k">def</span> <span class="nf">say_whee</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Whee!&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">say_whee</span><span class="p">)</span>
+<span class="c1"># &lt;function say_whee at 0x7ff79a60f2f0&gt;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">say_whee</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="c1">#&#39;say_whee&#39;</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">say_whee</span><span class="p">)</span>
+<span class="c1"># Help on function say_whee in module __main__:</span>
+
+<span class="n">say_whee</span><span class="p">()</span>
+
+<span class="c1">#</span>
+<span class="c1"># Much better! Now say_whee() is still itself after decoration.</span>
+<span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function say_whee at 0x05F9BB28&gt;
+say_whee
+Help on function say_whee in module __main__:
+
+say_whee()
+
+Whee!
+Whee!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-few-real-world-examples">
+<h3>A Few Real World Examples<a class="headerlink" href="#a-few-real-world-examples" title="Permalink to this headline">¶</a></h3>
+<p>Let’s look at a few more useful examples of decorators. You’ll notice that they’ll mainly follow the same pattern that you’ve learned so far:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">functools</span>
+
+<span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper_decorator</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># Do something before</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># Do something after</span>
+        <span class="k">return</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">wrapper_decorator</span>
+    
+</pre></div>
+</div>
+<p>This formula is a good boilerplate template for building more complex decorators.</p>
+<div class="section" id="timing-functions">
+<h4>Timing Functions<a class="headerlink" href="#timing-functions" title="Permalink to this headline">¶</a></h4>
+<p>Let’s start by creating a <code class="docutils literal notranslate"><span class="pre">&#64;timer</span></code> decorator. It will measure the time a function takes to execute and print the duration to the console. Here’s the code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">functools</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">timer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print the runtime of the decorated function&quot;&quot;&quot;</span>
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper_timer</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>    <span class="c1"># 1</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>      <span class="c1"># 2</span>
+        <span class="n">run_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>    <span class="c1"># 3</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Finished </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">!r}</span><span class="s2"> in </span><span class="si">{</span><span class="n">run_time</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> secs&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">wrapper_timer</span>
+
+<span class="nd">@timer</span>
+<span class="k">def</span> <span class="nf">waste_some_time</span><span class="p">(</span><span class="n">num_times</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_times</span><span class="p">):</span>
+        <span class="nb">sum</span><span class="p">([</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)])</span>
+        
+<span class="c1">#</span>
+<span class="c1"># This decorator works by storing the time just before the function starts running (at the line marked # 1) </span>
+<span class="c1"># and just after the function finishes (at # 2). </span>
+<span class="c1"># The time the function takes is then the difference between the two (at # 3). </span>
+<span class="c1"># We use the time.perf_counter() function, which does a good job of measuring time intervals. </span>
+<span class="c1"># </span>
+
+<span class="c1"># Here are some examples of timings:</span>
+<span class="n">waste_some_time</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">waste_some_time</span><span class="p">(</span><span class="mi">999</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Finished &#39;waste_some_time&#39; in 0.0031 secs
+Finished &#39;waste_some_time&#39; in 3.0549 secs
+</pre></div>
+</div>
+</div>
+</div>
+<p>Run it yourself. Work through the code line by line. Make sure you understand how it works. Don’t worry if you don’t get it, though. Decorators are advanced beings. Try to sleep on it or make a drawing of the program flow.</p>
+<blockquote>
+<div><p>Note: The &#64;timer decorator is great if you just want to get an idea about the runtime of your functions. If you want to do more precise measurements of code, you should instead consider the timeit module in the standard library. It temporarily disables garbage collection and runs multiple trials to strip out noise from quick function calls.</p>
+</div></blockquote>
+</div>
+<div class="section" id="debugging-code">
+<h4>Debugging Code<a class="headerlink" href="#debugging-code" title="Permalink to this headline">¶</a></h4>
+<p>The following &#64;debug decorator will print the arguments a function is called with as well as its return value every time the function is called:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">functools</span>
+
+<span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print the function signature and return value&quot;&quot;&quot;</span>
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper_debug</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">args_repr</span> <span class="o">=</span> <span class="p">[</span><span class="nb">repr</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>                      <span class="c1"># 1</span>
+        <span class="n">kwargs_repr</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">v</span><span class="si">!r}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>  <span class="c1"># 2</span>
+        <span class="n">signature</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">args_repr</span> <span class="o">+</span> <span class="n">kwargs_repr</span><span class="p">)</span>           <span class="c1"># 3</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calling </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="n">signature</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        
+        <span class="n">value</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">!r}</span><span class="s2"> returned </span><span class="si">{</span><span class="n">value</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>           <span class="c1"># 4</span>
+        <span class="k">return</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">wrapper_debug</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The signature is created by joining the string representations of all the arguments. The numbers in the following list correspond to the numbered comments in the code:</p>
+<ol class="simple">
+<li><p>Create a list of the positional arguments. Use repr() to get a nice string representing each argument.</p></li>
+<li><p>Create a list of the keyword arguments. The f-string formats each argument as key=value where the !r specifier means that repr() is used to represent the value.</p></li>
+<li><p>The lists of positional and keyword arguments is joined together to one signature string with each argument separated by a comma.</p></li>
+<li><p>The return value is printed after the function is executed.
+Let’s see how the decorator works in practice by applying it to a simple function with one position and one keyword argument:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@debug</span>
+<span class="k">def</span> <span class="nf">make_greeting</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Howdy </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Whoa </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">! </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> already, you are growing up!&quot;</span>
+    
+<span class="n">make_greeting</span><span class="p">(</span><span class="s2">&quot;Benjamin&quot;</span><span class="p">)</span>
+<span class="c1"># Calling make_greeting(&#39;Benjamin&#39;)</span>
+<span class="c1"># &#39;make_greeting&#39; returned &#39;Howdy Benjamin!&#39;</span>
+<span class="c1"># &#39;Howdy Benjamin!&#39;</span>
+
+<span class="n">make_greeting</span><span class="p">(</span><span class="s2">&quot;Richard&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">112</span><span class="p">)</span>
+<span class="c1"># Calling make_greeting(&#39;Richard&#39;, age=112)</span>
+<span class="c1"># &#39;make_greeting&#39; returned &#39;Whoa Richard! 112 already, you are growing up!&#39;</span>
+<span class="c1"># &#39;Whoa Richard! 112 already, you are growing up!&#39;</span>
+
+<span class="n">make_greeting</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Dorrisile&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">116</span><span class="p">)</span>
+<span class="c1"># Calling make_greeting(name=&#39;Dorrisile&#39;, age=116)</span>
+<span class="c1"># &#39;make_greeting&#39; returned &#39;Whoa Dorrisile! 116 already, you are growing up!&#39;</span>
+<span class="c1"># &#39;Whoa Dorrisile! 116 already, you are growing up!&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calling make_greeting(&#39;Benjamin&#39;)
+&#39;make_greeting&#39; returned &#39;Howdy Benjamin!&#39;
+Calling make_greeting(&#39;Richard&#39;, age=112)
+&#39;make_greeting&#39; returned &#39;Whoa Richard! 112 already, you are growing up!&#39;
+Calling make_greeting(name=&#39;Dorrisile&#39;, age=116)
+&#39;make_greeting&#39; returned &#39;Whoa Dorrisile! 116 already, you are growing up!&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Whoa Dorrisile! 116 already, you are growing up!&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above example might not seem immediately useful since the &#64;debug decorator just repeats what you just wrote. It’s more powerful when applied to small convenience functions that you don’t call directly yourself.</p>
+<p>The following example calculates an approximation to the mathematical constant e:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="c1"># Apply a decorator to a standard library function</span>
+<span class="n">math</span><span class="o">.</span><span class="n">factorial</span> <span class="o">=</span> <span class="n">debug</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">approximate_e</span><span class="p">(</span><span class="n">terms</span><span class="o">=</span><span class="mi">18</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">terms</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This example also shows how you can apply a decorator to a function that has already been defined. The approximation of e is based on the following series expansion: <br>
+$<span class="math notranslate nohighlight">\( {\rm e} = \sum_{n=0}^{\infty} \frac{1}{n!} = \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \ldots \)</span>$ <br>
+Series for calculating mathematical constant e</p>
+<p>When calling the approximate_e() function, you can see the &#64;debug decorator at work:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">approximate_e</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calling factorial(0)
+&#39;factorial&#39; returned 1
+Calling factorial(1)
+&#39;factorial&#39; returned 1
+Calling factorial(2)
+&#39;factorial&#39; returned 2
+Calling factorial(3)
+&#39;factorial&#39; returned 6
+Calling factorial(4)
+&#39;factorial&#39; returned 24
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.708333333333333
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="registering-plugins">
+<h4>Registering Plugins<a class="headerlink" href="#registering-plugins" title="Permalink to this headline">¶</a></h4>
+<p>Decorators don’t have to wrap the function they’re decorating. They can also simply register that a function exists and return it unwrapped. This can be used, for instance, to create a light-weight plug-in architecture:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">PLUGINS</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Register a function as a plug-in&quot;&quot;&quot;</span>
+    <span class="n">PLUGINS</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span>
+    <span class="k">return</span> <span class="n">func</span>
+
+<span class="nd">@register</span>
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="nd">@register</span>
+<span class="k">def</span> <span class="nf">be_awesome</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Yo </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, together we are the awesomest!&quot;</span>
+
+<span class="k">def</span> <span class="nf">randomly_greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="n">greeter</span><span class="p">,</span> <span class="n">greeter_func</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">PLUGINS</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using </span><span class="si">{</span><span class="n">greeter</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">greeter_func</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+<span class="c1"># The @register decorator simply stores a reference to the decorated function in the global PLUGINS dict. </span>
+<span class="c1"># Note that you do not have to write an inner function or use @functools.wraps in this example </span>
+<span class="c1"># because you are returning the original function unmodified.</span>
+
+<span class="c1"># The randomly_greet() function randomly chooses one of the registered functions to use. </span>
+<span class="c1"># Note that the PLUGINS dictionary already contains references to each function object that is registered as a plugin:</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">PLUGINS</span><span class="p">)</span>
+<span class="c1"># {&#39;say_hello&#39;: &lt;function say_hello at 0x7f768eae6730&gt;,</span>
+<span class="c1">#  &#39;be_awesome&#39;: &lt;function be_awesome at 0x7f768eae67b8&gt;}</span>
+
+<span class="n">randomly_greet</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;say_hello&#39;: &lt;function say_hello at 0x05FADC00&gt;, &#39;be_awesome&#39;: &lt;function be_awesome at 0x05FADBB8&gt;}
+Using &#39;say_hello&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hello Alice&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The main benefit of this simple plugin architecture is that you do not need to maintain a list of which plugins exist. That list is created when the plugins register themselves. This makes it trivial to add a new plugin: just define the function and decorate it with &#64;register.</p>
+<p>If you are familiar with globals() in Python, you might see some similarities to how the plugin architecture works. globals() gives access to all global variables in the current scope, including your plugins:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">globals</span><span class="p">()</span>
+<span class="go">{..., # Lots of variables not shown here.</span>
+<span class="go"> &#39;say_hello&#39;: &lt;function say_hello at 0x7f768eae6730&gt;,</span>
+<span class="go"> &#39;be_awesome&#39;: &lt;function be_awesome at 0x7f768eae67b8&gt;,</span>
+<span class="go"> &#39;randomly_greet&#39;: &lt;function randomly_greet at 0x7f768eae6840&gt;}</span>
+</pre></div>
+</div>
+<p>Using the &#64;register decorator, you can create your own curated list of interesting variables, effectively hand-picking some functions from globals().</p>
+</div>
+</div>
+</div>
+<div class="section" id="fancy-decorators">
+<h2>Fancy decorators<a class="headerlink" href="#fancy-decorators" title="Permalink to this headline">¶</a></h2>
+<p>So far, you’ve seen how to create simple decorators. You already have a pretty good understanding of what decorators are and how they work.</p>
+<div class="section" id="decorating-classes">
+<h3>Decorating Classes<a class="headerlink" href="#decorating-classes" title="Permalink to this headline">¶</a></h3>
+<p>There are two different ways you can use decorators on classes. The first one is very close to what you have already done with functions: you can decorate the methods of a class. This was one of the motivations for introducing decorators back in the day.</p>
+<div class="section" id="commonly-used-decorators-classmethod-staticmethod-and-property">
+<h4>Commonly used decorators: <code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code>, and <code class="docutils literal notranslate"><span class="pre">&#64;property</span></code><a class="headerlink" href="#commonly-used-decorators-classmethod-staticmethod-and-property" title="Permalink to this headline">¶</a></h4>
+<p>Some commonly used decorators that are even built-ins in Python are <code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code>, and <code class="docutils literal notranslate"><span class="pre">&#64;property</span></code>. The &#64;classmethod and &#64;staticmethod decorators are used to define methods inside a class namespace that are not connected to a particular instance of that class. The &#64;property decorator is used to customize getters and setters for class attributes. Expand the box below for an example using these decorators.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span> <span class="o">=</span> <span class="n">radius</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">radius</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get value of radius&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span>
+
+    <span class="nd">@radius</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">radius</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set radius, raise error if negative&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Radius must be positive&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate area inside circle&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pi</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="k">def</span> <span class="nf">cylinder_volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate volume of cylinder with circle as base&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">area</span> <span class="o">*</span> <span class="n">height</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">unit_circle</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Factory method creating a circle with radius 1&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">pi</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;Value of π, could use math.pi instead though&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mf">3.1415926535</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>.cylinder_volume() is a regular method.</p></li>
+<li><p>.radius is a mutable property: it can be set to a different value. However, by defining a setter method, we can do some error testing to make sure it’s not set to a nonsensical negative number. Properties are accessed as attributes without parentheses.</p></li>
+<li><p>.area is an immutable property: properties without .setter() methods can’t be changed. Even though it is defined as a method, it can be retrieved as an attribute without parentheses.</p></li>
+<li><p>.unit_circle() is a class method. It’s not bound to one particular instance of Circle. Class methods are often used as factory methods that can create specific instances of the class.</p></li>
+<li><p>.pi() is a static method. It’s not really dependent on the Circle class, except that it is part of its namespace. Static methods can be called on either an instance or the class.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">radius</span><span class="p">)</span>
+<span class="c1"># 5</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
+<span class="c1"># 78.5398163375</span>
+
+<span class="n">c</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
+<span class="mf">12.566370614</span>
+
+<span class="c1"># c.area = 100 # AttributeError: can&#39;t set attribute</span>
+
+<span class="n">c</span><span class="o">.</span><span class="n">cylinder_volume</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> 
+<span class="c1"># 50.265482456</span>
+
+<span class="c1"># c.radius = -1 # ValueError: Radius must be positive</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="o">.</span><span class="n">unit_circle</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">radius</span><span class="p">)</span>
+<span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">pi</span><span class="p">())</span>
+<span class="c1"># 3.1415926535</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Circle</span><span class="o">.</span><span class="n">pi</span><span class="p">())</span>
+<span class="mf">3.1415926535</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+78.5398163375
+12.566370614
+1
+3.1415926535
+3.1415926535
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1415926535
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="decorating-functions-in-a-class">
+<h4>Decorating functions in a class<a class="headerlink" href="#decorating-functions-in-a-class" title="Permalink to this headline">¶</a></h4>
+<p>Let’s define a class where we decorate some of its methods using the &#64;debug and &#64;timer decorators from earlier:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TimeWaster</span><span class="p">:</span>
+    <span class="nd">@debug</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_num</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_num</span> <span class="o">=</span> <span class="n">max_num</span>
+
+    <span class="nd">@timer</span>
+    <span class="k">def</span> <span class="nf">waste_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_times</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_times</span><span class="p">):</span>
+            <span class="nb">sum</span><span class="p">([</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_num</span><span class="p">)])</span>
+            
+<span class="c1"># Using this class, you can see the effect of the decorators:</span>
+
+<span class="n">tw</span> <span class="o">=</span> <span class="n">TimeWaster</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="c1"># Calling __init__(&lt;time_waster.TimeWaster object at 0x7efccce03908&gt;, 1000)</span>
+<span class="c1"># &#39;__init__&#39; returned None</span>
+
+<span class="n">tw</span><span class="o">.</span><span class="n">waste_time</span><span class="p">(</span><span class="mi">999</span><span class="p">)</span>
+<span class="c1"># Finished &#39;waste_time&#39; in 0.3376 secs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calling __init__(&lt;__main__.TimeWaster object at 0x05FA2090&gt;, 1000)
+&#39;__init__&#39; returned None
+Finished &#39;waste_time&#39; in 0.2887 secs
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="whole-class-decorators">
+<h3>Whole class decorators<a class="headerlink" href="#whole-class-decorators" title="Permalink to this headline">¶</a></h3>
+<p>The other way to use decorators on classes is to decorate the whole class. This is, for example, done in the new dataclasses module in Python 3.7:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dataclasses only work with python 3.7 and above&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>    
+    
+    <span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+    <span class="nd">@dataclass</span>
+    <span class="k">class</span> <span class="nc">PlayingCard</span><span class="p">:</span>
+        <span class="n">rank</span><span class="p">:</span> <span class="nb">str</span>
+        <span class="n">suit</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="n">PlayingCard</span><span class="p">(</span><span class="s1">&#39;queen&#39;</span><span class="p">,</span> <span class="s1">&#39;hearts&#39;</span><span class="p">)</span>
+
+    <span class="c1"># The meaning of the syntax is similar to the function decorators. </span>
+    <span class="c1"># In the example above, you could have done the decoration by writing PlayingCard = dataclass(PlayingCard).</span>
+
+    <span class="c1"># A common use of class decorators is to be a simpler alternative to some use-cases of metaclasses. </span>
+    <span class="c1"># In both cases, you are changing the definition of a class dynamically.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="whole-class-decorators-constructor-decorator">
+<h4>Whole class decorators - Constructor decorator<a class="headerlink" href="#whole-class-decorators-constructor-decorator" title="Permalink to this headline">¶</a></h4>
+<p>Writing a class decorator is very similar to writing a function decorator. The only difference is that the decorator will receive a class and not a function as an argument. In fact, all the decorators you saw above will work as class decorators. When you are using them on a class instead of a function, their effect might not be what you want. In the following example, the &#64;timer decorator is applied to a class:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@timer</span> <span class="c1"># decorates TimeWaster.__init__</span>
+<span class="k">class</span> <span class="nc">TimeWaster</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_num</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_num</span> <span class="o">=</span> <span class="n">max_num</span>
+
+    <span class="k">def</span> <span class="nf">waste_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_times</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_times</span><span class="p">):</span>
+            <span class="nb">sum</span><span class="p">([</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_num</span><span class="p">)])</span>
+            
+<span class="c1"># Decorating a class does not decorate its methods. </span>
+<span class="c1"># Recall that @timer is just shorthand for TimeWaster = timer(TimeWaster).</span>
+<span class="c1"># Here, @timer only measures the time it takes to instantiate the class:</span>
+
+<span class="n">tw</span> <span class="o">=</span> <span class="n">TimeWaster</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="c1"># Finished &#39;TimeWaster&#39; in 0.0000 secs</span>
+
+<span class="n">tw</span><span class="o">.</span><span class="n">waste_time</span><span class="p">(</span><span class="mi">999</span><span class="p">)</span> <span class="c1"># doesnt use the #timer decorator</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Finished &#39;TimeWaster&#39; in 0.0000 secs
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="nesting-decorators">
+<h3>Nesting Decorators<a class="headerlink" href="#nesting-decorators" title="Permalink to this headline">¶</a></h3>
+<p>You can apply several decorators to a function by stacking them on top of each other:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@debug</span>
+<span class="nd">@do_twice</span>
+<span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+<span class="c1">#</span>
+<span class="c1"># Think about this as the decorators being executed in the order they are listed. </span>
+<span class="c1"># In other words, @debug calls @do_twice, which calls greet(), or debug(do_twice(greet())):</span>
+<span class="c1">#</span>
+
+<span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Eva&quot;</span><span class="p">)</span>
+<span class="c1"># Calling greet(&#39;Eva&#39;)</span>
+<span class="c1"># Hello Eva</span>
+<span class="c1"># Hello Eva</span>
+<span class="c1"># &#39;greet&#39; returned None</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calling greet(&#39;Eva&#39;)
+Hello Eva
+Hello Eva
+&#39;greet&#39; returned None
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="decorators-with-arguments">
+<h3>Decorators With Arguments<a class="headerlink" href="#decorators-with-arguments" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes, it’s useful to pass arguments to your decorators. For instance, &#64;do_twice could be extended to a &#64;repeat(num_times) decorator. The number of times to execute the decorated function could then be given as an argument.</p>
+<p>This would allow you to do something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@repeat</span><span class="p">(</span><span class="n">num_times</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">greet</span><span class="p">(</span><span class="s2">&quot;World&quot;</span><span class="p">)</span>
+<span class="n">Hello</span> <span class="n">World</span>
+<span class="n">Hello</span> <span class="n">World</span>
+<span class="n">Hello</span> <span class="n">World</span>
+<span class="n">Hello</span> <span class="n">World</span>
+</pre></div>
+</div>
+<p>Think about how you could achieve this. <br></p>
+<p>So far, the name written after the &#64; has referred to a function object that can be called with another function. To be consistent, you then need repeat(num_times=4) to return a function object that can act as a decorator. Luckily, you already know how to return functions! In general, you want something like the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">repeat</span><span class="p">(</span><span class="n">num_times</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">decorator_repeat</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="o">...</span>  <span class="c1"># Create and return a wrapper function</span>
+    <span class="k">return</span> <span class="n">decorator_repeat</span>
+</pre></div>
+</div>
+<p>Typically, the decorator creates and returns an inner wrapper function, so writing the example out in full will give you an inner function within an inner function. While this might sound like the programming equivalent of the Inception movie, we’ll untangle it all in a moment:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">repeat</span><span class="p">(</span><span class="n">num_times</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">decorator_repeat</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapper_repeat</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_times</span><span class="p">):</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">value</span>
+        <span class="k">return</span> <span class="n">wrapper_repeat</span>
+    <span class="k">return</span> <span class="n">decorator_repeat</span>
+
+<span class="c1"># It looks a little messy, but we have only put the same decorator pattern you have seen </span>
+<span class="c1"># many times by now inside one additional def that handles the arguments to the decorator. </span>
+
+<span class="nd">@repeat</span><span class="p">(</span><span class="n">num_times</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">greet</span><span class="p">(</span><span class="s2">&quot;World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World
+Hello World
+Hello World
+Hello World
+</pre></div>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./02_closures_and_decorators"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../notebooks.html" title="previous page">Content with notebooks</a>
+    <a class='right-next' id="next-link" href="variadic_functions.html" title="next page"><code class="docutils literal notranslate"><span class="pre">print()</span></code> accepts variable number of positional arguments</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Aviad Rozenhek<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

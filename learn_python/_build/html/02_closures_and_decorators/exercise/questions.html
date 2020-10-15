@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bind1st - create a one parameter function from a two parameter function &#8212; learn-python</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="bind1st - create a one parameter function from a two parameter function" href="solutions.html" />
+    <link rel="prev" title="print() accepts variable number of positional arguments" href="../variadic_functions.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">learn-python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../closure_and_decorators.html">
+   Closures and decorators
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="../closure_and_decorators.html#your-turn">
+   Your Turn
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../variadic_functions.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       print()
+      </span>
+     </code>
+     accepts variable number of positional arguments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../variadic_functions.html#what-about-our-functions">
+     What about our functions?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../variadic_functions.html#variable-number-of-positional-arguments">
+     variable number of positional arguments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../variadic_functions.html#variable-number-of-keyword-arguments">
+     variable number of keyword arguments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../variadic_functions.html#putting-it-all-together">
+     putting it all together
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     bind1st - create a one parameter function from a two parameter function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#bind-a-general-way-to-bind-function-parameters">
+     bind - a general way to bind function parameters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#observable-decorator">
+     Observable decorator
+    </a>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="solutions.html">
+       bind1st - create a one parameter function from a two parameter function
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="solutions.html#bind-a-general-way-to-bind-function-parameters">
+       bind - a general way to bind function parameters
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="solutions.html#observable-decorator">
+       Observable decorator
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html">
+   Abstract Base Classes (ABCs)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../04_writing_our_own_container_types/writing_our_own_container_types.html">
+   Creating new collections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../04_writing_our_own_container_types/writing_our_own_container_types.html#iterator-protocol">
+   Iterator protocol
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../06_multiple_inheritance_and_super/multiple_inheritance_and_super.html">
+   super() and multiple inheritance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html">
+   Design patterns in python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html#prototype">
+   Prototype
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html#singleton">
+   Singleton
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html#proxy">
+   Proxy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html#composition">
+   Composition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../07_design_patterns_in_python/07-design_patterns_in_python.html#resource-acquisition-is-initialization-raii">
+   Resource Acquisition Is Initialization (RAII)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html">
+   useful resources:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#setup">
+   setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#how-pytest-discovers-tests">
+   How pytest discovers tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#our-first-test">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#pytest-context-sensitive-comparisons">
+   Pytest context-sensitive comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#using-fixtures-to-simplify-tests">
+   Using fixtures to simplify tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#parameterizing-fixtures">
+   parameterizing fixtures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#printing-and-logging-within-tests">
+   printing and logging within tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#float-when-things-are-almost-equal">
+   float: when things are (almost) equal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#adding-timeouts-to-tests">
+   adding timeouts to tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#testing-for-exceptions">
+   testing for exceptions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#running-tests-in-parallel">
+   running tests in parallel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#codebase-to-test-class-person">
+   Codebase to test: class Person
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../08_test_driven_development/08-pytest.html#id14">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../10_package_management/10-package_management.html">
+   Where are my packages?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../10_package_management/10-package_management.html#development-of-projects-with-different-dependencies">
+   Development of Projects with Different Dependencies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../11_db_access/01_basic_db_access.html">
+   sqlite
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../11_db_access/01_basic_db_access.html#pyodbc">
+   pyodbc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../12_its_fun_to_be_eval/its_fun_to_be_eval.html">
+   Its fun to be eval
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../13_complex_comprehensions/complex_comprehensions.html">
+   writing and understanding nested list comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../14_pandas/edm_us_adult_census_income/questions.html">
+   get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../14_pandas/edm_us_adult_census_income/questions.html#income-for-adults-from-the-1994-census">
+   income for adults from the 1994 census
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/02_closures_and_decorators/exercise/questions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/02_closures_and_decorators/exercise/questions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   bind1st - create a one parameter function from a two parameter function
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bind-a-general-way-to-bind-function-parameters">
+   bind - a general way to bind function parameters
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#observable-decorator">
+   Observable decorator
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/02_closures_and_decorators/exercise/questions.ipynb" target="_blank">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" 
+     title="Open this file in Google Colab" alt="Colab"/>
+</a>
+<div class="section" id="bind1st-create-a-one-parameter-function-from-a-two-parameter-function">
+<h1>bind1st - create a one parameter function from a two parameter function<a class="headerlink" href="#bind1st-create-a-one-parameter-function-from-a-two-parameter-function" title="Permalink to this headline">¶</a></h1>
+<p>Imagine we have some function that takes two parameters, like <code class="docutils literal notranslate"><span class="pre">divide(x,y)</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">/</span><span class="n">y</span>
+</pre></div>
+</div>
+<p>Write a function called <code class="docutils literal notranslate"><span class="pre">bind1st(func,</span> <span class="pre">value)</span></code> that can create a one parameter function from this two parameter function?
+it should work like this</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># take the divide function, and the value 100</span>
+<span class="c1"># and create a new function called divide_100_by(y) </span>
+<span class="n">divide_100_by</span> <span class="o">=</span> <span class="n">bind1st</span><span class="p">(</span><span class="n">divide</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">divide_100_by</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="c1"># prints 50</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">divide_100_by</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="c1"># prints 10</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### useful: this tests your function bind1st</span>
+<span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">/</span><span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
+
+
+<span class="n">divide_100_by</span> <span class="o">=</span> <span class="n">bind1st</span><span class="p">(</span><span class="n">divide</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> 
+<span class="k">assert</span> <span class="n">divide_100_by</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">50</span>
+
+<span class="n">multiply_by_2</span> <span class="o">=</span> <span class="n">bind1st</span><span class="p">(</span><span class="n">multiply</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> 
+<span class="k">assert</span> <span class="n">multiply_by_2</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="o">==</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">bd5fb9a7e0b0</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">divide_100_by</span> <span class="o">=</span> <span class="n">bind1st</span><span class="p">(</span><span class="n">divide</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">assert</span> <span class="n">divide_100_by</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">50</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> 
+
+<span class="ne">NameError</span>: name &#39;bind1st&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bind-a-general-way-to-bind-function-parameters">
+<h1>bind - a general way to bind function parameters<a class="headerlink" href="#bind-a-general-way-to-bind-function-parameters" title="Permalink to this headline">¶</a></h1>
+<p>This question continues from the previous one, but this time, we want to bind more than one parameter.
+Write a function called <code class="docutils literal notranslate"><span class="pre">bind(func,</span> <span class="pre">*args,</span> <span class="pre">**kwargs)</span></code> that:</p>
+<ul class="simple">
+<li><p>receives any function <code class="docutils literal notranslate"><span class="pre">func</span></code> that has any number of parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*args</span></code> - a variable number of positional arguments</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> - a variable number of keyword arguments
+and returns a new function with where <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> have been bound.</p></li>
+</ul>
+<p>for instance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">connect_to_database</span><span class="p">(</span><span class="n">usr</span><span class="p">,</span> <span class="n">pwd</span><span class="p">,</span> <span class="n">srv</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">protocol</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;connecting to db:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;user=</span><span class="si">{</span><span class="n">usr</span><span class="si">}</span><span class="s2">, password=</span><span class="si">{</span><span class="n">pwd</span><span class="si">}</span><span class="s2">, server=</span><span class="si">{</span><span class="n">srv</span><span class="si">}</span><span class="s2">, port=</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">, protocol=</span><span class="si">{</span><span class="n">protocol</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">http_connect</span> <span class="o">=</span> <span class="n">bind</span><span class="p">(</span><span class="n">connect_to_database</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="s2">&quot;http&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### useful: use this to test your `bind` function</span>
+<span class="k">def</span> <span class="nf">connect_to_database</span><span class="p">(</span><span class="n">usr</span><span class="p">,</span> <span class="n">pwd</span><span class="p">,</span> <span class="n">srv</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">protocol</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;connecting to db:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;user=</span><span class="si">{</span><span class="n">usr</span><span class="si">}</span><span class="s2">, password=</span><span class="si">{</span><span class="n">pwd</span><span class="si">}</span><span class="s2">, server=</span><span class="si">{</span><span class="n">srv</span><span class="si">}</span><span class="s2">, port=</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">, protocol=</span><span class="si">{</span><span class="n">protocol</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+ 
+<span class="n">http_connect</span> <span class="o">=</span> <span class="n">bind</span><span class="p">(</span><span class="n">connect_to_database</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="s2">&quot;http&quot;</span><span class="p">)</span>
+<span class="c1"># prints: user=jamesbond, password=007, server=mi, port=6, protocol=http</span>
+<span class="n">http_connect</span><span class="p">(</span><span class="s2">&quot;jamesbond&quot;</span><span class="p">,</span> <span class="s2">&quot;007&quot;</span><span class="p">,</span> <span class="s2">&quot;mi&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> 
+
+<span class="n">jamesbond_connect_http</span> <span class="o">=</span> <span class="n">bind</span><span class="p">(</span><span class="n">http_connect</span><span class="p">,</span> <span class="s2">&quot;jamesbond&quot;</span><span class="p">,</span> <span class="s2">&quot;007&quot;</span><span class="p">)</span> 
+<span class="c1"># prints: user=jamesbond, password=007, server=mi, port=6, protocol=http</span>
+<span class="n">jamesbond_connect_http</span><span class="p">(</span><span class="s2">&quot;mi&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>connecting to db:
+user=jamesbond, password=007, server=mi, port=6, protocol=http
+connecting to db:
+user=jamesbond, password=007, server=mi, port=6, protocol=http
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="observable-decorator">
+<h1>Observable decorator<a class="headerlink" href="#observable-decorator" title="Permalink to this headline">¶</a></h1>
+<p>Consider the <code class="docutils literal notranslate"><span class="pre">Observable</span></code> class based on the “observable” pattern</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Observable</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callable_</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callable_</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
+            <span class="n">handler</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            
+<span class="k">def</span> <span class="nf">start_observing</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">observable_events</span> <span class="o">=</span> <span class="n">Observable</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">observable</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">observable_events</span>
+</pre></div>
+</div>
+<p>Create two decorator functions</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>observable_class(klass)- decorates a class to become observable`
+observe(func) - decorates a method to become observable
+</pre></div>
+</div>
+<p>such that given a simple class like the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Test</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>you could decorate Test using the decorators:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@observable_class</span>
+<span class="k">class</span> <span class="nc">Test</span><span class="p">:</span>
+    <span class="nd">@observe</span>
+    <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and then be able to get notifications whenever the <code class="docutils literal notranslate"><span class="pre">Test.test()</span></code> function is used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simple_handler</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;notified:&#39;</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    
+<span class="n">t</span> <span class="o">=</span> <span class="n">Test</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">observable</span><span class="p">()</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">simple_handler</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>expected output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">notified</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Test</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x000002E99F51A7F0</span><span class="o">&gt;</span> <span class="n">test</span> <span class="n">hello</span>
+<span class="n">test</span> <span class="n">hello</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### useful starting point</span>
+<span class="k">class</span> <span class="nc">Observable</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callable_</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callable_</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
+            <span class="n">handler</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            
+<span class="k">def</span> <span class="nf">start_observing</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">observable_events</span> <span class="o">=</span> <span class="n">Observable</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">observable</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">observable_events</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./02_closures_and_decorators\exercise"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../variadic_functions.html" title="previous page"><code class="docutils literal notranslate"><span class="pre">print()</span></code> accepts variable number of positional arguments</a>
+    <a class='right-next' id="next-link" href="solutions.html" title="next page">bind1st - create a one parameter function from a two parameter function</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Aviad Rozenhek<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -43,6 +43,9 @@ sections:
   - file: 10_package_management/exercise/questions
     sections:
     - file: 10_package_management/exercise/solutions
+    - file: 10_package_management/exercise/cute-python/download
+      sections:
+      - file: 10_package_management/exercise/cute-python/show
 - file: 11_db_access/01_basic_db_access
   sections:
   - file: 11_db_access/02_sqlalchemy_orm
@@ -71,6 +74,8 @@ sections:
     - file: 14_pandas/edm_us_adult_census_income/solution
 - file: 15_logging/logging_in_python
   sections:
-  - file: 15_logging/exercise/questions
+  - file: 15_logging/exercise/ex1
     sections:
+    - file: 15_logging/exercise/ex2
+    - file: 15_logging/exercise/questions
     - file: 15_logging/exercise/solutions

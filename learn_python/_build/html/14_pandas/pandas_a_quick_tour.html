@@ -1,0 +1,3987 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; learn-python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="get the data" href="edm_us_adult_census_income/questions.html" />
+    <link rel="prev" title="hotel comprehension" href="../13_complex_comprehensions/exercise/solutions.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">learn-python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content.html">
+   Content in Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_closures_and_decorators/closure_and_decorators.html">
+   Closures and decorators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_closures_and_decorators/closure_and_decorators.html#your-turn">
+   Your Turn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html">
+   Abstract Base Classes (ABCs)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_polymorphism_protocols_and_abcs/polymorphism_protocols_abcs.html#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_writing_our_own_container_types/writing_our_own_container_types.html">
+   Creating new collections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_writing_our_own_container_types/writing_our_own_container_types.html#iterator-protocol">
+   Iterator protocol
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_multiple_inheritance_and_super/multiple_inheritance_and_super.html">
+   super() and multiple inheritance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html">
+   Design patterns in python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#prototype">
+   Prototype
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#singleton">
+   Singleton
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#proxy">
+   Proxy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#composition">
+   Composition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_design_patterns_in_python/07-design_patterns_in_python.html#resource-acquisition-is-initialization-raii">
+   Resource Acquisition Is Initialization (RAII)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html">
+   useful resources:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#setup">
+   setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#how-pytest-discovers-tests">
+   How pytest discovers tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#our-first-test">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#pytest-context-sensitive-comparisons">
+   Pytest context-sensitive comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#using-fixtures-to-simplify-tests">
+   Using fixtures to simplify tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#parameterizing-fixtures">
+   parameterizing fixtures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#printing-and-logging-within-tests">
+   printing and logging within tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#float-when-things-are-almost-equal">
+   float: when things are (almost) equal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#adding-timeouts-to-tests">
+   adding timeouts to tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#testing-for-exceptions">
+   testing for exceptions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#running-tests-in-parallel">
+   running tests in parallel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#codebase-to-test-class-person">
+   Codebase to test: class Person
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_test_driven_development/08-pytest.html#id14">
+   our first test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_package_management/10-package_management.html">
+   Where are my packages?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_package_management/10-package_management.html#development-of-projects-with-different-dependencies">
+   Development of Projects with Different Dependencies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_db_access/01_basic_db_access.html">
+   sqlite
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_db_access/01_basic_db_access.html#pyodbc">
+   pyodbc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12_its_fun_to_be_eval/its_fun_to_be_eval.html">
+   Its fun to be eval
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13_complex_comprehensions/complex_comprehensions.html">
+   writing and understanding nested list comprehensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="edm_us_adult_census_income/questions.html">
+   get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="edm_us_adult_census_income/questions.html#income-for-adults-from-the-1994-census">
+   income for adults from the 1994 census
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/14_pandas/pandas_a_quick_tour.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <a href="https://colab.research.google.com/github/aviadr1/learn-advanced-python/blob/master/content/14_pandas/pandas_a_quick_tour.ipynb" target="_blank">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" 
+     title="Open this file in Google Colab" alt="Colab"/>
+</a>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">7</span><span class="n">dd3504c366f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;diamonds.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df.head() </span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0.23</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI2</td>
+      <td>61.5</td>
+      <td>55.0</td>
+      <td>326</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.43</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>0.21</td>
+      <td>Premium</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>59.8</td>
+      <td>61.0</td>
+      <td>326</td>
+      <td>3.89</td>
+      <td>3.84</td>
+      <td>2.31</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td>0.23</td>
+      <td>Good</td>
+      <td>E</td>
+      <td>VS1</td>
+      <td>56.9</td>
+      <td>65.0</td>
+      <td>327</td>
+      <td>4.05</td>
+      <td>4.07</td>
+      <td>2.31</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td>0.29</td>
+      <td>Premium</td>
+      <td>I</td>
+      <td>VS2</td>
+      <td>62.4</td>
+      <td>58.0</td>
+      <td>334</td>
+      <td>4.20</td>
+      <td>4.23</td>
+      <td>2.63</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>0.31</td>
+      <td>Good</td>
+      <td>J</td>
+      <td>SI2</td>
+      <td>63.3</td>
+      <td>58.0</td>
+      <td>335</td>
+      <td>4.34</td>
+      <td>4.35</td>
+      <td>2.75</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>6</td>
+      <td>0.24</td>
+      <td>Very Good</td>
+      <td>J</td>
+      <td>VVS2</td>
+      <td>62.8</td>
+      <td>57.0</td>
+      <td>336</td>
+      <td>3.94</td>
+      <td>3.96</td>
+      <td>2.48</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>7</td>
+      <td>0.24</td>
+      <td>Very Good</td>
+      <td>I</td>
+      <td>VVS1</td>
+      <td>62.3</td>
+      <td>57.0</td>
+      <td>336</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.47</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>8</td>
+      <td>0.26</td>
+      <td>Very Good</td>
+      <td>H</td>
+      <td>SI1</td>
+      <td>61.9</td>
+      <td>55.0</td>
+      <td>337</td>
+      <td>4.07</td>
+      <td>4.11</td>
+      <td>2.53</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>9</td>
+      <td>0.22</td>
+      <td>Fair</td>
+      <td>E</td>
+      <td>VS2</td>
+      <td>65.1</td>
+      <td>61.0</td>
+      <td>337</td>
+      <td>3.87</td>
+      <td>3.78</td>
+      <td>2.49</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>10</td>
+      <td>0.23</td>
+      <td>Very Good</td>
+      <td>H</td>
+      <td>VS1</td>
+      <td>59.4</td>
+      <td>61.0</td>
+      <td>338</td>
+      <td>4.00</td>
+      <td>4.05</td>
+      <td>2.39</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1106</td>
+      <td>1107</td>
+      <td>0.91</td>
+      <td>Premium</td>
+      <td>I</td>
+      <td>SI2</td>
+      <td>62.0</td>
+      <td>59.0</td>
+      <td>2913</td>
+      <td>6.18</td>
+      <td>6.23</td>
+      <td>3.85</td>
+    </tr>
+    <tr>
+      <td>1107</td>
+      <td>1108</td>
+      <td>0.83</td>
+      <td>Premium</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>62.2</td>
+      <td>59.0</td>
+      <td>2913</td>
+      <td>6.05</td>
+      <td>5.97</td>
+      <td>3.74</td>
+    </tr>
+    <tr>
+      <td>1108</td>
+      <td>1109</td>
+      <td>0.85</td>
+      <td>Ideal</td>
+      <td>G</td>
+      <td>SI2</td>
+      <td>62.0</td>
+      <td>57.0</td>
+      <td>2913</td>
+      <td>6.10</td>
+      <td>6.02</td>
+      <td>3.76</td>
+    </tr>
+    <tr>
+      <td>1109</td>
+      <td>1110</td>
+      <td>0.80</td>
+      <td>Very Good</td>
+      <td>F</td>
+      <td>SI1</td>
+      <td>63.5</td>
+      <td>55.0</td>
+      <td>2914</td>
+      <td>5.86</td>
+      <td>5.89</td>
+      <td>3.73</td>
+    </tr>
+    <tr>
+      <td>1110</td>
+      <td>1111</td>
+      <td>0.73</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>61.4</td>
+      <td>58.0</td>
+      <td>2914</td>
+      <td>5.76</td>
+      <td>5.80</td>
+      <td>3.55</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 1111 entries, 0 to 1110
+Data columns (total 11 columns):
+#          1111 non-null int64
+carat      1111 non-null float64
+cut        1111 non-null object
+color      1111 non-null object
+clarity    1111 non-null object
+depth      1111 non-null float64
+table      1111 non-null float64
+price      1111 non-null int64
+x          1111 non-null float64
+y          1111 non-null float64
+z          1111 non-null float64
+dtypes: float64(6), int64(2), object(3)
+memory usage: 82.5+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>1111.00000</td>
+      <td>1111.000000</td>
+      <td>1111.000000</td>
+      <td>1111.000000</td>
+      <td>1111.000000</td>
+      <td>1111.000000</td>
+      <td>1111.000000</td>
+      <td>1111.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>556.00000</td>
+      <td>0.684086</td>
+      <td>61.735914</td>
+      <td>57.708731</td>
+      <td>2456.058506</td>
+      <td>5.588587</td>
+      <td>5.581683</td>
+      <td>3.447642</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>320.86238</td>
+      <td>0.198297</td>
+      <td>1.731228</td>
+      <td>2.430179</td>
+      <td>864.254630</td>
+      <td>0.634599</td>
+      <td>0.623776</td>
+      <td>0.396959</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>1.00000</td>
+      <td>0.200000</td>
+      <td>53.000000</td>
+      <td>52.000000</td>
+      <td>326.000000</td>
+      <td>3.790000</td>
+      <td>3.750000</td>
+      <td>2.270000</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>278.50000</td>
+      <td>0.700000</td>
+      <td>60.900000</td>
+      <td>56.000000</td>
+      <td>2777.000000</td>
+      <td>5.620000</td>
+      <td>5.610000</td>
+      <td>3.440000</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>556.00000</td>
+      <td>0.710000</td>
+      <td>61.800000</td>
+      <td>57.000000</td>
+      <td>2822.000000</td>
+      <td>5.760000</td>
+      <td>5.760000</td>
+      <td>3.550000</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>833.50000</td>
+      <td>0.790000</td>
+      <td>62.600000</td>
+      <td>59.000000</td>
+      <td>2862.500000</td>
+      <td>5.910000</td>
+      <td>5.910000</td>
+      <td>3.640000</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>1111.00000</td>
+      <td>1.270000</td>
+      <td>69.500000</td>
+      <td>70.000000</td>
+      <td>2914.000000</td>
+      <td>7.120000</td>
+      <td>7.050000</td>
+      <td>4.330000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;carat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.23
+1    0.21
+2    0.23
+3    0.29
+4    0.31
+Name: carat, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># df[  [&#39;carat&#39;, &#39;price&#39;]  ].head()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>carat</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.23</td>
+      <td>326</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.21</td>
+      <td>326</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.23</td>
+      <td>327</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.29</td>
+      <td>334</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.31</td>
+      <td>335</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#              1
+carat       0.23
+cut        Ideal
+color          E
+clarity      SI2
+depth       61.5
+table         55
+price        326
+x           3.95
+y           3.98
+z           2.43
+Name: 0, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df.iloc[0][&#39;carat&#39;]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][[</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>carat    0.23
+price     326
+Name: 0, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0.23</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI2</td>
+      <td>61.5</td>
+      <td>55.0</td>
+      <td>326</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.43</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>0.21</td>
+      <td>Premium</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>59.8</td>
+      <td>61.0</td>
+      <td>326</td>
+      <td>3.89</td>
+      <td>3.84</td>
+      <td>2.31</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td>0.23</td>
+      <td>Good</td>
+      <td>E</td>
+      <td>VS1</td>
+      <td>56.9</td>
+      <td>65.0</td>
+      <td>327</td>
+      <td>4.05</td>
+      <td>4.07</td>
+      <td>2.31</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td>0.29</td>
+      <td>Premium</td>
+      <td>I</td>
+      <td>VS2</td>
+      <td>62.4</td>
+      <td>58.0</td>
+      <td>334</td>
+      <td>4.20</td>
+      <td>4.23</td>
+      <td>2.63</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>0.31</td>
+      <td>Good</td>
+      <td>J</td>
+      <td>SI2</td>
+      <td>63.3</td>
+      <td>58.0</td>
+      <td>335</td>
+      <td>4.34</td>
+      <td>4.35</td>
+      <td>2.75</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>6</td>
+      <td>0.24</td>
+      <td>Very Good</td>
+      <td>J</td>
+      <td>VVS2</td>
+      <td>62.8</td>
+      <td>57.0</td>
+      <td>336</td>
+      <td>3.94</td>
+      <td>3.96</td>
+      <td>2.48</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>7</td>
+      <td>0.24</td>
+      <td>Very Good</td>
+      <td>I</td>
+      <td>VVS1</td>
+      <td>62.3</td>
+      <td>57.0</td>
+      <td>336</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.47</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>8</td>
+      <td>0.26</td>
+      <td>Very Good</td>
+      <td>H</td>
+      <td>SI1</td>
+      <td>61.9</td>
+      <td>55.0</td>
+      <td>337</td>
+      <td>4.07</td>
+      <td>4.11</td>
+      <td>2.53</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>9</td>
+      <td>0.22</td>
+      <td>Fair</td>
+      <td>E</td>
+      <td>VS2</td>
+      <td>65.1</td>
+      <td>61.0</td>
+      <td>337</td>
+      <td>3.87</td>
+      <td>3.78</td>
+      <td>2.49</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>10</td>
+      <td>0.23</td>
+      <td>Very Good</td>
+      <td>H</td>
+      <td>VS1</td>
+      <td>59.4</td>
+      <td>61.0</td>
+      <td>338</td>
+      <td>4.00</td>
+      <td>4.05</td>
+      <td>2.39</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0.23</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI2</td>
+      <td>61.5</td>
+      <td>55.0</td>
+      <td>326</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.43</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td>0.23</td>
+      <td>Good</td>
+      <td>E</td>
+      <td>VS1</td>
+      <td>56.9</td>
+      <td>65.0</td>
+      <td>327</td>
+      <td>4.05</td>
+      <td>4.07</td>
+      <td>2.31</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>0.21</td>
+      <td>Premium</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>59.8</td>
+      <td>61.0</td>
+      <td>326</td>
+      <td>3.89</td>
+      <td>3.84</td>
+      <td>2.31</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0.23</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI2</td>
+      <td>61.5</td>
+      <td>55.0</td>
+      <td>326</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.43</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row0</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">row0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#              1
+carat       0.23
+cut        Ideal
+color          E
+clarity      SI2
+depth       61.5
+table         55
+price        326
+x           3.95
+y           3.98
+z           2.43
+Name: 0, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row0</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>326
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row0</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.23
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row0</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>326
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">carats</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;carat&#39;</span><span class="p">)</span>
+<span class="n">carats</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+    </tr>
+    <tr>
+      <th>carat</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.23</td>
+      <td>1</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI2</td>
+      <td>61.5</td>
+      <td>55.0</td>
+      <td>326</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.43</td>
+    </tr>
+    <tr>
+      <td>0.21</td>
+      <td>2</td>
+      <td>Premium</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>59.8</td>
+      <td>61.0</td>
+      <td>326</td>
+      <td>3.89</td>
+      <td>3.84</td>
+      <td>2.31</td>
+    </tr>
+    <tr>
+      <td>0.23</td>
+      <td>3</td>
+      <td>Good</td>
+      <td>E</td>
+      <td>VS1</td>
+      <td>56.9</td>
+      <td>65.0</td>
+      <td>327</td>
+      <td>4.05</td>
+      <td>4.07</td>
+      <td>2.31</td>
+    </tr>
+    <tr>
+      <td>0.29</td>
+      <td>4</td>
+      <td>Premium</td>
+      <td>I</td>
+      <td>VS2</td>
+      <td>62.4</td>
+      <td>58.0</td>
+      <td>334</td>
+      <td>4.20</td>
+      <td>4.23</td>
+      <td>2.63</td>
+    </tr>
+    <tr>
+      <td>0.31</td>
+      <td>5</td>
+      <td>Good</td>
+      <td>J</td>
+      <td>SI2</td>
+      <td>63.3</td>
+      <td>58.0</td>
+      <td>335</td>
+      <td>4.34</td>
+      <td>4.35</td>
+      <td>2.75</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">carats</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mf">0.21</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#                2
+cut        Premium
+color            E
+clarity        SI1
+depth         59.8
+table           61
+price          326
+x             3.89
+y             3.84
+z             2.31
+Name: 0.21, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">carats</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Float64Index: 1111 entries, 0.23 to 0.73
+Data columns (total 10 columns):
+#          1111 non-null int64
+cut        1111 non-null object
+color      1111 non-null object
+clarity    1111 non-null object
+depth      1111 non-null float64
+table      1111 non-null float64
+price      1111 non-null int64
+x          1111 non-null float64
+y          1111 non-null float64
+z          1111 non-null float64
+dtypes: float64(5), int64(2), object(3)
+memory usage: 114.5+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">carats</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>carat</th>
+      <th>#</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.23</td>
+      <td>1</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI2</td>
+      <td>61.5</td>
+      <td>55.0</td>
+      <td>326</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.43</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.21</td>
+      <td>2</td>
+      <td>Premium</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>59.8</td>
+      <td>61.0</td>
+      <td>326</td>
+      <td>3.89</td>
+      <td>3.84</td>
+      <td>2.31</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.23</td>
+      <td>3</td>
+      <td>Good</td>
+      <td>E</td>
+      <td>VS1</td>
+      <td>56.9</td>
+      <td>65.0</td>
+      <td>327</td>
+      <td>4.05</td>
+      <td>4.07</td>
+      <td>2.31</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.29</td>
+      <td>4</td>
+      <td>Premium</td>
+      <td>I</td>
+      <td>VS2</td>
+      <td>62.4</td>
+      <td>58.0</td>
+      <td>334</td>
+      <td>4.20</td>
+      <td>4.23</td>
+      <td>2.63</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.31</td>
+      <td>5</td>
+      <td>Good</td>
+      <td>J</td>
+      <td>SI2</td>
+      <td>63.3</td>
+      <td>58.0</td>
+      <td>335</td>
+      <td>4.34</td>
+      <td>4.35</td>
+      <td>2.75</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>1106</td>
+      <td>0.91</td>
+      <td>1107</td>
+      <td>Premium</td>
+      <td>I</td>
+      <td>SI2</td>
+      <td>62.0</td>
+      <td>59.0</td>
+      <td>2913</td>
+      <td>6.18</td>
+      <td>6.23</td>
+      <td>3.85</td>
+    </tr>
+    <tr>
+      <td>1107</td>
+      <td>0.83</td>
+      <td>1108</td>
+      <td>Premium</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>62.2</td>
+      <td>59.0</td>
+      <td>2913</td>
+      <td>6.05</td>
+      <td>5.97</td>
+      <td>3.74</td>
+    </tr>
+    <tr>
+      <td>1108</td>
+      <td>0.85</td>
+      <td>1109</td>
+      <td>Ideal</td>
+      <td>G</td>
+      <td>SI2</td>
+      <td>62.0</td>
+      <td>57.0</td>
+      <td>2913</td>
+      <td>6.10</td>
+      <td>6.02</td>
+      <td>3.76</td>
+    </tr>
+    <tr>
+      <td>1109</td>
+      <td>0.80</td>
+      <td>1110</td>
+      <td>Very Good</td>
+      <td>F</td>
+      <td>SI1</td>
+      <td>63.5</td>
+      <td>55.0</td>
+      <td>2914</td>
+      <td>5.86</td>
+      <td>5.89</td>
+      <td>3.73</td>
+    </tr>
+    <tr>
+      <td>1110</td>
+      <td>0.73</td>
+      <td>1111</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>61.4</td>
+      <td>58.0</td>
+      <td>2914</td>
+      <td>5.76</td>
+      <td>5.80</td>
+      <td>3.55</td>
+    </tr>
+  </tbody>
+</table>
+<p>1111 rows × 11 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0.23</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI2</td>
+      <td>61.5</td>
+      <td>55.0</td>
+      <td>326</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.43</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>0.21</td>
+      <td>Premium</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>59.8</td>
+      <td>61.0</td>
+      <td>326</td>
+      <td>3.89</td>
+      <td>3.84</td>
+      <td>2.31</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td>0.23</td>
+      <td>Good</td>
+      <td>E</td>
+      <td>VS1</td>
+      <td>56.9</td>
+      <td>65.0</td>
+      <td>327</td>
+      <td>4.05</td>
+      <td>4.07</td>
+      <td>2.31</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td>0.29</td>
+      <td>Premium</td>
+      <td>I</td>
+      <td>VS2</td>
+      <td>62.4</td>
+      <td>58.0</td>
+      <td>334</td>
+      <td>4.20</td>
+      <td>4.23</td>
+      <td>2.63</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>0.31</td>
+      <td>Good</td>
+      <td>J</td>
+      <td>SI2</td>
+      <td>63.3</td>
+      <td>58.0</td>
+      <td>335</td>
+      <td>4.34</td>
+      <td>4.35</td>
+      <td>2.75</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="o">*</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>2</td>
+      <td>0.46</td>
+      <td>IdealIdeal</td>
+      <td>EE</td>
+      <td>SI2SI2</td>
+      <td>123.0</td>
+      <td>110.0</td>
+      <td>652</td>
+      <td>7.90</td>
+      <td>7.96</td>
+      <td>4.86</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>4</td>
+      <td>0.42</td>
+      <td>PremiumPremium</td>
+      <td>EE</td>
+      <td>SI1SI1</td>
+      <td>119.6</td>
+      <td>122.0</td>
+      <td>652</td>
+      <td>7.78</td>
+      <td>7.68</td>
+      <td>4.62</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>6</td>
+      <td>0.46</td>
+      <td>GoodGood</td>
+      <td>EE</td>
+      <td>VS1VS1</td>
+      <td>113.8</td>
+      <td>130.0</td>
+      <td>654</td>
+      <td>8.10</td>
+      <td>8.14</td>
+      <td>4.62</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>8</td>
+      <td>0.58</td>
+      <td>PremiumPremium</td>
+      <td>II</td>
+      <td>VS2VS2</td>
+      <td>124.8</td>
+      <td>116.0</td>
+      <td>668</td>
+      <td>8.40</td>
+      <td>8.46</td>
+      <td>5.26</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>10</td>
+      <td>0.62</td>
+      <td>GoodGood</td>
+      <td>JJ</td>
+      <td>SI2SI2</td>
+      <td>126.6</td>
+      <td>116.0</td>
+      <td>670</td>
+      <td>8.68</td>
+      <td>8.70</td>
+      <td>5.50</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;carat&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.23
+1    1.21
+2    1.23
+3    1.29
+4    1.31
+Name: carat, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;expensive&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1000</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>expensive</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0.23</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI2</td>
+      <td>61.5</td>
+      <td>55.0</td>
+      <td>326</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.43</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>0.21</td>
+      <td>Premium</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>59.8</td>
+      <td>61.0</td>
+      <td>326</td>
+      <td>3.89</td>
+      <td>3.84</td>
+      <td>2.31</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td>0.23</td>
+      <td>Good</td>
+      <td>E</td>
+      <td>VS1</td>
+      <td>56.9</td>
+      <td>65.0</td>
+      <td>327</td>
+      <td>4.05</td>
+      <td>4.07</td>
+      <td>2.31</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td>0.29</td>
+      <td>Premium</td>
+      <td>I</td>
+      <td>VS2</td>
+      <td>62.4</td>
+      <td>58.0</td>
+      <td>334</td>
+      <td>4.20</td>
+      <td>4.23</td>
+      <td>2.63</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>0.31</td>
+      <td>Good</td>
+      <td>J</td>
+      <td>SI2</td>
+      <td>63.3</td>
+      <td>58.0</td>
+      <td>335</td>
+      <td>4.34</td>
+      <td>4.35</td>
+      <td>2.75</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>expensive</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1106</td>
+      <td>1107</td>
+      <td>0.91</td>
+      <td>Premium</td>
+      <td>I</td>
+      <td>SI2</td>
+      <td>62.0</td>
+      <td>59.0</td>
+      <td>2913</td>
+      <td>6.18</td>
+      <td>6.23</td>
+      <td>3.85</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>1107</td>
+      <td>1108</td>
+      <td>0.83</td>
+      <td>Premium</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>62.2</td>
+      <td>59.0</td>
+      <td>2913</td>
+      <td>6.05</td>
+      <td>5.97</td>
+      <td>3.74</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>1108</td>
+      <td>1109</td>
+      <td>0.85</td>
+      <td>Ideal</td>
+      <td>G</td>
+      <td>SI2</td>
+      <td>62.0</td>
+      <td>57.0</td>
+      <td>2913</td>
+      <td>6.10</td>
+      <td>6.02</td>
+      <td>3.76</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>1109</td>
+      <td>1110</td>
+      <td>0.80</td>
+      <td>Very Good</td>
+      <td>F</td>
+      <td>SI1</td>
+      <td>63.5</td>
+      <td>55.0</td>
+      <td>2914</td>
+      <td>5.86</td>
+      <td>5.89</td>
+      <td>3.73</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>1110</td>
+      <td>1111</td>
+      <td>0.73</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>61.4</td>
+      <td>58.0</td>
+      <td>2914</td>
+      <td>5.76</td>
+      <td>5.80</td>
+      <td>3.55</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_large</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="n">vol</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">vol</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;big&quot;</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;small&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;volume_label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">is_large</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>expensive</th>
+      <th>volume_label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0.23</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI2</td>
+      <td>61.5</td>
+      <td>55.0</td>
+      <td>326</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.43</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>0.21</td>
+      <td>Premium</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>59.8</td>
+      <td>61.0</td>
+      <td>326</td>
+      <td>3.89</td>
+      <td>3.84</td>
+      <td>2.31</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td>0.23</td>
+      <td>Good</td>
+      <td>E</td>
+      <td>VS1</td>
+      <td>56.9</td>
+      <td>65.0</td>
+      <td>327</td>
+      <td>4.05</td>
+      <td>4.07</td>
+      <td>2.31</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td>0.29</td>
+      <td>Premium</td>
+      <td>I</td>
+      <td>VS2</td>
+      <td>62.4</td>
+      <td>58.0</td>
+      <td>334</td>
+      <td>4.20</td>
+      <td>4.23</td>
+      <td>2.63</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>0.31</td>
+      <td>Good</td>
+      <td>J</td>
+      <td>SI2</td>
+      <td>63.3</td>
+      <td>58.0</td>
+      <td>335</td>
+      <td>4.34</td>
+      <td>4.35</td>
+      <td>2.75</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;expensive&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="kc">True</span><span class="p">:</span> <span class="s1">&#39;yes!&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">:</span> <span class="s1">&#39;no...&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       no...
+1       no...
+2       no...
+3       no...
+4       no...
+        ...  
+1106     yes!
+1107     yes!
+1108     yes!
+1109     yes!
+1110     yes!
+Name: expensive, Length: 1111, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">depth_as_inch</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="n">inch</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">3</span>
+    <span class="n">row</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;depth&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">row</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">depth_as_inch</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>expensive</th>
+      <th>volume_label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0.23</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI2</td>
+      <td>61.5</td>
+      <td>55.0</td>
+      <td>326</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.43</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>0.21</td>
+      <td>Premium</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>59.8</td>
+      <td>61.0</td>
+      <td>326</td>
+      <td>3.89</td>
+      <td>3.84</td>
+      <td>2.31</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td>0.23</td>
+      <td>Good</td>
+      <td>E</td>
+      <td>VS1</td>
+      <td>56.9</td>
+      <td>65.0</td>
+      <td>327</td>
+      <td>4.05</td>
+      <td>4.07</td>
+      <td>2.31</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td>0.29</td>
+      <td>Premium</td>
+      <td>I</td>
+      <td>VS2</td>
+      <td>62.4</td>
+      <td>58.0</td>
+      <td>334</td>
+      <td>4.20</td>
+      <td>4.23</td>
+      <td>2.63</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>0.31</td>
+      <td>Good</td>
+      <td>J</td>
+      <td>SI2</td>
+      <td>63.3</td>
+      <td>58.0</td>
+      <td>335</td>
+      <td>4.34</td>
+      <td>4.35</td>
+      <td>2.75</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>1106</td>
+      <td>1107</td>
+      <td>0.91</td>
+      <td>Premium</td>
+      <td>I</td>
+      <td>SI2</td>
+      <td>62.0</td>
+      <td>59.0</td>
+      <td>2913</td>
+      <td>6.18</td>
+      <td>6.23</td>
+      <td>3.85</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>1107</td>
+      <td>1108</td>
+      <td>0.83</td>
+      <td>Premium</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>62.2</td>
+      <td>59.0</td>
+      <td>2913</td>
+      <td>6.05</td>
+      <td>5.97</td>
+      <td>3.74</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>1108</td>
+      <td>1109</td>
+      <td>0.85</td>
+      <td>Ideal</td>
+      <td>G</td>
+      <td>SI2</td>
+      <td>62.0</td>
+      <td>57.0</td>
+      <td>2913</td>
+      <td>6.10</td>
+      <td>6.02</td>
+      <td>3.76</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>1109</td>
+      <td>1110</td>
+      <td>0.80</td>
+      <td>Very Good</td>
+      <td>F</td>
+      <td>SI1</td>
+      <td>63.5</td>
+      <td>55.0</td>
+      <td>2914</td>
+      <td>5.86</td>
+      <td>5.89</td>
+      <td>3.73</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>1110</td>
+      <td>1111</td>
+      <td>0.73</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>61.4</td>
+      <td>58.0</td>
+      <td>2914</td>
+      <td>5.76</td>
+      <td>5.80</td>
+      <td>3.55</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+  </tbody>
+</table>
+<p>1111 rows × 13 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;carat&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       1.23
+1       1.21
+2       1.23
+3       1.29
+4       1.31
+        ... 
+1106    1.91
+1107    1.83
+1108    1.85
+1109    1.80
+1110    1.73
+Name: carat, Length: 1111, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>expensive</th>
+      <th>volume_label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0.23</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI2</td>
+      <td>61.5</td>
+      <td>55.0</td>
+      <td>326</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.43</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>0.21</td>
+      <td>Premium</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>59.8</td>
+      <td>61.0</td>
+      <td>326</td>
+      <td>3.89</td>
+      <td>3.84</td>
+      <td>2.31</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td>0.23</td>
+      <td>Good</td>
+      <td>E</td>
+      <td>VS1</td>
+      <td>56.9</td>
+      <td>65.0</td>
+      <td>327</td>
+      <td>4.05</td>
+      <td>4.07</td>
+      <td>2.31</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td>0.29</td>
+      <td>Premium</td>
+      <td>I</td>
+      <td>VS2</td>
+      <td>62.4</td>
+      <td>58.0</td>
+      <td>334</td>
+      <td>4.20</td>
+      <td>4.23</td>
+      <td>2.63</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>0.31</td>
+      <td>Good</td>
+      <td>J</td>
+      <td>SI2</td>
+      <td>63.3</td>
+      <td>58.0</td>
+      <td>335</td>
+      <td>4.34</td>
+      <td>4.35</td>
+      <td>2.75</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>1106</td>
+      <td>1107</td>
+      <td>0.91</td>
+      <td>Premium</td>
+      <td>I</td>
+      <td>SI2</td>
+      <td>62.0</td>
+      <td>59.0</td>
+      <td>2913</td>
+      <td>6.18</td>
+      <td>6.23</td>
+      <td>3.85</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>1107</td>
+      <td>1108</td>
+      <td>0.83</td>
+      <td>Premium</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>62.2</td>
+      <td>59.0</td>
+      <td>2913</td>
+      <td>6.05</td>
+      <td>5.97</td>
+      <td>3.74</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>1108</td>
+      <td>1109</td>
+      <td>0.85</td>
+      <td>Ideal</td>
+      <td>G</td>
+      <td>SI2</td>
+      <td>62.0</td>
+      <td>57.0</td>
+      <td>2913</td>
+      <td>6.10</td>
+      <td>6.02</td>
+      <td>3.76</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>1109</td>
+      <td>1110</td>
+      <td>0.80</td>
+      <td>Very Good</td>
+      <td>F</td>
+      <td>SI1</td>
+      <td>63.5</td>
+      <td>55.0</td>
+      <td>2914</td>
+      <td>5.86</td>
+      <td>5.89</td>
+      <td>3.73</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>1110</td>
+      <td>1111</td>
+      <td>0.73</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>61.4</td>
+      <td>58.0</td>
+      <td>2914</td>
+      <td>5.76</td>
+      <td>5.80</td>
+      <td>3.55</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+  </tbody>
+</table>
+<p>1111 rows × 13 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cut&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>expensive</th>
+    </tr>
+    <tr>
+      <th>cut</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fair</td>
+      <td>606.666667</td>
+      <td>0.902424</td>
+      <td>63.457576</td>
+      <td>60.242424</td>
+      <td>2800.636364</td>
+      <td>6.105909</td>
+      <td>6.026667</td>
+      <td>3.847273</td>
+      <td>0.984848</td>
+    </tr>
+    <tr>
+      <td>Good</td>
+      <td>507.020202</td>
+      <td>0.649394</td>
+      <td>62.322222</td>
+      <td>58.426263</td>
+      <td>2210.737374</td>
+      <td>5.421313</td>
+      <td>5.433535</td>
+      <td>3.381111</td>
+      <td>0.737374</td>
+    </tr>
+    <tr>
+      <td>Ideal</td>
+      <td>586.541333</td>
+      <td>0.664773</td>
+      <td>61.695200</td>
+      <td>55.973067</td>
+      <td>2497.981333</td>
+      <td>5.559173</td>
+      <td>5.569333</td>
+      <td>3.432240</td>
+      <td>0.853333</td>
+    </tr>
+    <tr>
+      <td>Premium</td>
+      <td>567.831804</td>
+      <td>0.690979</td>
+      <td>61.223853</td>
+      <td>58.776758</td>
+      <td>2464.987768</td>
+      <td>5.640826</td>
+      <td>5.597248</td>
+      <td>3.439205</td>
+      <td>0.840979</td>
+    </tr>
+    <tr>
+      <td>Very Good</td>
+      <td>499.372951</td>
+      <td>0.659549</td>
+      <td>61.781148</td>
+      <td>57.968443</td>
+      <td>2385.991803</td>
+      <td>5.491721</td>
+      <td>5.519549</td>
+      <td>3.401516</td>
+      <td>0.811475</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cut&#39;</span><span class="p">)[[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;carat&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>price</th>
+      <th>carat</th>
+    </tr>
+    <tr>
+      <th>cut</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fair</td>
+      <td>2800.636364</td>
+      <td>0.902424</td>
+    </tr>
+    <tr>
+      <td>Good</td>
+      <td>2210.737374</td>
+      <td>0.649394</td>
+    </tr>
+    <tr>
+      <td>Ideal</td>
+      <td>2497.981333</td>
+      <td>0.664773</td>
+    </tr>
+    <tr>
+      <td>Premium</td>
+      <td>2464.987768</td>
+      <td>0.690979</td>
+    </tr>
+    <tr>
+      <td>Very Good</td>
+      <td>2385.991803</td>
+      <td>0.659549</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clarity_cut</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;cut&#39;</span><span class="p">,</span> <span class="s1">&#39;clarity&#39;</span><span class="p">])[[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;carat&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">clarity_cut</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>price</th>
+      <th>carat</th>
+    </tr>
+    <tr>
+      <th>cut</th>
+      <th>clarity</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="5" valign="top">Fair</td>
+      <td>I1</td>
+      <td>2824.250000</td>
+      <td>1.100000</td>
+    </tr>
+    <tr>
+      <td>IF</td>
+      <td>2861.000000</td>
+      <td>0.620000</td>
+    </tr>
+    <tr>
+      <td>SI1</td>
+      <td>2855.562500</td>
+      <td>0.925625</td>
+    </tr>
+    <tr>
+      <td>SI2</td>
+      <td>2835.172414</td>
+      <td>0.956207</td>
+    </tr>
+    <tr>
+      <td>VS1</td>
+      <td>2853.250000</td>
+      <td>0.807500</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clarity_cut</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cut        clarity
+Fair       IF         2861.000000
+           SI1        2855.562500
+           VS1        2853.250000
+Ideal      I1         2846.428571
+Good       I1         2845.000000
+Very Good  IF         2841.750000
+Premium    IF         2837.000000
+Fair       SI2        2835.172414
+Good       VVS2       2827.333333
+Fair       I1         2824.250000
+Ideal      IF         2814.428571
+Fair       VVS1       2801.000000
+Ideal      VVS2       2725.631579
+Very Good  SI2        2665.965517
+Premium    VVS2       2664.076923
+           I1         2630.166667
+Ideal      SI1        2592.385246
+           VS2        2577.722222
+Good       VS2        2577.107143
+Fair       VS2        2576.000000
+Premium    VS1        2571.245283
+           VS2        2559.631579
+Very Good  VS2        2468.000000
+           SI1        2405.694444
+Premium    SI1        2374.200000
+           SI2        2360.282051
+Ideal      VVS1       2353.363636
+           SI2        2303.129032
+Very Good  VS1        2295.511111
+           I1         2268.750000
+Ideal      VS1        2261.923077
+Good       VS1        2152.277778
+           VVS1       2110.000000
+           SI2        2092.076923
+Very Good  VVS1       2061.333333
+           VVS2       1961.687500
+Good       SI1        1883.250000
+Premium    VVS1       1674.875000
+Name: price, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cut&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ideal        375
+Premium      327
+Very Good    244
+Good          99
+Fair          66
+Name: cut, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cut&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Ideal&#39;, &#39;Premium&#39;, &#39;Good&#39;, &#39;Very Good&#39;, &#39;Fair&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>expensive</th>
+      <th>volume_label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0.23</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI2</td>
+      <td>61.5</td>
+      <td>55.0</td>
+      <td>326</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.43</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>0.21</td>
+      <td>Premium</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>59.8</td>
+      <td>61.0</td>
+      <td>326</td>
+      <td>3.89</td>
+      <td>3.84</td>
+      <td>2.31</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td>0.23</td>
+      <td>Good</td>
+      <td>E</td>
+      <td>VS1</td>
+      <td>56.9</td>
+      <td>65.0</td>
+      <td>327</td>
+      <td>4.05</td>
+      <td>4.07</td>
+      <td>2.31</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td>0.29</td>
+      <td>Premium</td>
+      <td>I</td>
+      <td>VS2</td>
+      <td>62.4</td>
+      <td>58.0</td>
+      <td>334</td>
+      <td>4.20</td>
+      <td>4.23</td>
+      <td>2.63</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>0.31</td>
+      <td>Good</td>
+      <td>J</td>
+      <td>SI2</td>
+      <td>63.3</td>
+      <td>58.0</td>
+      <td>335</td>
+      <td>4.34</td>
+      <td>4.35</td>
+      <td>2.75</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0xc57e130&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_a_quick_tour_41_1.svg" src="../_images/pandas_a_quick_tour_41_1.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0xc562cf0&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_a_quick_tour_42_1.svg" src="../_images/pandas_a_quick_tour_42_1.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cut&#39;</span><span class="p">)[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0xc6b53d0&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_a_quick_tour_43_1.svg" src="../_images/pandas_a_quick_tour_43_1.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cut&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cut&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">CategoricalDtype</span><span class="p">([</span><span class="s1">&#39;Fair&#39;</span><span class="p">,</span> <span class="s1">&#39;Good&#39;</span><span class="p">,</span> <span class="s1">&#39;Very Good&#39;</span><span class="p">,</span> <span class="s1">&#39;Premium&#39;</span><span class="p">,</span> <span class="s1">&#39;Ideal&#39;</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 1111 entries, 0 to 1110
+Data columns (total 13 columns):
+#               1111 non-null int64
+carat           1111 non-null float64
+cut             1111 non-null category
+color           1111 non-null object
+clarity         1111 non-null object
+depth           1111 non-null float64
+table           1111 non-null float64
+price           1111 non-null int64
+x               1111 non-null float64
+y               1111 non-null float64
+z               1111 non-null float64
+expensive       1111 non-null bool
+volume_label    1111 non-null object
+dtypes: bool(1), category(1), float64(6), int64(2), object(3)
+memory usage: 84.8+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cut&#39;</span><span class="p">)[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0xc51cd70&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_a_quick_tour_46_1.svg" src="../_images/pandas_a_quick_tour_46_1.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cut&#39;</span><span class="p">)[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0xdd60cd0&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_a_quick_tour_47_1.svg" src="../_images/pandas_a_quick_tour_47_1.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cut&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Ideal&quot;</span>
+<span class="n">df</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>expensive</th>
+      <th>volume_label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0.23</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI2</td>
+      <td>61.5</td>
+      <td>55.0</td>
+      <td>326</td>
+      <td>3.95</td>
+      <td>3.98</td>
+      <td>2.43</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>12</td>
+      <td>0.23</td>
+      <td>Ideal</td>
+      <td>J</td>
+      <td>VS1</td>
+      <td>62.8</td>
+      <td>56.0</td>
+      <td>340</td>
+      <td>3.93</td>
+      <td>3.90</td>
+      <td>2.46</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>14</td>
+      <td>0.31</td>
+      <td>Ideal</td>
+      <td>J</td>
+      <td>SI2</td>
+      <td>62.2</td>
+      <td>54.0</td>
+      <td>344</td>
+      <td>4.35</td>
+      <td>4.37</td>
+      <td>2.71</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>17</td>
+      <td>0.30</td>
+      <td>Ideal</td>
+      <td>I</td>
+      <td>SI2</td>
+      <td>62.0</td>
+      <td>54.0</td>
+      <td>348</td>
+      <td>4.31</td>
+      <td>4.34</td>
+      <td>2.68</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>40</td>
+      <td>0.33</td>
+      <td>Ideal</td>
+      <td>I</td>
+      <td>SI2</td>
+      <td>61.8</td>
+      <td>55.0</td>
+      <td>403</td>
+      <td>4.49</td>
+      <td>4.51</td>
+      <td>2.78</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cut&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Ideal&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;J&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>expensive</th>
+      <th>volume_label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>11</td>
+      <td>12</td>
+      <td>0.23</td>
+      <td>Ideal</td>
+      <td>J</td>
+      <td>VS1</td>
+      <td>62.8</td>
+      <td>56.0</td>
+      <td>340</td>
+      <td>3.93</td>
+      <td>3.90</td>
+      <td>2.46</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>14</td>
+      <td>0.31</td>
+      <td>Ideal</td>
+      <td>J</td>
+      <td>SI2</td>
+      <td>62.2</td>
+      <td>54.0</td>
+      <td>344</td>
+      <td>4.35</td>
+      <td>4.37</td>
+      <td>2.71</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>42</td>
+      <td>0.33</td>
+      <td>Ideal</td>
+      <td>J</td>
+      <td>SI1</td>
+      <td>61.1</td>
+      <td>56.0</td>
+      <td>403</td>
+      <td>4.49</td>
+      <td>4.55</td>
+      <td>2.76</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>460</td>
+      <td>461</td>
+      <td>0.90</td>
+      <td>Ideal</td>
+      <td>J</td>
+      <td>VS2</td>
+      <td>62.8</td>
+      <td>55.0</td>
+      <td>2817</td>
+      <td>6.20</td>
+      <td>6.16</td>
+      <td>3.88</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>681</td>
+      <td>682</td>
+      <td>0.75</td>
+      <td>Ideal</td>
+      <td>J</td>
+      <td>SI1</td>
+      <td>61.5</td>
+      <td>56.0</td>
+      <td>2850</td>
+      <td>5.83</td>
+      <td>5.87</td>
+      <td>3.60</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span>   <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cut&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Ideal&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;J&#39;</span><span class="p">)</span>  <span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>expensive</th>
+      <th>volume_label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>11</td>
+      <td>12</td>
+      <td>0.23</td>
+      <td>Ideal</td>
+      <td>J</td>
+      <td>VS1</td>
+      <td>62.8</td>
+      <td>56.0</td>
+      <td>340</td>
+      <td>3.93</td>
+      <td>3.90</td>
+      <td>2.46</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>14</td>
+      <td>0.31</td>
+      <td>Ideal</td>
+      <td>J</td>
+      <td>SI2</td>
+      <td>62.2</td>
+      <td>54.0</td>
+      <td>344</td>
+      <td>4.35</td>
+      <td>4.37</td>
+      <td>2.71</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>42</td>
+      <td>0.33</td>
+      <td>Ideal</td>
+      <td>J</td>
+      <td>SI1</td>
+      <td>61.1</td>
+      <td>56.0</td>
+      <td>403</td>
+      <td>4.49</td>
+      <td>4.55</td>
+      <td>2.76</td>
+      <td>False</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>460</td>
+      <td>461</td>
+      <td>0.90</td>
+      <td>Ideal</td>
+      <td>J</td>
+      <td>VS2</td>
+      <td>62.8</td>
+      <td>55.0</td>
+      <td>2817</td>
+      <td>6.20</td>
+      <td>6.16</td>
+      <td>3.88</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>681</td>
+      <td>682</td>
+      <td>0.75</td>
+      <td>Ideal</td>
+      <td>J</td>
+      <td>SI1</td>
+      <td>61.5</td>
+      <td>56.0</td>
+      <td>2850</td>
+      <td>5.83</td>
+      <td>5.87</td>
+      <td>3.60</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>expensive</th>
+      <th>volume_label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>90</td>
+      <td>91</td>
+      <td>0.70</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>62.5</td>
+      <td>57.0</td>
+      <td>2757</td>
+      <td>5.70</td>
+      <td>5.72</td>
+      <td>3.57</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>91</td>
+      <td>92</td>
+      <td>0.86</td>
+      <td>Fair</td>
+      <td>E</td>
+      <td>SI2</td>
+      <td>55.1</td>
+      <td>69.0</td>
+      <td>2757</td>
+      <td>6.45</td>
+      <td>6.33</td>
+      <td>3.52</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>92</td>
+      <td>93</td>
+      <td>0.70</td>
+      <td>Ideal</td>
+      <td>G</td>
+      <td>VS2</td>
+      <td>61.6</td>
+      <td>56.0</td>
+      <td>2757</td>
+      <td>5.70</td>
+      <td>5.67</td>
+      <td>3.50</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>93</td>
+      <td>94</td>
+      <td>0.71</td>
+      <td>Very Good</td>
+      <td>E</td>
+      <td>VS2</td>
+      <td>62.4</td>
+      <td>57.0</td>
+      <td>2759</td>
+      <td>5.68</td>
+      <td>5.73</td>
+      <td>3.56</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>94</td>
+      <td>95</td>
+      <td>0.78</td>
+      <td>Very Good</td>
+      <td>G</td>
+      <td>SI2</td>
+      <td>63.8</td>
+      <td>56.0</td>
+      <td>2759</td>
+      <td>5.81</td>
+      <td>5.85</td>
+      <td>3.72</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">91</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>expensive</th>
+      <th>volume_label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>90</td>
+      <td>91</td>
+      <td>0.70</td>
+      <td>Ideal</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>62.5</td>
+      <td>57.0</td>
+      <td>2757</td>
+      <td>5.70</td>
+      <td>5.72</td>
+      <td>3.57</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+    <tr>
+      <td>91</td>
+      <td>92</td>
+      <td>0.86</td>
+      <td>Fair</td>
+      <td>E</td>
+      <td>SI2</td>
+      <td>55.1</td>
+      <td>69.0</td>
+      <td>2757</td>
+      <td>6.45</td>
+      <td>6.33</td>
+      <td>3.52</td>
+      <td>True</td>
+      <td>big</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./14_pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../13_complex_comprehensions/exercise/solutions.html" title="previous page">hotel comprehension</a>
+    <a class='right-next' id="next-link" href="edm_us_adult_census_income/questions.html" title="next page">get the data</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Aviad Rozenhek<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
