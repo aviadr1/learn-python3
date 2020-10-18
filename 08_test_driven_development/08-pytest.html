@@ -364,6 +364,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/08_test_driven_development/08-pytest.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -616,6 +621,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 20.2.3; however, version 20.2.4 is available.</span>
+<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;/opt/hostedtoolcache/Python/3.8.6/x64/bin/python -m pip install --upgrade pip&#39; command.</span>
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
@@ -700,16 +709,14 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Test session starts (platform: linux, Python 3.8.6, pytest 6.1.1, pytest-sugar 0.9.4)</span>
 rootdir: /home/runner/work/learn-python3/learn-python3/learn_python/08_test_driven_development/tdd
 plugins: sugar-0.9.4
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">collecting ... </span>
+<span class=" -Color -Color-Bold">collecting ... </span>
 
 
  test_math.py <span class=" -Color -Color-Green">✓</span>                                                   <span class=" -Color -Color-Green">33% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">███▍      </span>
  test_math.py <span class=" -Color -Color-Green">✓✓</span>                                                  <span class=" -Color -Color-Green">67% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██████▋   </span>
  test_math.py <span class=" -Color -Color-Green">✓✓✓</span>                                                <span class=" -Color -Color-Green">100% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██████████</span>
 
-Results (0.03s):
+Results (0.02s):
 <span class=" -Color -Color-Green">       3 passed</span>
 </pre></div>
 </div>
@@ -781,9 +788,8 @@ Results (0.03s):
 rootdir: /home/runner/work/learn-python3/learn-python3/learn_python/08_test_driven_development/tdd
 plugins: sugar-0.9.4
 <span class=" -Color -Color-Bold">collecting ... </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>―――――――――――――――――――――――――――――― test_make_triangle ――――――――――――――――――――――――――――――
+
+―――――――――――――――――――――――――――――― test_make_triangle ――――――――――――――――――――――――――――――
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    def test_make_triangle():
@@ -801,7 +807,7 @@ plugins: sugar-0.9.4
 =========================== short test summary info ============================
 FAILED test_make_triangle.py::test_make_triangle - AssertionError: assert &#39;&#39; ...
 
-Results (0.11s):
+Results (0.09s):
 <span class=" -Color -Color-Red">       1 failed</span>
          - test_make_triangle.py:4 <span class=" -Color -Color-Red">test_make_triangle</span>
 </pre></div>
@@ -897,9 +903,8 @@ Results (0.02s):
 rootdir: /home/runner/work/learn-python3/learn-python3/learn_python/08_test_driven_development/tdd
 plugins: sugar-0.9.4
 <span class=" -Color -Color-Bold">collecting ... </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>――――――――――――――――――――――――――――― test_set_comparison ――――――――――――――――――――――――――――――
+
+――――――――――――――――――――――――――――― test_set_comparison ――――――――――――――――――――――――――――――
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    def test_set_comparison():
@@ -1046,9 +1051,8 @@ cachedir: .pytest_cache
 rootdir: /home/runner/work/learn-python3/learn-python3/learn_python/08_test_driven_development/tdd
 plugins: sugar-0.9.4
 <span class=" -Color -Color-Bold">collecting ... </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>――――――――――――――――――――――――――― test_spanish_inquisition ―――――――――――――――――――――――――――
+
+――――――――――――――――――――――――――― test_spanish_inquisition ―――――――――――――――――――――――――――
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    def test_spanish_inquisition():
@@ -1141,14 +1145,13 @@ plugins: sugar-0.9.4
 <span class=" -Color -Color-Bold -Color-Bold-Red">E           }</span>
 
 <span class=" -Color -Color-Bold -Color-Bold-Red">test_spanish_inquisition.py</span>:29: AssertionError
-
-
-
- <span class=" -Color -Color-Cyan">test_spanish_inquisition.py</span>::test_spanish_inquisition <span class=" -Color -Color-Red">⨯</span>         <span class=" -Color -Color-Red">100% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██████████</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> <span class=" -Color -Color-Cyan">test_spanish_inquisition.py</span>::test_spanish_inquisition <span class=" -Color -Color-Red">⨯</span>         <span class=" -Color -Color-Red">100% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██████████</span>
 =========================== short test summary info ============================
 FAILED test_spanish_inquisition.py::test_spanish_inquisition - assert {&#39;\n&#39;: ...
 
-Results (0.11s):
+Results (0.10s):
 <span class=" -Color -Color-Red">       1 failed</span>
          - test_spanish_inquisition.py:27 <span class=" -Color -Color-Red">test_spanish_inquisition</span>
 </pre></div>
@@ -1302,12 +1305,13 @@ Results (0.02s):
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Test session starts (platform: linux, Python 3.8.6, pytest 6.1.1, pytest-sugar 0.9.4)</span>
 rootdir: /home/runner/work/learn-python3/learn-python3/learn_python/08_test_driven_development/tdd
 plugins: sugar-0.9.4
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_person.py <span class=" -Color -Color-Green">✓</span>                                                 <span class=" -Color -Color-Green">50% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">█████     </span>
+
+
+
+ test_person.py <span class=" -Color -Color-Green">✓</span>                                                 <span class=" -Color -Color-Green">50% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">█████     </span>
  test_person.py <span class=" -Color -Color-Green">✓✓</span>                                               <span class=" -Color -Color-Green">100% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██████████</span>
 
-Results (0.03s):
+Results (0.02s):
 <span class=" -Color -Color-Green">       2 passed</span>
 </pre></div>
 </div>
@@ -1445,9 +1449,10 @@ Results (0.02s):
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Test session starts (platform: linux, Python 3.8.6, pytest 6.1.1, pytest-sugar 0.9.4)</span>
 rootdir: /home/runner/work/learn-python3/learn-python3/learn_python/08_test_driven_development/tdd
 plugins: sugar-0.9.4
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_person_fixtures2.py <span class=" -Color -Color-Green">✓</span>                                      <span class=" -Color -Color-Green">100% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██████████</span>
+
+
+
+ test_person_fixtures2.py <span class=" -Color -Color-Green">✓</span>                                      <span class=" -Color -Color-Green">100% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██████████</span>
 
 Results (0.02s):
 <span class=" -Color -Color-Green">       1 passed</span>
@@ -1498,9 +1503,9 @@ cachedir: .pytest_cache
 rootdir: /home/runner/work/learn-python3/learn-python3/learn_python/08_test_driven_development/tdd
 plugins: sugar-0.9.4
 <span class=" -Color -Color-Bold">collecting ... </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> <span class=" -Color -Color-Cyan">test_primes.py</span>::test_prime[2] <span class=" -Color -Color-Green">✓</span>                                  <span class=" -Color -Color-Green">11% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">█▎        </span>
+
+
+ <span class=" -Color -Color-Cyan">test_primes.py</span>::test_prime[2] <span class=" -Color -Color-Green">✓</span>                                  <span class=" -Color -Color-Green">11% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">█▎        </span>
 
 
  <span class=" -Color -Color-Cyan">test_primes.py</span>::test_prime[3] <span class=" -Color -Color-Green">✓</span>                                  <span class=" -Color -Color-Green">22% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██▎       </span>
@@ -1526,7 +1531,7 @@ plugins: sugar-0.9.4
 
  <span class=" -Color -Color-Cyan">test_primes.py</span>::test_prime[101] <span class=" -Color -Color-Green">✓</span>                               <span class=" -Color -Color-Green">100% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██████████</span>
 
-Results (0.04s):
+Results (0.03s):
 <span class=" -Color -Color-Green">       9 passed</span>
 </pre></div>
 </div>
@@ -1583,9 +1588,9 @@ cachedir: .pytest_cache
 rootdir: /home/runner/work/learn-python3/learn-python3/learn_python/08_test_driven_development/tdd
 plugins: sugar-0.9.4
 <span class=" -Color -Color-Bold">collecting ... </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> <span class=" -Color -Color-Cyan">test_non_primes.py</span>::test_non_primes[4] <span class=" -Color -Color-Green">✓</span>                          <span class=" -Color -Color-Green">8% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">▉         </span>
+
+
+ <span class=" -Color -Color-Cyan">test_non_primes.py</span>::test_non_primes[4] <span class=" -Color -Color-Green">✓</span>                          <span class=" -Color -Color-Green">8% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">▉         </span>
 
 
  <span class=" -Color -Color-Cyan">test_non_primes.py</span>::test_non_primes[6] <span class=" -Color -Color-Green">✓</span>                         <span class=" -Color -Color-Green">17% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">█▋        </span>
@@ -1620,7 +1625,7 @@ plugins: sugar-0.9.4
 
  <span class=" -Color -Color-Cyan">test_non_primes.py</span>::test_non_primes[100] <span class=" -Color -Color-Green">✓</span>                      <span class=" -Color -Color-Green">100% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██████████</span>
 
-Results (0.04s):
+Results (0.03s):
 <span class=" -Color -Color-Green">      12 passed</span>
 </pre></div>
 </div>
@@ -1656,9 +1661,9 @@ plugins: sugar-0.9.4
 
 
  <span class=" -Color -Color-Cyan">test_primes.py</span>::test_prime[3] <span class=" -Color -Color-Green">✓</span>                                  <span class=" -Color -Color-Green">22% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██▎       </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> <span class=" -Color -Color-Cyan">test_primes.py</span>::test_prime[5] <span class=" -Color -Color-Green">✓</span>                                  <span class=" -Color -Color-Green">33% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">███▍      </span>
+
+
+ <span class=" -Color -Color-Cyan">test_primes.py</span>::test_prime[5] <span class=" -Color -Color-Green">✓</span>                                  <span class=" -Color -Color-Green">33% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">███▍      </span>
 
 
  <span class=" -Color -Color-Cyan">test_primes.py</span>::test_prime[7] <span class=" -Color -Color-Green">✓</span>                                  <span class=" -Color -Color-Green">44% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">████▌     </span>
@@ -1773,9 +1778,8 @@ plugins: sugar-0.9.4
 
 
  test_prints.py <span class=" -Color -Color-Green">✓</span>                                                 <span class=" -Color -Color-Green">25% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██▌       </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>――――――――――――――――――――――――――――――― test_print_fail ――――――――――――――――――――――――――――――――
+
+――――――――――――――――――――――――――――――― test_print_fail ――――――――――――――――――――――――――――――――
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    def test_print_fail():
@@ -1829,11 +1833,13 @@ plugins: sugar-0.9.4
 
 
  test_prints.py <span class=" -Color -Color-Red">⨯</span>                                                <span class=" -Color -Color-Red">100% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██</span><span class=" -Color -Color-Red -Color-Red-BGBlack">███</span><span class=" -Color -Color-Green -Color-Green-BGBlack">██</span><span class=" -Color -Color-Red -Color-Red-BGBlack">███</span>
-=========================== short test summary info ============================
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=========================== short test summary info ============================
 FAILED test_prints.py::test_print_fail - assert True == False
 FAILED test_prints.py::test_stderr_capture_fail - assert False
 
-Results (0.11s):
+Results (0.10s):
 <span class=" -Color -Color-Green">       2 passed</span>
 <span class=" -Color -Color-Red">       2 failed</span>
          - test_prints.py:14 <span class=" -Color -Color-Red">test_print_fail</span>
@@ -1894,9 +1900,8 @@ plugins: sugar-0.9.4
 
 
  test_logging.py <span class=" -Color -Color-Green">✓</span>                                                <span class=" -Color -Color-Green">33% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">███▍      </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>―――――――――――――――――――――――――― test_logging_warning_fail ―――――――――――――――――――――――――――
+
+―――――――――――――――――――――――――― test_logging_warning_fail ―――――――――――――――――――――――――――
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    def test_logging_warning_fail():
@@ -1930,7 +1935,7 @@ plugins: sugar-0.9.4
 FAILED test_logging.py::test_logging_warning_fail - assert False
 FAILED test_logging.py::test_logging_info_fail - assert False
 
-Results (0.11s):
+Results (0.10s):
 <span class=" -Color -Color-Green">       1 passed</span>
 <span class=" -Color -Color-Red">       2 failed</span>
          - test_logging.py:10 <span class=" -Color -Color-Red">test_logging_warning_fail</span>
@@ -2172,9 +2177,6 @@ Results (0.03s):
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing test_sin.py
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -2187,14 +2189,12 @@ Results (0.03s):
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Test session starts (platform: linux, Python 3.8.6, pytest 6.1.1, pytest-sugar 0.9.4)</span>
 rootdir: /home/runner/work/learn-python3/learn-python3/learn_python/08_test_driven_development/tdd
 plugins: sugar-0.9.4
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">collecting ... </span>
+<span class=" -Color -Color-Bold">collecting ... </span>
 
 
  test_sin.py <span class=" -Color -Color-Green">✓</span>                                                   <span class=" -Color -Color-Green">100% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██████████</span>
 
-Results (0.03s):
+Results (0.02s):
 <span class=" -Color -Color-Green">       1 passed</span>
 </pre></div>
 </div>
@@ -2221,6 +2221,10 @@ the package <code class="docutils literal notranslate"><span class="pre">pytest-
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 20.2.3; however, version 20.2.4 is available.</span>
+<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;/opt/hostedtoolcache/Python/3.8.6/x64/bin/python -m pip install --upgrade pip&#39; command.</span>
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
@@ -2258,9 +2262,7 @@ the package <code class="docutils literal notranslate"><span class="pre">pytest-
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Test session starts (platform: linux, Python 3.8.6, pytest 6.1.1, pytest-sugar 0.9.4)</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cachedir: .pytest_cache
+cachedir: .pytest_cache
 rootdir: /home/runner/work/learn-python3/learn-python3/learn_python/08_test_driven_development/tdd
 plugins: sugar-0.9.4, timeout-1.4.2
 <span class=" -Color -Color-Bold">collecting ... </span>
@@ -2292,7 +2294,7 @@ sleeping ...
 =========================== short test summary info ============================
 FAILED test_timeouts.py::test_infinite_sleep - Failed: Timeout &gt;5.0s
 
-Results (5.11s):
+Results (5.10s):
 <span class=" -Color -Color-Green">       1 passed</span>
 <span class=" -Color -Color-Red">       1 failed</span>
          - test_timeouts.py:4 <span class=" -Color -Color-Red">test_infinite_sleep</span>
@@ -2327,9 +2329,6 @@ Results (5.11s):
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing test_http101_timeout.py
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -2347,7 +2346,7 @@ plugins: sugar-0.9.4, timeout-1.4.2
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_http101_timeout.py <span class=" -Color -Color-Green">x</span>                                       <span class=" -Color -Color-Green">100% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██████████</span>
 
-Results (2.39s):
+Results (2.32s):
 <span class=" -Color -Color-Green">       1 xfailed</span>
 </pre></div>
 </div>
@@ -2414,12 +2413,11 @@ plugins: sugar-0.9.4, timeout-1.4.2
 
  test_add_person_exception.py <span class=" -Color -Color-Green">✓</span>                                   <span class=" -Color -Color-Green">25% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██▌       </span>
  test_add_person_exception.py <span class=" -Color -Color-Green">✓✓</span>                                  <span class=" -Color -Color-Green">50% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">█████     </span>
+ test_add_person_exception.py <span class=" -Color -Color-Green">✓✓x</span>                                 <span class=" -Color -Color-Green">75% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">███████▌  </span>
+ test_add_person_exception.py <span class=" -Color -Color-Green">✓✓x✓</span>                               <span class=" -Color -Color-Green">100% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██████████</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_add_person_exception.py <span class=" -Color -Color-Green">✓✓x</span>                                 <span class=" -Color -Color-Green">75% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">███████▌  </span>
- test_add_person_exception.py <span class=" -Color -Color-Green">✓✓x✓</span>                               <span class=" -Color -Color-Green">100% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██████████</span>
-
-Results (0.04s):
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results (0.04s):
 <span class=" -Color -Color-Green">       3 passed</span>
 <span class=" -Color -Color-Green">       1 xfailed</span>
 </pre></div>
@@ -2503,18 +2501,22 @@ Results (0.04s):
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytest-sugar in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (0.9.4)
+Requirement already satisfied: termcolor&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from pytest-sugar) (1.1.0)
 Requirement already satisfied: packaging&gt;=14.1 in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from pytest-sugar) (20.4)
-Requirement already satisfied: pytest&gt;=2.9 in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from pytest-sugar) (6.1.1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: termcolor&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from pytest-sugar) (1.1.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytest&gt;=2.9 in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from pytest-sugar) (6.1.1)
 Requirement already satisfied: six in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from packaging&gt;=14.1-&gt;pytest-sugar) (1.15.0)
 Requirement already satisfied: pyparsing&gt;=2.0.2 in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from packaging&gt;=14.1-&gt;pytest-sugar) (2.4.7)
-Requirement already satisfied: attrs&gt;=17.4.0 in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from pytest&gt;=2.9-&gt;pytest-sugar) (20.2.0)
-Requirement already satisfied: iniconfig in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from pytest&gt;=2.9-&gt;pytest-sugar) (1.1.1)
 Requirement already satisfied: py&gt;=1.8.2 in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from pytest&gt;=2.9-&gt;pytest-sugar) (1.9.0)
 Requirement already satisfied: toml in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from pytest&gt;=2.9-&gt;pytest-sugar) (0.10.1)
 Requirement already satisfied: pluggy&lt;1.0,&gt;=0.12 in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from pytest&gt;=2.9-&gt;pytest-sugar) (0.13.1)
+Requirement already satisfied: iniconfig in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from pytest&gt;=2.9-&gt;pytest-sugar) (1.1.1)
+Requirement already satisfied: attrs&gt;=17.4.0 in /opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages (from pytest&gt;=2.9-&gt;pytest-sugar) (20.2.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 20.2.3; however, version 20.2.4 is available.</span>
+<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;/opt/hostedtoolcache/Python/3.8.6/x64/bin/python -m pip install --upgrade pip&#39; command.</span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
@@ -2533,9 +2535,7 @@ Requirement already satisfied: pluggy&lt;1.0,&gt;=0.12 in /opt/hostedtoolcache/P
 cachedir: .pytest_cache
 rootdir: /home/runner/work/learn-python3/learn-python3/learn_python/08_test_driven_development/tdd
 plugins: sugar-0.9.4, timeout-1.4.2
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">collecting ... </span>
+<span class=" -Color -Color-Bold">collecting ... </span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> <span class=" -Color -Color-Cyan">test_requests.py</span>::test_good_urls[200] <span class=" -Color -Color-Green">✓</span>                           <span class=" -Color -Color-Green">9% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">▉         </span>
@@ -2570,7 +2570,7 @@ plugins: sugar-0.9.4, timeout-1.4.2
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> <span class=" -Color -Color-Cyan">test_requests.py</span>::test_bad_urls[501] <span class=" -Color -Color-Green">✓</span>                          <span class=" -Color -Color-Green">100% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██████████</span>
 
-Results (0.96s):
+Results (2.83s):
 <span class=" -Color -Color-Green">      11 passed</span>
 </pre></div>
 </div>
@@ -2656,16 +2656,14 @@ Results (0.96s):
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Test session starts (platform: linux, Python 3.8.6, pytest 6.1.1, pytest-sugar 0.9.4)</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rootdir: /home/runner/work/learn-python3/learn-python3/learn_python/08_test_driven_development/tdd
+rootdir: /home/runner/work/learn-python3/learn-python3/learn_python/08_test_driven_development/tdd
 plugins: sugar-0.9.4, timeout-1.4.2, xdist-2.1.0, forked-1.3.0
 
 <span class=" -Color -Color-Bold">gw0 I / gw1 I / gw2 I / gw3 I / gw4 I / gw5 I / gw6 I / gw7 I / gw8 I / gw9 I</span>
-<span class=" -Color -Color-Bold">gw0 C / gw1 I / gw2 I / gw3 I / gw4 I / gw5 I / gw6 I / gw7 I / gw8 I / gw9 I</span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+<span class=" -Color -Color-Bold">gw0 C / gw1 I / gw2 I / gw3 I / gw4 I / gw5 I / gw6 I / gw7 I / gw8 I / gw9 I</span>
 <span class=" -Color -Color-Bold">gw0 C / gw1 C / gw2 I / gw3 I / gw4 I / gw5 I / gw6 I / gw7 I / gw8 I / gw9 I</span>
 </pre></div>
 </div>
@@ -2702,67 +2700,62 @@ plugins: sugar-0.9.4, timeout-1.4.2, xdist-2.1.0, forked-1.3.0
 <span class=" -Color -Color-Bold">gw0 ok / gw1 C / gw2 C / gw3 C / gw4 C / gw5 C / gw6 C / gw7 C / gw8 C / gw9 C</span>
 <span class=" -Color -Color-Bold">gw0 [10] / gw1 C / gw2 C / gw3 C / gw4 C / gw5 C / gw6 C / gw7 C / gw8 C / gw9 C</span>
 <span class=" -Color -Color-Bold">gw0 [10] / gw1 ok / gw2 C / gw3 C / gw4 C / gw5 C / gw6 C / gw7 C / gw8 C / gw9 C</span>
-<span class=" -Color -Color-Bold">gw0 [10] / gw1 ok / gw2 ok / gw3 C / gw4 C / gw5 C / gw6 C / gw7 C / gw8 C / gw9 C</span>
+<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 C / gw3 C / gw4 C / gw5 C / gw6 C / gw7 C / gw8 C / gw9 C</span>
 <span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 ok / gw3 C / gw4 C / gw5 C / gw6 C / gw7 C / gw8 C / gw9 C</span>
+<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 C / gw4 C / gw5 C / gw6 C / gw7 C / gw8 C / gw9 C</span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 C / gw4 C / gw5 C / gw6 C / gw7 C / gw8 C / gw9 C</span>
 <span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 ok / gw4 C / gw5 C / gw6 C / gw7 C / gw8 C / gw9 C</span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 ok / gw4 ok / gw5 C / gw6 C / gw7 C / gw8 C / gw9 C</span>
+<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 C / gw5 C / gw6 C / gw7 C / gw8 C / gw9 C</span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 ok / gw5 C / gw6 C / gw7 C / gw8 C / gw9 C</span>
+<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 C / gw5 C / gw6 ok / gw7 C / gw8 C / gw9 C</span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 [10] / gw5 C / gw6 C / gw7 C / gw8 C / gw9 C</span>
-<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 [10] / gw5 ok / gw6 C / gw7 C / gw8 C / gw9 C</span>
+<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 ok / gw5 C / gw6 ok / gw7 C / gw8 C / gw9 C</span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 [10] / gw5 [10] / gw6 C / gw7 C / gw8 C / gw9 C</span>
-<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 [10] / gw5 [10] / gw6 ok / gw7 C / gw8 C / gw9 C</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 [10] / gw5 [10] / gw6 ok / gw7 ok / gw8 C / gw9 C</span>
-<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 [10] / gw5 [10] / gw6 [10] / gw7 ok / gw8 C / gw9 C</span>
+<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 ok / gw5 C / gw6 [10] / gw7 C / gw8 C / gw9 C</span>
+<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 ok / gw5 ok / gw6 [10] / gw7 C / gw8 C / gw9 C</span>
+<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 ok / gw5 ok / gw6 [10] / gw7 ok / gw8 C / gw9 C</span>
+<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 [10] / gw5 ok / gw6 [10] / gw7 ok / gw8 C / gw9 C</span>
+<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 [10] / gw5 ok / gw6 [10] / gw7 [10] / gw8 C / gw9 C</span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 <span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 [10] / gw5 [10] / gw6 [10] / gw7 [10] / gw8 C / gw9 C</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 <span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 [10] / gw5 [10] / gw6 [10] / gw7 [10] / gw8 ok / gw9 C</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 <span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 [10] / gw5 [10] / gw6 [10] / gw7 [10] / gw8 [10] / gw9 C</span>
-<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 [10] / gw5 [10] / gw6 [10] / gw7 [10] / gw8 [10] / gw9 ok</span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+<span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 [10] / gw5 [10] / gw6 [10] / gw7 [10] / gw8 [10] / gw9 ok</span>
 <span class=" -Color -Color-Bold">gw0 [10] / gw1 [10] / gw2 [10] / gw3 [10] / gw4 [10] / gw5 [10] / gw6 [10] / gw7 [10] / gw8 [10] / gw9 [10]</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_parallel.py <span class=" -Color -Color-Green">✓✓✓</span>                                             <span class=" -Color -Color-Green">10% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">█         </span>
- test_parallel.py <span class=" -Color -Color-Green">✓✓✓✓</span>                                            <span class=" -Color -Color-Green">20% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██        </span>
- test_parallel.py <span class=" -Color -Color-Green">✓✓✓✓✓</span>                                           <span class=" -Color -Color-Green">30% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">███       </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_parallel.py <span class=" -Color -Color-Green">✓✓✓✓✓✓</span>                                          <span class=" -Color -Color-Green">40% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">████      </span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_parallel.py <span class=" -Color -Color-Green">✓</span>                                               <span class=" -Color -Color-Green">10% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">█         </span>
+ test_parallel.py <span class=" -Color -Color-Green">✓✓✓</span>                                             <span class=" -Color -Color-Green">20% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██        </span>
+ test_parallel.py <span class=" -Color -Color-Green">✓✓✓✓</span>                                            <span class=" -Color -Color-Green">30% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">███       </span>
+ test_parallel.py <span class=" -Color -Color-Green">✓✓✓✓✓</span>                                           <span class=" -Color -Color-Green">40% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">████      </span>
  test_parallel.py <span class=" -Color -Color-Green">✓✓✓✓✓✓</span>                                          <span class=" -Color -Color-Green">50% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">█████     </span>
  test_parallel.py <span class=" -Color -Color-Green">✓✓✓✓✓✓✓</span>                                         <span class=" -Color -Color-Green">60% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██████    </span>
- test_parallel.py <span class=" -Color -Color-Green">✓✓✓✓✓✓✓✓</span>                                        <span class=" -Color -Color-Green">70% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">███████   </span>
- test_parallel.py <span class=" -Color -Color-Green">✓✓✓✓✓✓✓✓✓</span>                                       <span class=" -Color -Color-Green">80% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">████████  </span>
+ test_parallel.py <span class=" -Color -Color-Green">✓✓✓✓✓✓✓</span>                                         <span class=" -Color -Color-Green">70% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">███████   </span>
+ test_parallel.py <span class=" -Color -Color-Green">✓✓✓✓✓✓✓✓</span>                                        <span class=" -Color -Color-Green">80% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">████████  </span>
  test_parallel.py <span class=" -Color -Color-Green">✓✓✓✓✓✓✓✓✓</span>                                       <span class=" -Color -Color-Green">90% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">█████████ </span>
  test_parallel.py <span class=" -Color -Color-Green">✓✓✓✓✓✓✓✓✓✓</span>                                     <span class=" -Color -Color-Green">100% </span><span class=" -Color -Color-Green -Color-Green-BGBlack">██████████</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results (3.74s):
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results (3.62s):
 <span class=" -Color -Color-Green">      10 passed</span>
 </pre></div>
 </div>
@@ -2849,9 +2842,7 @@ plugins: sugar-0.9.4, timeout-1.4.2, xdist-2.1.0, forked-1.3.0
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Test session starts (platform: linux, Python 3.8.6, pytest 6.1.1, pytest-sugar 0.9.4)</span>
 rootdir: /home/runner/work/learn-python3/learn-python3/learn_python/08_test_driven_development/tdd
 plugins: sugar-0.9.4, timeout-1.4.2, xdist-2.1.0, forked-1.3.0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">collecting ... </span>
+<span class=" -Color -Color-Bold">collecting ... </span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>――――――――――――――――― ERROR at setup of test_add_person_exception ――――――――――――――――――
@@ -2901,8 +2892,8 @@ plugins: sugar-0.9.4, timeout-1.4.2, xdist-2.1.0, forked-1.3.0
 <span class=" -Color -Color-Bold -Color-Bold-Red">E         Extra items in the left set:</span>
 <span class=" -Color -Color-Bold -Color-Bold-Red">E         &#39;Bananas&#39;</span>
 <span class=" -Color -Color-Bold -Color-Bold-Red">E         Extra items in the right set:</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">E         &#39;Melon&#39;</span>
 <span class=" -Color -Color-Bold -Color-Bold-Red">E         &#39;Grapes&#39;</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">E         &#39;Melon&#39;</span>
 <span class=" -Color -Color-Bold -Color-Bold-Red">E         Use -v to get the full diff</span>
 
 <span class=" -Color -Color-Bold -Color-Bold-Red">test_compare_fruits.py</span>:4: AssertionError
@@ -3091,8 +3082,9 @@ person_name = &#39;Terry Gilliam&#39;, favorite_color = &#39;red&#39;, birth_yea
 
 
  test_prints.py <span class=" -Color -Color-Green">✓</span>                                                 <span class=" -Color -Color-Red">75% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█▌  </span>
-
-――――――――――――――――――――――――――――――― test_print_fail ――――――――――――――――――――――――――――――――
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>――――――――――――――――――――――――――――――― test_print_fail ――――――――――――――――――――――――――――――――
 
     def test_print_fail():
     
@@ -3117,9 +3109,7 @@ person_name = &#39;Terry Gilliam&#39;, favorite_color = &#39;red&#39;, birth_yea
 
 
  test_prints.py <span class=" -Color -Color-Red">⨯</span>                                                 <span class=" -Color -Color-Red">77% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">▋  </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_prints.py <span class=" -Color -Color-Red">⨯</span><span class=" -Color -Color-Green">✓</span>                                                <span class=" -Color -Color-Red">78% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">▊  </span>
+ test_prints.py <span class=" -Color -Color-Red">⨯</span><span class=" -Color -Color-Green">✓</span>                                                <span class=" -Color -Color-Red">78% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">▊  </span>
 
 ――――――――――――――――――――――――――― test_stderr_capture_fail ―――――――――――――――――――――――――――
 
@@ -3158,87 +3148,154 @@ person_name = &#39;Terry Gilliam&#39;, favorite_color = &#39;red&#39;, birth_yea
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_requests.py <span class=" -Color -Color-Green">✓✓✓</span>                                             <span class=" -Color -Color-Red">84% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">▍ </span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_requests.py <span class=" -Color -Color-Green">✓✓✓✓</span>                                            <span class=" -Color -Color-Red">85% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">▌ </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_requests.py <span class=" -Color -Color-Green">✓✓✓✓✓</span>                                           <span class=" -Color -Color-Red">86% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">▋ </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_requests.py <span class=" -Color -Color-Green">✓✓✓✓✓✓</span>                                          <span class=" -Color -Color-Red">88% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">▊ </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_requests.py <span class=" -Color -Color-Green">✓✓✓✓✓✓✓</span>                                         <span class=" -Color -Color-Red">89% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">▉ </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_requests.py <span class=" -Color -Color-Green">✓✓✓✓✓✓✓✓</span>                                        <span class=" -Color -Color-Red">90% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█▏</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_requests.py <span class=" -Color -Color-Green">✓✓✓✓✓✓✓✓✓</span>                                       <span class=" -Color -Color-Red">92% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█▎</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_requests.py <span class=" -Color -Color-Green">✓✓✓✓✓✓✓✓✓✓</span>                                      <span class=" -Color -Color-Red">93% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█▍</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_requests.py <span class=" -Color -Color-Green">✓✓✓✓✓✓✓✓✓✓✓</span>                                     <span class=" -Color -Color-Red">95% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█▌</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>――――――――――――――――――――――――――――― test_good_urls[203] ――――――――――――――――――――――――――――――
 
+good_url = &#39;http://httpstat.us/203&#39;
 
- test_sin.py <span class=" -Color -Color-Green">✓</span>                                                    <span class=" -Color -Color-Red">96% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█▋</span>
+    <span class=" -Color -Color-White">@pytest</span>.mark.timeout(2)
+    def test_good_urls(good_url):
+&gt;       response = requests.get(good_url)
 
+<span class=" -Color -Color-Bold -Color-Bold-Red">test_requests.py</span>:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/requests/api.py</span>:76: in get
+    return request(<span class=" -Color -Color-Yellow">&#39;get&#39;</span>, url, params=params, **kwargs)
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/requests/api.py</span>:61: in request
+    return session.request(method=method, url=url, **kwargs)
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/requests/sessions.py</span>:530: in request
+    resp = self.send(prep, **send_kwargs)
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/requests/sessions.py</span>:643: in send
+    r = adapter.send(request, **kwargs)
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/requests/adapters.py</span>:439: in send
+    resp = conn.urlopen(
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/urllib3/connectionpool.py</span>:670: in urlopen
+    httplib_response = self._make_request(
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/urllib3/connectionpool.py</span>:426: in _make_request
+    six.raise_from(e, None)
+<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;string&gt;</span>:3: in raise_from
+    ???
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/urllib3/connectionpool.py</span>:421: in _make_request
+    httplib_response = conn.getresponse()
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/http/client.py</span>:1347: in getresponse
+    response.begin()
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/http/client.py</span>:307: in begin
+    version, status, reason = self._read_status()
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/http/client.py</span>:268: in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), <span class=" -Color -Color-Yellow">&quot;iso-8859-1&quot;</span>)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
- test_spanish_inquisition.py <span class=" -Color -Color-Green">✓</span>                                    <span class=" -Color -Color-Red">97% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█▊</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>――――――――――――――――――――――――――――― test_infinite_sleep ――――――――――――――――――――――――――――――
+self = &lt;socket.SocketIO object at 0x7fb2e08afc40&gt;
+b = &lt;memory at 0x7fb2e11b9e80&gt;
 
-    <span class=" -Color -Color-White">@pytest</span>.mark.timeout(5)
-    def test_infinite_sleep():
-        import time
+    def readinto(self, b):
+        <span class=" -Color -Color-Yellow">&quot;&quot;&quot;Read up to len(b) bytes into the writable buffer *b* and return</span>
+    <span class=" -Color -Color-Yellow">    the number of bytes read.  If the socket is non-blocking and no bytes</span>
+    <span class=" -Color -Color-Yellow">    are available, None is returned.</span>
+    
+    <span class=" -Color -Color-Yellow">    If *b* is non-empty, a 0 return value indicates that the connection</span>
+    <span class=" -Color -Color-Yellow">    was shutdown at the other end.</span>
+    <span class=" -Color -Color-Yellow">    &quot;&quot;&quot;</span>
+        self._checkClosed()
+        self._checkReadable()
+        if self._timeout_occurred:
+            raise OSError(<span class=" -Color -Color-Yellow">&quot;cannot read from timed out object&quot;</span>)
         while True:
-&gt;           time.sleep(1)
-<span class=" -Color -Color-Bold -Color-Bold-Red">E           Failed: Timeout &gt;5.0s</span>
+            try:
+&gt;               return self._sock.recv_into(b)
+<span class=" -Color -Color-Bold -Color-Bold-Red">E               Failed: Timeout &gt;2.0s</span>
 
-<span class=" -Color -Color-Bold -Color-Bold-Red">test_timeouts.py</span>:8: Failed
------------------------------ Captured stdout call -----------------------------
-sleeping ...
-sleeping ...
-sleeping ...
-sleeping ...
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/socket.py</span>:669: Failed
 
 
 
- test_timeouts.py <span class=" -Color -Color-Red">⨯</span>                                               <span class=" -Color -Color-Red">99% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">▉</span>
- test_timeouts.py <span class=" -Color -Color-Red">⨯</span><span class=" -Color -Color-Green">✓</span>                                             <span class=" -Color -Color-Red">100% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span>
-=========================== short test summary info ============================
-FAILED test_add_person_exception.py::test_add_person_exception - TypeError: _...
-FAILED test_add_person_exception.py::test_add_person_exception_detailed - Typ...
-FAILED test_add_person_exception.py::test_add_friend - TypeError: __init__() ...
-FAILED test_compare_fruits.py::test_set_comparison - AssertionError: assert {...
-FAILED test_logging.py::test_logging_warning_fail - assert False
-FAILED test_logging.py::test_logging_info_fail - assert False
-FAILED test_person.py::test_name - TypeError: __init__() takes 2 positional a...
-FAILED test_person.py::test_add_friend - TypeError: __init__() takes 2 positi...
-FAILED test_person1.py::test_preson_name - AttributeError: &#39;Person&#39; object ha...
-FAILED test_person_fixtures1.py::test_person_name - TypeError: __init__() tak...
-FAILED test_person_fixtures2.py::test_add_friend - TypeError: __init__() take...
-FAILED test_prints.py::test_print_fail - assert True == False
-FAILED test_prints.py::test_stderr_capture_fail - assert False
-FAILED test_timeouts.py::test_infinite_sleep - Failed: Timeout &gt;5.0s
+ test_requests.py <span class=" -Color -Color-Red">⨯</span>                                               <span class=" -Color -Color-Red">85% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█▌ </span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_requests.py <span class=" -Color -Color-Red">⨯</span><span class=" -Color -Color-Green">✓</span>                                              <span class=" -Color -Color-Red">86% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█▋ </span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_requests.py <span class=" -Color -Color-Red">⨯</span><span class=" -Color -Color-Green">✓✓</span>                                             <span class=" -Color -Color-Red">88% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█▊ </span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_requests.py <span class=" -Color -Color-Red">⨯</span><span class=" -Color -Color-Green">✓✓✓</span>                                            <span class=" -Color -Color-Red">89% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█▉ </span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_requests.py <span class=" -Color -Color-Red">⨯</span><span class=" -Color -Color-Green">✓✓✓✓</span>                                           <span class=" -Color -Color-Red">90% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">██▏</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>―――――――――――――――――――――――――――――― test_bad_urls[404] ――――――――――――――――――――――――――――――
 
-Results (28.33s):
-<span class=" -Color -Color-Green">      57 passed</span>
-<span class=" -Color -Color-Red">      10 failed</span>
-         - test_compare_fruits.py:1 <span class=" -Color -Color-Red">test_set_comparison</span>
-         - test_logging.py:10 <span class=" -Color -Color-Red">test_logging_warning_fail</span>
-         - test_logging.py:14 <span class=" -Color -Color-Red">test_logging_info_fail</span>
-         - test_person.py:4 <span class=" -Color -Color-Red">test_name</span>
-         - test_person.py:16 <span class=" -Color -Color-Red">test_add_friend</span>
-         - test_person1.py:4 <span class=" -Color -Color-Red">test_preson_name</span>
-         - test_person_fixtures1.py:17 <span class=" -Color -Color-Red">test_person_name</span>
-         - test_prints.py:14 <span class=" -Color -Color-Red">test_print_fail</span>
-         - test_prints.py:39 <span class=" -Color -Color-Red">test_stderr_capture_fail</span>
-         - test_timeouts.py:4 <span class=" -Color -Color-Red">test_infinite_sleep</span>
-<span class=" -Color -Color-Red">       4 error</span>
-<span class=" -Color -Color-Green">       1 xfailed</span>
+bad_url = &#39;http://httpstat.us/404&#39;
+
+    <span class=" -Color -Color-White">@pytest</span>.mark.timeout(2)
+    def test_bad_urls(bad_url):
+&gt;       response = requests.get(bad_url)
+
+<span class=" -Color -Color-Bold -Color-Bold-Red">test_requests.py</span>:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/requests/api.py</span>:76: in get
+    return request(<span class=" -Color -Color-Yellow">&#39;get&#39;</span>, url, params=params, **kwargs)
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/requests/api.py</span>:61: in request
+    return session.request(method=method, url=url, **kwargs)
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/requests/sessions.py</span>:530: in request
+    resp = self.send(prep, **send_kwargs)
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/requests/sessions.py</span>:643: in send
+    r = adapter.send(request, **kwargs)
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/requests/adapters.py</span>:439: in send
+    resp = conn.urlopen(
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/urllib3/connectionpool.py</span>:670: in urlopen
+    httplib_response = self._make_request(
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/urllib3/connectionpool.py</span>:426: in _make_request
+    six.raise_from(e, None)
+<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;string&gt;</span>:3: in raise_from
+    ???
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/site-packages/urllib3/connectionpool.py</span>:421: in _make_request
+    httplib_response = conn.getresponse()
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/http/client.py</span>:1347: in getresponse
+    response.begin()
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/http/client.py</span>:307: in begin
+    version, status, reason = self._read_status()
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/http/client.py</span>:268: in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), <span class=" -Color -Color-Yellow">&quot;iso-8859-1&quot;</span>)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;socket.SocketIO object at 0x7fb2e070cac0&gt;
+b = &lt;memory at 0x7fb2e106fc40&gt;
+
+    def readinto(self, b):
+        <span class=" -Color -Color-Yellow">&quot;&quot;&quot;Read up to len(b) bytes into the writable buffer *b* and return</span>
+    <span class=" -Color -Color-Yellow">    the number of bytes read.  If the socket is non-blocking and no bytes</span>
+    <span class=" -Color -Color-Yellow">    are available, None is returned.</span>
+    
+    <span class=" -Color -Color-Yellow">    If *b* is non-empty, a 0 return value indicates that the connection</span>
+    <span class=" -Color -Color-Yellow">    was shutdown at the other end.</span>
+    <span class=" -Color -Color-Yellow">    &quot;&quot;&quot;</span>
+        self._checkClosed()
+        self._checkReadable()
+        if self._timeout_occurred:
+            raise OSError(<span class=" -Color -Color-Yellow">&quot;cannot read from timed out object&quot;</span>)
+        while True:
+            try:
+&gt;               return self._sock.recv_into(b)
+<span class=" -Color -Color-Bold -Color-Bold-Red">E               Failed: Timeout &gt;2.0s</span>
+
+<span class=" -Color -Color-Bold -Color-Bold-Red">/opt/hostedtoolcache/Python/3.8.6/x64/lib/python3.8/socket.py</span>:669: Failed
+
+
+
+ test_requests.py <span class=" -Color -Color-Red">⨯</span>                                               <span class=" -Color -Color-Red">92% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">██▎</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_requests.py <span class=" -Color -Color-Red">⨯</span><span class=" -Color -Color-Green">✓</span>                                              <span class=" -Color -Color-Red">93% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">██▍</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> test_requests.py <span class=" -Color -Color-Red">⨯</span><span class=" -Color -Color-Green">✓✓</span>                                             <span class=" -Color -Color-Red">95% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">██▌</span>
+
+
+ test_sin.py <span class=" -Color -Color-Green">✓</span>                                                    <span class=" -Color -Color-Red">96% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">██▋</span>
+
+
+ test_spanish_inquisition.py <span class=" -Color -Color-Green">✓</span>                                    <span class=" -Color -Color-Red">97% </span><span class=" -Color -Color-Red -Color-Red-BGBlack">██</span><span class=" -Color -Color-Green -Color-Green-BGBlack">███</span><span class=" -Color -Color-Red -Color-Red-BGBlack">█</span><span class=" -Color -Color-Green -Color-Green-BGBlack">█</span><span class=" -Color -Color-Red -Color-Red-BGBlack">██▊</span>
 </pre></div>
 </div>
 </div>
@@ -3253,13 +3310,10 @@ Results (28.33s):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">61</span><span class="o">-</span><span class="n">dac99abcc2de</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># execute the tests via pytest, arguments are passed to pytest</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ipytest</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;-qq&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;ipytest&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR: file not found: adv python 08 - test driven development.ipynb
 </pre></div>
 </div>
 </div>
