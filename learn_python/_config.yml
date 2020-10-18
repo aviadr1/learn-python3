@@ -12,3 +12,5 @@ logo                        : logo.png  # A path to the book logo
 
 launch_buttons:
   colab_url: "https://colab.research.google.com"
+  binderhub_url : false 
+  
