@@ -9,3 +9,6 @@ title                       : learn-python  # The title of the book. Will be pla
 author                      : Aviad Rozenhek  # The author of the book
 copyright                   : "2020"  # Copyright year to be placed in the footer
 logo                        : logo.png  # A path to the book logo
+
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
